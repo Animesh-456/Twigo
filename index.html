@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My travel Website</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .column {
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    
+  }
+  </style>
+
+<body>
+  <section class="header" >
+    <nav class="nav-bar">
+      <h1>Twi<span style="color: red;">Go</span></h1>
+      <div class="nav-links" id="nav-links">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">BRANCHES</a></li>
+          <li><a href="">CONTACT</a></li>
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <div class="text-box">
+      <h1>MAKE RIDE <span style="color: red;">POSSIBLE</span>  WITH TWIGO</h1>
+      <p style="font-size: 40px;">Drive with dreams</p>
+      <a href="" class="hero-btn">Learn More</a>
+    </div>
+  </section>
+  <!-- <section>
+    <div class="row">
+      <div class="column">
+        <img src="/" alt="Snow" style="width:100%">
+      </div>
+      <div class="column">
+        <img src="img_forest.jpg" alt="Forest" style="width:100%">
+      </div>
+    </div>
+  </section> -->
+
+      <section class="cource">
+    <div class="row">
+      <!-- <div class="cource-col">
+        <h3>Flights</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quas ipsam exercitationem sunt laudantium,
+          doloremque esse! Perferendis vel, error voluptate consectetur sed dicta similique quaerat nobis magni alias
+          assumenda iure ullam corporis sint neque, debitis quod nisi molestias illo quidem.</p>
+      </div> -->
+      <div class="cource-col">
+        <img src="/about.jpg" class="image"></img>
+      </div>
+      <div class="cource-col">
+        <h3 style="font-weight: bold; font-size: 30px;">About <span style="color: red;">Us</span></h3>
+        <p>CAR RENTAL SYSTEM (CRS) is a web-based system for a corporation that rents out cars. We have many collections of major projects for beginners with source code, database, and documentation. This Car Rental System project is suitable for computer science students. main objective of the application car Rental System require a temporary vehicle, for example those who do not own their own car, or owners of damaged or destroyed vehicles who are awaiting repair or insurance compensation or travelers who are out of town.The public vehicle is not the best option. Public vehicles are crowded, generally not running on time e.g., trains, buses, etc. Here is our main problem to reach at own place on time with comfort. Thus, Car renting comes up with a solution. People who can’t afford a car. They can book a car for trip, marriage, business meeting, office to home, home to office, home to a market where ever they want to travel as simple as that.Car Rental System specializing in renting cars to clients. It is an online system through which clients can view available cars, signup, login, view profiles, and book car. They even do not need to drive themselves driver is available with a car. Prices are very less with all comfort.</p>
+      </div>
+      <!-- <div class="cource-col">
+        <h3>Trains</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quas ipsam exercitationem sunt laudantium,
+          doloremque esse! Perferendis vel, error voluptate consectetur sed dicta similique quaerat nobis magni alias
+          assumenda iure ullam corporis sint neque, debitis quod nisi molestias illo quidem.</p>
+      </div> -->
+
+    </div>
+  </section>
+</body>
+<script>
+  $(document).ready(function(){
+    $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll > 300) {
+          $(".nav-bar").css("background" , "blue");
+        }
+  
+        else{
+            $(".nav-bar").css("background" , "#333");  	
+        }
+    })
+  })
+</script>
+
+</html>
