@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(255, 255, 255);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Add padding to containers */
+    .container {
+      margin-left: 30%;
+      padding: 16px;
+      background-color: white;
+      margin-top: -30px;
+    }
+
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    select[id=city],
+    input[type=number],
+    select[id=gender] {
+      width: 50%;
+      padding: 15px;
+      margin: 5px 0px 33px 0px;
+      display: block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    select[id=city]:focus,
+    input[type=number]:focus,
+    select[id=gender]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #ff0000;
+      margin-bottom: 25px;
+      margin-right: 850px;
+    }
+
+    /* Set a style for the submit button */
+    .registerbtn {
+      background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 45%;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .registerbtn:hover {
+      opacity: 1;
+    }
+
+    /* Add a blue text color to links */
+    a {
+      color: rgb(255, 9, 9);
+    }
+  </style>
+</head>
+
+<body>
+
+  <form action="/action_page.php">
+    <div class="container">
+      <h1>Twi<span style="color: #ee0000;">Go</span> Renter Registration</h1>
+      <hr>
+
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+      <label for="email"><b>Aadhar ID</b></label>
+      <input type="number" placeholder="Aadhar ID" name="Aadhar ID" id="Aadhar ID" maxlength = "12" minlength = "12" required>
+
+
+      <label for="city"><b>Choose your city:</b></label>
+      <select id="city">
+        <option value="Kolkata">Kolkata</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+      </select>
+
+      <table style="width: 100%;">
+        <tr>
+          <td>
+            <label for="liscno"><b>Lisence No:- </b></label>
+            <input type="text" placeholder="123XXX" name="liscno" id="liscno" required>
+          </td>
+          <td>
+            <label for="age"><b>Age</b></label>
+            <input type="number" placeholder="Enter Age" name="age" id="age" required>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="gender"><b>Gender:</b></label>
+            <select id="gender">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </td>
+          <td><label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <p>Already a customer? <a href="/login.html">Login</a></p>
+
+      <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
+    </div>
+  </form>
+
+</body>
+
+</html>
