@@ -1,98 +1,99 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(255, 255, 255);
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(255, 255, 255);
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* Add padding to containers */
-.container {
-  margin-left: 30%;
-  padding: 16px;
-  background-color: white;
-  margin-top: 80px;
-}
+    /* Add padding to containers */
+    .container {
+      margin-left: 30%;
+      padding: 16px;
+      background-color: white;
+      margin-top: 80px;
+    }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 50%;
-  padding: 15px;
-  margin: 5px 0px 33px 0px;
-  display: block;
-  border: none;
-  background: #f1f1f1;
-}
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password] {
+      width: 50%;
+      padding: 15px;
+      margin: 5px 0px 33px 0px;
+      display: block;
+      border: none;
+      background: #f1f1f1;
+    }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    input[type=text]:focus,
+    input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #ff0000;
-  margin-bottom: 25px;
-  margin-right: 850px;
-}
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #ff0000;
+      margin-bottom: 25px;
+      margin-right: 850px;
+    }
 
-/* Set a style for the submit button */
-.loginbtn {
-  background-color: #ee0000;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-  display: block;
-  opacity: 0.9;
-}
+    /* Set a style for the submit button */
+    .loginbtn {
+      background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+      display: block;
+      opacity: 0.9;
+    }
 
-.loginbtn:hover {
-  opacity: 1;
-}
+    .loginbtn:hover {
+      opacity: 1;
+    }
 
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
+    /* Add a blue text color to links */
+    a {
+      color: rgb(255, 0, 0);
+    }
 
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
 
-<form action="/action_page.php">
-  <div class="container">
-    <h1>Twi<span style="color: #ee0000;">Go</span> Login</h1>
-    <hr>
+  <form action="/action_page.php">
+    <div class="container">
+      <h1>Twi<span style="color: #ee0000;">Go</span> Login</h1>
+      <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-   
-    <p>New customer? <a href="#">Register</a></p>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-    <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
-  </div>
-  
-  <!-- <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
-  </div> -->
-</form>
+      <p>New customer? <a href="#">Register</a></p>
+
+      <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
+    </div>
+  </form>
 
 </body>
+
 </html>
