@@ -26,6 +26,7 @@
     input[type=password],
     select[id=city],
     input[type=number],
+    input[type=date],
     select[id=gender] {
       width: 50%;
       padding: 15px;
@@ -39,6 +40,7 @@
     input[type=password]:focus,
     select[id=city]:focus,
     input[type=number]:focus,
+    input[type=date]:focus,
     select[id=gender]:focus {
       background-color: #ddd;
       outline: none;
@@ -59,15 +61,53 @@
       margin: 8px 0;
       border: none;
       cursor: pointer;
-      width: 45%;
-      display: block;
+      width: 35%;
+      display: inline-block;
       opacity: 0.9;
+      border-radius: 30px;
     }
 
     .registerbtn:hover {
       opacity: 1;
     }
 
+    .clearbtn {
+      background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 10%;
+      display: inline-block;
+      opacity: 0.9;
+      border-radius: 30px;
+      
+      
+    }
+
+    .clearbtn:hover {
+      opacity: 1;
+    }
+
+
+    .backbtn{
+      background-color: #ee0000;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 16px 30px;
+    font-size: 13px;
+    position: relative;
+    border: none ;
+    border-radius: 30px;
+   
+}
+
+.backbtn:hover {
+    opacity: 1;
+}
     /* Add a blue text color to links */
     a {
       color: rgb(255, 9, 9);
@@ -88,6 +128,12 @@
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
+      <label for="contact"><b>Contact</b></label>
+      <input type="number" placeholder="Enter Contact" name="contact" id="contact" required>
+
+      <label for="address"><b>Address</b></label>
+      <input type="text" placeholder="Enter Address" name="address" id="address" required>
+
       <label for="email"><b>Aadhar ID</b></label>
       <input type="number" placeholder="Aadhar ID" name="Aadhar ID" id="Aadhar ID" maxlength = "12" minlength = "12" required>
 
@@ -106,8 +152,8 @@
             <input type="text" placeholder="123XXX" name="liscno" id="liscno" required>
           </td>
           <td>
-            <label for="age"><b>Age</b></label>
-            <input type="number" placeholder="Enter Age" name="age" id="age" required>
+            <label for="dob"><b>DOB</b></label>
+            <input type="date" placeholder="Enter DOB" name="dob" id="dob" required>
           </td>
         </tr>
         <tr>
@@ -128,6 +174,8 @@
       <p>Already a customer? <a href="/login.html">Login</a></p>
 
       <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
+      <a href="/choose.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
+      <button type="submit" class="clearbtn" style="font-size: 20px;">Clear</button>
     </div>
   </form>
 
