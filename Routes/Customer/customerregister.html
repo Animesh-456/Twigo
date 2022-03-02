@@ -27,6 +27,7 @@
     input[type=password],
     select[id=city],
     input[type=number],
+    input[type=tel],
     input[type=date],
     select[id=gender] {
       width: 50%;
@@ -64,9 +65,10 @@
       border: none;
       cursor: pointer;
       width: 35%;
-      display: inline-block;
+      display:inline-block;
       opacity: 0.9;
       border-radius: 30px;
+      
     }
 
     .registerbtn:hover {
@@ -110,6 +112,7 @@
 .backbtn:hover {
     opacity: 1;
 }
+
     /* Add a blue text color to links */
     a {
       color: rgb(255, 9, 9);
@@ -121,24 +124,20 @@
 
   <form action="/action_page.php">
     <div class="container">
-      <h1>Twi<span style="color: #ee0000;">Go</span> Driver Registration</h1>
+      <h1>Twi<span style="color: #ee0000;">Go</span> Customer Registration</h1>
       <hr>
 
       <label for="name"><b>Name</b></label>
       <input type="text" placeholder="Enter Name" name="name" id="name" required>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-      <label for="contact"><b>Contact</b></label>
-      <input type="number" placeholder="Enter Contact" name="contact" id="contact" pattern="[0-9]{10}" required>
-
       <label for="address"><b>Address</b></label>
       <input type="text" placeholder="Enter Address" name="address" id="address" required>
 
-      <label for="email"><b>Aadhar ID</b></label>
-      <input type="number" placeholder="Aadhar ID" name="Aadhar ID" id="Aadhar ID" maxlength = "12" minlength = "12" required>
+      <label for="contact"><b>Contact</b></label>
+      <input type="tel" placeholder="Enter Contact" name="contact" id="contact"  pattern="[0-9]{10}"required>
 
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
       <label for="city"><b>Choose your city:</b></label>
       <select id="city">
@@ -176,7 +175,7 @@
       <p>Already a customer? <a href="/login.html">Login</a></p>
 
       <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
-      <a href="/choosereg.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
+      <a href="/Routes/Choose/choosereg.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
       <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
     </div>
   </form>
