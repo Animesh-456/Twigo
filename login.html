@@ -55,7 +55,7 @@
       border: none;
       cursor: pointer;
       width: 30%;
-      display: block;
+      display:inline-block;
       opacity: 0.9;
       border-radius: 30px;
     }
@@ -74,6 +74,24 @@
       background-color: #f1f1f1;
       text-align: center;
     }
+
+    .backbtn{
+      background-color: #ee0000;
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 16px 30px;
+    font-size: 13px;
+    position: relative;
+    border: none ;
+    border-radius: 30px;
+   
+}
+
+.backbtn:hover {
+    opacity: 1;
+}
   </style>
 </head>
 
@@ -93,6 +111,7 @@
       <p>New customer? <a href="/choose.html">Register</a></p>
 
       <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
+      <a href="/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
     </div>
   </form>
 

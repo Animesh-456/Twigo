@@ -42,6 +42,7 @@
     select[id=city]:focus,
     input[type=number]:focus,
     input[type=date]:focus,
+    input[type=tel]:focus,
     select[id=gender]:focus {
       background-color: #ddd;
       outline: none;
@@ -130,7 +131,7 @@
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
       <label for="contact"><b>Contact</b></label>
-      <input type="number" placeholder="Enter Contact" name="contact" id="contact" required>
+      <input type="number" placeholder="Enter Contact" name="contact" id="contact" pattern="[0-9]{10}" required>
 
       <label for="address"><b>Address</b></label>
       <input type="text" placeholder="Enter Address" name="address" id="address" required>
