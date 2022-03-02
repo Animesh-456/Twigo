@@ -1,0 +1,72 @@
+Customer Table
+Vehicle Table
+Admin table
+Booking info. Table
+Renters Table
+Review 
+Drivers Table
+
+-----------------------------------------------------------------
+
+Customer Table:- 
+Customer_ID
+Customer_Name
+Customer_Address
+Customer_Contact
+Customer_Email
+Customer_City
+Customer_Lisence No
+Customer_Aadhar_ID
+Customer_D.O.B
+Customer_Gender
+Customer_Password
+
+Vehicle Table(Car):- 
+Renter_ID
+Renter_Name
+Vehicle_ID
+Vehicle_Type
+Vehicle_Name
+Chasis_Number
+Year_of_Registration
+Km's_driven
+Oil_Type
+
+Admin Table
+Name
+Email
+Designation
+Password
+DOB
+
+Booking Info. Table:-
+Booking_ID
+Customer_ID
+Vehicle_ID
+Renter_ID
+Pickup_Address
+Booking_Date
+Booking_Time
+Amount
+Payment
+Image for payment
+
+Renter Table
+Renter_ID
+Renter_Name
+Renter_Email
+Renter_DOB
+Renter_City
+Renter_Address
+Renter_Aadhar_ID
+
+Review
+Review_ID
+Customer_ID
+Customer_Name
+Vehicle_ID
+Vehicle_Type
+Vehicle_Name
+Chasis_Number
+Oil_Type
+
