@@ -7,6 +7,15 @@
 html{
     scroll-behavior: smooth;
 }
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+
+  }
+
+
 .header{
     min-height: 100vh;
     width: 100%;
@@ -198,6 +207,8 @@ h3{
     text-align: justify;
 }
 
+
+
 /* Feedback */
 .customer{
     background-color: #000000;
@@ -286,6 +297,8 @@ p1{
     color: #fff;
     
 }
+
+
 
 .occasion-col{
     flex-basis: 31%;
