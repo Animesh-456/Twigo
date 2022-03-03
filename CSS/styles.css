@@ -28,27 +28,10 @@ nav{
      
 }
 
-.column {
-    width: 33.33%;
-    padding: 5px;
-  }
-
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-
-  }
-
 nav h1{
     color : rgb(245, 243, 239);
     font-size: xx-large;
     text-decoration: none;
-}
-
-.nav-links{
-    flex: 1;
-    text-align: right;    
 }
 
 .nav-links ul li{
@@ -126,31 +109,6 @@ nav .fa{
 
     .nav-links ul li{
         display: block;
-        
-    }
-
-    .nav-links{
-        position: absolute;
-        background-color: rgb(5, 5, 5);
-        height: 100vh;
-        width: 190px;
-        top: 0;
-        right:-190px;
-        text-align: left;
-        transition: 1s;
-        z-index: 2;
-    }
-
-    nav .fa{
-        display: block;
-        color: #f80101;
-       margin: 10px;
-       font-size: 32px;
-       cursor: pointer;
-    }
-
-    .nav-links ul{
-        padding: 32px;
     }
 }
 
@@ -240,15 +198,6 @@ h3{
     text-align: justify;
 }
 
-
-
-@media(max-width: 700px){
-    .row{
-        flex-direction: column;
-    }
-
-}
-
 /* Feedback */
 .customer{
     background-color: #000000;
@@ -282,11 +231,6 @@ h3{
     padding: 10px;
 }
 
-.row{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-}
 
 .branch-col{
     flex-basis: 31%;
@@ -341,12 +285,6 @@ p1{
     padding: 10px;
     color: #fff;
     
-}
-
-.row{
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .occasion-col{
