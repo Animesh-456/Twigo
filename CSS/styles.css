@@ -150,13 +150,6 @@ nav .fa{
 
 /* about */
 
-.ab{
-    text-align: right;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-
 .head {
     display: flex;
 }
@@ -366,3 +359,11 @@ footer {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 0, 0);
 }
+
+/* #business-foot {
+    justify-content: space-between;
+    
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
+} */
