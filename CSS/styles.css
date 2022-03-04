@@ -316,6 +316,96 @@ h3{
     margin: 10px 0;
 }
 
+/* CHOOSING US */
+
+.why{
+    background-color: #ffffff;
+    width: 100%;
+    padding-left: 35px;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.why  h1{
+    font-size: 36px;
+     font-weight: 600;
+     color: rgb(0, 0, 0);
+}
+
+.why-col p{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    text-align: left;
+}
+
+p1{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    
+}
+
+
+
+.why-col{
+    flex-basis: 31%;
+    background: #000000;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    color: rgb(255, 255, 255);
+    /* box-shadow: 0 0 20px rgb(245, 14, 14); */
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.why-col:hover{
+    box-shadow: 0 0 20px rgb(255, 0, 0);
+}
+
+/* founders */
+.founder .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+    float: left;
+    box-sizing: 10px;
+
+  }
+  
+  .founder .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+ .founder .contain {
+    padding: 10px 55px;
+  } 
+  /* .founder .column1{
+      padding-bottom: 20%;
+      float: left;
+      padding: 0 10px;
+      width: 50%;
+  } */
+  /* .founder .row1 {
+      margin: 0 -5px;
+} */
+/* .founder .row1:after {
+    content: "";
+    display: table;
+    clear: both; */
+   
+
 /* Contact */
 
 hr {
