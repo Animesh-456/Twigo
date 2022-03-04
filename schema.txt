@@ -45,6 +45,7 @@ Customer_ID
 Vehicle_ID
 Renter_ID
 Pickup_Address
+Booking_Duration
 Booking_Date
 Booking_Time
 Amount
