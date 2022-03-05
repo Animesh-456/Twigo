@@ -19,7 +19,7 @@
       margin-left: 30%;
       padding: 16px;
       background-color: white;
-      margin-top: 80px;
+      margin-top: 50px;
     }
 
     /* Full-width input fields */
@@ -93,6 +93,13 @@
 .backbtn:hover {
     opacity: 1;
 }
+.image{
+    padding: 10px ;
+    margin-top: -70px;
+    width: 25%;
+    margin-left: 600px;
+    
+}
   </style>
 </head>
 
@@ -100,6 +107,7 @@
 
   <form action="/action_page.php">
     <div class="container">
+      <img src="/img/undraw_building_websites_i78t.svg" class="image"></img>
       <h1>Twi<span style="color: #ee0000;">Go</span> Renter Login</h1>
       <hr>
 
@@ -110,6 +118,7 @@
       <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
       <p>New customer? <a href="/Routes/Renter/renterregister.html">Register</a></p>
+      <p> <a href="">Forgot Password?</a></p>
 
       <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
       <a href="/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
