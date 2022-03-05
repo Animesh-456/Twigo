@@ -375,14 +375,38 @@ h3{
 }
 
 /* founders */
+.container2{
+background-color: #000000;
+
+}
+.container2 h1{
+    font-size: 36px;
+     font-weight: 600;
+     color: #fff;
+     margin-left: 40%;
+     padding-top: 100px;
+     
+     
+}
+
+.container2 p1  {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+    color: #fff;
+    margin-left: 43%;
+    font-size:large;
+}
+
 .container1
 {
    display: flex;
    justify-content: center;
    align-items: center;
-   flex-wrap: wrap;
+   /* flex-wrap: wrap; */
    background: #000000;
-   padding-top: 150px;
+   padding-top: 50px;
    padding-bottom: 160px;
 }
 .container1 .card
