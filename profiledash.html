@@ -8,6 +8,7 @@
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
 	<link rel="stylesheet" href="CSS/profiledash.css">
+	<link rel="icon" type="image/x-icon" href="img/fav.png">
 
 	<title>TwiGo Dashboard</title>
 </head>
@@ -17,7 +18,7 @@
 	<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<span class="text" id="twi">Twi<span style="color: red;">Go</span></span>
+			<span class="text" id="twi" style="color: #fff;">Twi<span style="color: red;">Go</span></span>
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
@@ -77,10 +78,13 @@
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
 				</div>
 			</form>
-			<input type="checkbox" id="switch-mode" hidden>
-			<label for="switch-mode" class="switch-mode"></label>
+			<!-- <input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label> -->
 			<a href="#" class="profile" id="prop">
 				<img src="img/undraw_male_avatar_323b.svg">
+				<script>
+					document.body.classList.add('dark');
+				</script>
 				
 			</a>
 		</nav>
@@ -94,8 +98,8 @@
 					
 				</div>
 				<a href="#" class="btn-download">
-					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+					<i class='bx bxs-group' ></i>
+					<span class="text">EDIT PROFILE</span>
 				</a>
 			</div>
 
