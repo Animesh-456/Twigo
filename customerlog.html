@@ -16,7 +16,7 @@
 
     /* Add padding to containers */
     .container {
-      margin-left: 30%;
+      margin-left: 12%;
       padding: 16px;
       background-color: white;
       margin-top: 80px;
@@ -25,7 +25,7 @@
     /* Full-width input fields */
     input[type=text],
     input[type=password] {
-      width: 50%;
+      width: 70%;
       padding: 15px;
       margin: 5px 0px 33px 0px;
       display: block;
@@ -42,9 +42,11 @@
 
     /* Overwrite default styles of hr */
     hr {
-      border: 1px solid #ff0000;
+      /* border: 1px solid #ff0000;
       margin-bottom: 25px;
-      margin-right: 850px;
+      margin-right: 850px; */
+      border: #ee0000;
+      width: 20%;
     }
 
     /* Set a style for the submit button */
@@ -95,11 +97,9 @@
 }
 
 .image{
-    padding: 10px ;
-    margin-top: 20px;
-    width: 25%;
-    margin-left: 600px;
-    
+    /* padding: 10px ; */
+    width: 80%;
+    padding-right: 10px;
 }
   </style>
 </head>
@@ -108,9 +108,13 @@
 
   <form action="/action_page.php">
     <div class="container">
-      <img src="img/undraw_building_websites_i78t.svg" class="image"></img>
-      <h1>Twi<span style="color: #ee0000;">Go</span> Customer Login</h1>
-      <hr>
+      <table>
+        <tr>
+          <td>
+            <h1>Twi<span style="color: #ee0000;">Go</span> Customer Login</h1>
+      <hr style=" border: 1px solid #ff0000;
+      margin-bottom: 25px;
+      margin-right: 850px;">
 
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
@@ -122,7 +126,13 @@
 
       <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
       <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
+          </td>
+          <td><img src="img/undraw_building_websites_i78t.svg" class="image"></img></td>
+        </tr>
+      </table>
+      
     </div>
+    
   </form>
 
 </body>
