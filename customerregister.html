@@ -58,7 +58,7 @@
     }
 
     /* Set a style for the submit button */
-    .registerbtn {
+    /* .registerbtn {
       background-color: #ee0000;
       color: white;
       padding: 16px 20px;
@@ -70,7 +70,7 @@
       opacity: 0.9;
       border-radius: 30px;
       
-    }
+    } */
 
     .registerbtn:hover {
       opacity: 1;
@@ -114,6 +114,19 @@
     opacity: 1;
 }
 
+input[type=submit]{
+  background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 35%;
+      display:inline-block;
+      opacity: 0.9;
+      border-radius: 30px;
+}
+
     /* Add a blue text color to links */
     a {
       color: rgb(255, 9, 9);
@@ -123,7 +136,7 @@
 
 <body>
 
-  <form action="/action_page.php">
+  <form action="php/customersubmit.php" method="post">
     <div class="container">
       <h1>Twi<span style="color: #ee0000;">Go</span> Customer Registration</h1>
       <hr>
@@ -140,8 +153,8 @@
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-      <label for="city"><b>Choose your city:</b></label>
-      <select id="city">
+      <label for="city" name="city"><b>Choose your city:</b></label>
+      <select id="city" name="city">
         <option value="Kolkata">Kolkata</option>
         <option value="Delhi">Delhi</option>
         <option value="Mumbai">Mumbai</option>
@@ -160,8 +173,8 @@
         </tr>
         <tr>
           <td>
-            <label for="gender"><b>Gender:</b></label>
-            <select id="gender">
+            <label for="gender" name="gender"><b>Gender:</b></label>
+            <select id="gender" name="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
@@ -174,8 +187,10 @@
       </table>
       <br>
       <p>Already a customer? <a href="customerlog.html">Login</a></p>
-
-      <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
+      <input type="submit" name="register" value="Register">
+      <!-- <button type="submit" class="registerbtn" style="font-size: 20px;" >Register</button> -->
+    </input>
+      
       <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
       <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
     </div>
