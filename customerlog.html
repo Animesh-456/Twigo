@@ -101,12 +101,25 @@
     width: 80%;
     padding-right: 10px;
 }
+
+input[type=submit]{
+  background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+      display:inline-block;
+      opacity: 0.9;
+      border-radius: 30px;
+}
   </style>
 </head>
 
 <body>
 
-  <form action="/action_page.php">
+  <form action="php/customerlogin.php" method="post">
     <div class="container">
       <table>
         <tr>
@@ -124,7 +137,11 @@
 
       <p>New customer? <a href="customerregister.html">Register</a></p>
 
-      <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
+      <!-- <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button> -->
+
+      <input type="submit" name="login" value="Login">
+      <!-- <button type="submit" class="registerbtn" style="font-size: 20px;" >Register</button> -->
+    </input>
       <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
           </td>
           <td><img src="img/undraw_building_websites_i78t.svg" class="image"></img></td>

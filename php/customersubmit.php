@@ -26,7 +26,7 @@ if($_POST){
 
         $sql = "INSERT INTO customer(C_name, C_email, C_address, C_contact, C_city, C_lisence_no, C_dob, C_gender, C_password) values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', '".$lisence."', '".$dob."', '".$gender."', '".$psw."' )";
 
-        if($conn->query($sql)=== TRUE){
+        if($conn->query($sql)){
             echo "Form submitted succesfully !";
             echo $dob;
         }else{
