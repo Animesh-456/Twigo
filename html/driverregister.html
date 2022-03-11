@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="img/fav.png">
+  <link rel="icon" type="image/x-icon" href="../img/fav.png">
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -27,6 +27,7 @@
     input[type=password],
     select[id=city],
     input[type=number],
+    input[type=date],
     select[id=gender] {
       width: 50%;
       padding: 15px;
@@ -40,8 +41,9 @@
     input[type=text]:focus,
     input[type=password]:focus,
     select[id=city]:focus,
-    input[type=tel]:focus,
     input[type=number]:focus,
+    input[type=date]:focus,
+    input[type=tel]:focus,
     select[id=gender]:focus {
       background-color: #ddd;
       outline: none;
@@ -118,9 +120,9 @@
 
 <body>
 
-  <form action="/action_page.php">
+  <form action="../php/">
     <div class="container">
-      <h1>Twi<span style="color: #ee0000;">Go</span> Renter Registration</h1>
+      <h1>Twi<span style="color: #ee0000;">Go</span> Driver Registration</h1>
       <hr>
 
       <label for="name"><b>Name</b></label>
@@ -129,11 +131,11 @@
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-      <label for="address"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address" name="address" id="address" required>
-
       <label for="contact"><b>Contact</b></label>
       <input type="number" placeholder="Enter Contact" name="contact" id="contact" pattern="[0-9]{10}" required>
+
+      <label for="address"><b>Address</b></label>
+      <input type="text" placeholder="Enter Address" name="address" id="address" required>
 
       <label for="email"><b>Aadhar ID</b></label>
       <input type="number" placeholder="Aadhar ID" name="Aadhar ID" id="Aadhar ID" maxlength = "12" minlength = "12" required>
@@ -153,8 +155,8 @@
             <input type="text" placeholder="123XXX" name="liscno" id="liscno" required>
           </td>
           <td>
-            <label for="age"><b>Age</b></label>
-            <input type="number" placeholder="Enter Age" name="age" id="age" required>
+            <label for="dob"><b>DOB</b></label>
+            <input type="date" placeholder="Enter DOB" name="dob" id="dob" required>
           </td>
         </tr>
         <tr>
@@ -172,10 +174,10 @@
         </tr>
       </table>
       <br>
-      <p>Already a Renter? <a href="RenterLogin.html">Login</a></p>
+      <p>Already a driver? <a href="driverLogin.html">Login</a></p>
 
       <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
-      <a href="index.html" class="backbtn"  style="font-size: 20px; margin-left: 250px;">Back</a>
+      <a href="../html/index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
       <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
     </div>
   </form>

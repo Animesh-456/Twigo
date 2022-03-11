@@ -16,8 +16,10 @@ if($_POST){
     $email = $_POST["email"];
     $password = $_POST["psw"];
 
+    echo $email;
+
     $sql = "SELECT * FROM customer WHERE C_email='$email' AND C_password='$password'";
-    
+
     if($conn->query($sql)){
         session_start();
 
@@ -26,7 +28,8 @@ if($_POST){
         echo "Logged in succesfully !";
         header("location: dash.php");
     }else{
-        echo "Error login!" . $conn->error;
+        // header("location: ../html/customerlog.html");
+        echo "err";
     }
 }
 ?>
