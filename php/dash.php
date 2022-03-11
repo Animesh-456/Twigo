@@ -1,14 +1,19 @@
+<?php 
+session_start();
+if($_SESSION["loggedin"]){
+	// echo "Logged in";
+echo"
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
-	<link rel="stylesheet" href="CSS/dash.css">
-	<link rel="icon" type="image/x-icon" href="img/fav.png">
+	<link href='../CSS/dash.css' rel='stylesheet'>
+	<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
 	<title>TwiGo Dashboard</title>
 </head>
@@ -16,48 +21,48 @@
 
 
 	<!-- SIDEBAR -->
-	<section id="sidebar">
-		<a href="#" class="brand">
-			<span class="text" id="twi" style="color: #fff;">Twi<span style="color: red;">Go</span></span>
+	<section id='sidebar'>
+		<a href='#' class='brand'>
+			<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 		</a>
-		<ul class="side-menu top">
-			<li class="active">
-				<a href="#">
+		<ul class='side-menu top'>
+			<li class='active'>
+				<a href='#'>
 					<i class='bx bxs-dashboard' ></i>
-					<span class="text">HOME</span>
+					<span class='text'>HOME</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href='#'>
 					<i class='bx bxs-shopping-bag-alt' ></i>
-					<span class="text">BOOKINGS</span>
+					<span class='text'>BOOKINGS</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href='#'>
 					<i class='bx bxs-doughnut-chart' ></i>
-					<span class="text">HISTORY</span>
+					<span class='text'>HISTORY</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href='#'>
 					<i class='bx bxs-message-dots' ></i>
-					<span class="text">TRANSACTIONS</span>
+					<span class='text'>TRANSACTIONS</span>
 				</a>
 			</li>
 			
 		</ul>
-		<ul class="side-menu">
+		<ul class='side-menu'>
 			<li>
-				<a href="helpdash.html">
+				<a href='helpdash.html'>
 					<i class='bx bxs-cog' ></i>
-					<span class="text">HELP CENTER</span>
+					<span class='text'>HELP CENTER</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" class="logout">
+				<a href='logout.php' class='logout'>
 					<i class='bx bxs-log-out-circle' ></i>
-					<span class="text">Logout</span>
+					<span class='text'>Logout</span>
 				</a>
 			</li>
 		</ul>
@@ -67,24 +72,24 @@
 
 
 	<!-- CONTENT -->
-	<section id="content">
+	<section id='content'>
 		<!-- NAVBAR -->
 		<nav>
 			<i class='bx bx-menu' ></i>
-			<a href="#" class="nav-link">Categories</a>
-			<form action="#">
-				<div class="form-input">
-					<input type="search" placeholder="Search...">
-					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+			<a href='#' class='nav-link'>Categories</a>
+			<form action='#'>
+				<div class='form-input'>
+					<input type='search' placeholder='Search...'>
+					<button type='submit' class='search-btn'><i class='bx bx-search' ></i></button>
 				</div>
 			</form>
-			<!-- <input type="checkbox" id="switch-mode" hidden> -->
-			<!-- <label for="switch-mode" class="switch-mode"></label> -->
-			<a href="profiledash.html" class="profile" id="prop">
-				<script>
+			<!-- <input type='checkbox' id='switch-mode' hidden> -->
+			<!-- <label for='switch-mode' class='switch-mode'></label> -->
+			<a href='profiledash.html' class='profile' id='prop'>
+				<!-- <script>
 					document.body.classList.add('dark');
-				</script>
-				<img src="img/undraw_male_avatar_323b.svg" >
+				</script> -->
+				<img src='../img/undraw_male_avatar_323b.svg' >
 				
 			</a>
 		</nav>
@@ -92,35 +97,35 @@
 
 		<!-- MAIN -->
 		<main>
-			<div class="head-title">
-				<div class="left">
-					<h1>USER NAME</h1>
+			<div class='head-title'>
+				<div class='left'>
+					<h1></h1>
 					
 				</div>
-				<a href="#" class="btn-download">
+				<a href='#' class='btn-download'>
 					<i class='bx bxs-cloud-download' ></i>
-					<span class="text">Download PDF</span>
+					<span class='text'>Download PDF</span>
 				</a>
 			</div>
 
-			<!-- <ul class="box-info">
+			<!-- <ul class='box-info'>
 				<li>
 					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
+					<span class='text'>
 						<h3>1020</h3>
 						<p>New Order</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-group' ></i>
-					<span class="text">
+					<span class='text'>
 						<h3>2834</h3>
 						<p>Visitors</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
-					<span class="text">
+					<span class='text'>
 						<h3>$2543</h3>
 						<p>Total Sales</p>
 					</span>
@@ -128,9 +133,9 @@
 			</ul> -->
 
 
-			<div class="table-data">
-				<div class="order">
-					<div class="head">
+			<div class='table-data'>
+				<div class='order'>
+					<div class='head'>
 						<h3>Recent Orders</h3>
 						<i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i>
@@ -146,71 +151,71 @@
 						<tbody>
 							<tr>
 								<td>
-									<!-- <img src=""> -->
+									<!-- <img src=''> -->
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td><span class='status completed'>Completed</span></td>
 							</tr>
 							<!-- <tr>
 								<td>
-									<img src="img/people.png">
+									<img src='img/people.png'>
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td><span class='status pending'>Pending</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+									<img src='img/people.png'>
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
+								<td><span class='status process'>Process</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+									<img src='img/people.png'>
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
+								<td><span class='status pending'>Pending</span></td>
 							</tr>
 							<tr>
 								<td>
-									<img src="img/people.png">
+									<img src='img/people.png'>
 									<p>John Doe</p>
 								</td>
 								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
+								<td><span class='status completed'>Completed</span></td>
 							</tr> -->
 						</tbody>
 					</table>
 				</div>
-				<!-- <div class="todo">
-					<div class="head">
+				<!-- <div class='todo'>
+					<div class='head'>
 						<h3>Todos</h3>
 						<i class='bx bx-plus' ></i>
 						<i class='bx bx-filter' ></i>
 					</div>
-					<ul class="todo-list">
-						<li class="completed">
+					<ul class='todo-list'>
+						<li class='completed'>
 							<p>Todo List</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
-						<li class="completed">
+						<li class='completed'>
 							<p>Todo List</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
-						<li class="not-completed">
+						<li class='not-completed'>
 							<p>Todo List</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
-						<li class="completed">
+						<li class='completed'>
 							<p>Todo List</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
-						<li class="not-completed">
+						<li class='not-completed'>
 							<p>Todo List</p>
 							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
@@ -223,6 +228,10 @@
 	<!-- CONTENT -->
 	
 
-	<script src="JS/dash.js"></script>
+	<script src='../JS/dash.js'></script>
 </body>
-</html>
+</html>";
+}else{
+    echo "Not logged in !";
+}
+?>

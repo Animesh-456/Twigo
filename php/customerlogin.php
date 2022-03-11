@@ -19,7 +19,12 @@ if($_POST){
     $sql = "SELECT * FROM customer WHERE C_email='$email' AND C_password='$password'";
     
     if($conn->query($sql)){
+        session_start();
+
+        $_SESSION["loggedin"] = true;
+        $_SESSION["email"] = $email;
         echo "Logged in succesfully !";
+        header("location: dash.php");
     }else{
         echo "Error login!" . $conn->error;
     }
