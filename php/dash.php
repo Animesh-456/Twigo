@@ -2,10 +2,11 @@
 session_start();
 if ($_SESSION["loggedin"]) {
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "vehicle_rent";
+	// $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "vehicle_rent";
+	include '../php/db.php';
 
 	$email = $_SESSION["email"];
 
@@ -19,7 +20,6 @@ if ($_SESSION["loggedin"]) {
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if ($row) {
-
 ?>
 
 		<!DOCTYPE html>
@@ -43,6 +43,19 @@ if ($_SESSION["loggedin"]) {
 				* {
 					color: #000;
 				}
+
+				input[type=submit] {
+					background-color: #ee0000;
+					color: white;
+					padding: 16px 20px;
+					margin: 8px 0;
+					border: none;
+					cursor: pointer;
+					width: 80%;
+					display: inline-block;
+					opacity: 0.9;
+					border-radius: 30px;
+				}
 			</style>
 			<!-- SIDEBAR -->
 			<section id='sidebar'>
@@ -57,7 +70,7 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href='#'>
+						<a href='#' onclick="myFunction()">
 							<i class='bx bxs-shopping-bag-alt' style="color: red;"></i>
 							<span class='text' style="color: red;">BOOKINGS</span>
 						</a>
@@ -130,29 +143,53 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</div>
 
-					<!-- <ul class='box-info'>
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class='text'>
-						<h3>1020</h3>
-						<p>New Order</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-group' ></i>
-					<span class='text'>
-						<h3>2834</h3>
-						<p>Visitors</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-dollar-circle' ></i>
-					<span class='text'>
-						<h3>$2543</h3>
-						<p>Total Sales</p>
-					</span>
-				</li>
-			</ul> -->
+					<?php
+
+					$sql = "SELECT * FROM vehicle";
+					$result = $conn->query($sql);
+					// $row = $result->fetch_assoc();
+					// $total = mysqli_num_rows($row);
+					while ($row = $result->fetch_assoc()) {
+					?>
+
+						<ul class='box-info' id="home">
+							<!-- <li>
+							<i class='bx bxs-calendar-check'></i>
+							<span class='text'>
+								<h3>1020</h3>
+								<p>New Order</p>
+							</span>
+						</li>
+						<li>
+							<i class='bx bxs-group'></i>
+							<span class='text'>
+								<h3>2834</h3>
+								<p>Visitors</p>
+							</span>
+						</li> -->
+							<li>
+								<!-- <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
+								<!-- <i class='bx bxs-dollar-circle' ></i> -->
+								<span class='text'>
+									<h3><?php echo $row["V_name"]; ?></h3>
+									<img src="../img/fav.png"></img>
+									<!-- <img class="veh_img" src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
+									<hr><br>
+									<h4>Vehicle ID: <?php echo $row["V_id"];?></h4>
+									<br>
+									<h4>Booking Status: <?php echo $row["V_booking_status"];?></h4>
+									<br>
+									<h4>Km Driven: <?php echo $row["V_km_driven"];?></h4>
+									<br>
+									<h4>Emmision type: <?php echo $row["V_emmision_type"];?></h4>
+									<br>
+									<input type="submit" name="book" value="Book now"></input>
+									</a>
+								</span>
+							</li>
+						</ul>
+					<?php } ?>
+
 
 					<div class='table-data'>
 						<div class='order'>

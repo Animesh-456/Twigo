@@ -10,7 +10,6 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 if($_POST){
-    // if(!empty($_POST["name"]) && !empty($_POST["address"]) && !empty($_POST["email"]) && !empty($_POST["contact"]) && !empty($_POST["city"]) && !empty($_POST["liscno"]) && !empty($_POST["dob"]) && !empty($_POST["gender"]) && !empty($_POST["psw"]){
         $name = $_POST["name"];
         $address = $_POST["address"];
         $email = $_POST["email"];
@@ -21,10 +20,20 @@ if($_POST){
         $gender = $_POST["gender"];
         $psw = $_POST["psw"];
 
-        $sql = "INSERT INTO customer(C_name, C_email, C_address, C_contact, C_city, C_lisence_no, C_dob, C_gender, C_password) values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', '".$lisence."', '".$dob."', '".$gender."', '".$psw."' )";
+         echo $name;
+         echo $address;
+         echo $email;
+         echo $contact;
+         echo $city;
+         echo $lisence;
+         echo $dob;
+         echo $gender;
+         echo $psw;
+
+        $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password) values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', '".$lisence."', '".$dob."', '".$gender."', '".$psw."' )";
 
         if($conn->query($sql)){
-            header("location: ../html/customerlog.html");
+            header("location: ../html/RenterLogin.html");
         }else{
             echo "Error submitting the form!";
         }

@@ -63,7 +63,11 @@ window.addEventListener('resize', function () {
 	}
 })
 
-
+function myFunction(){
+	if(document.getElementById("home").style.color="red"){
+		document.getElementById("home").style.display="block";
+	}
+}
 
 // const switchMode = document.getElementById('switch-mode');
 

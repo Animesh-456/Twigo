@@ -24,6 +24,7 @@
 
     /* Full-width input fields */
     input[type=text],
+    input[type=date],
     input[type=password],
     select[id=city],
     input[type=number],
@@ -38,6 +39,7 @@
     }
 
     input[type=text]:focus,
+    input[type=date]:focus,
     input[type=password]:focus,
     select[id=city]:focus,
     input[type=tel]:focus,
@@ -55,22 +57,18 @@
     }
 
     /* Set a style for the submit button */
-    .registerbtn {
-      background-color: #ee0000;
+    input[type=submit]{
+  background-color: #ee0000;
       color: white;
       padding: 16px 20px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
       width: 35%;
-      display: inline-block;
+      display:inline-block;
       opacity: 0.9;
       border-radius: 30px;
-    }
-
-    .registerbtn:hover {
-      opacity: 1;
-    }
+}
 
     .clearbtn {
       background-color: #ee0000;
@@ -118,7 +116,7 @@
 
 <body>
 
-  <form action="../php/">
+  <form action="../php/rentersubmit.php" method="post">
     <div class="container">
       <h1>Twi<span style="color: #ee0000;">Go</span> Renter Registration</h1>
       <hr>
@@ -139,8 +137,8 @@
       <input type="number" placeholder="Aadhar ID" name="Aadhar ID" id="Aadhar ID" maxlength = "12" minlength = "12" required>
 
 
-      <label for="city"><b>Choose your city:</b></label>
-      <select id="city">
+      <label for="city" name="city"><b>Choose your city:</b></label>
+      <select id="city" name="city">
         <option value="Kolkata">Kolkata</option>
         <option value="Delhi">Delhi</option>
         <option value="Mumbai">Mumbai</option>
@@ -153,14 +151,14 @@
             <input type="text" placeholder="123XXX" name="liscno" id="liscno" required>
           </td>
           <td>
-            <label for="age"><b>Age</b></label>
-            <input type="number" placeholder="Enter Age" name="age" id="age" required>
+            <label for="dob"><b>DOB</b></label>
+            <input type="date" placeholder="Enter DOB" name="dob" id="dob" required>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="gender"><b>Gender:</b></label>
-            <select id="gender">
+            <label for="gender" name="gender"><b>Gender:</b></label>
+            <select id="gender" name="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
@@ -174,7 +172,7 @@
       <br>
       <p>Already a Renter? <a href="RenterLogin.html">Login</a></p>
 
-      <button type="submit" class="registerbtn" style="font-size: 20px;">Register</button>
+      <input type="submit" name="register" value="Register"></input>
       <a href="../html/index.html" class="backbtn"  style="font-size: 20px; margin-left: 250px;">Back</a>
       <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
     </div>
