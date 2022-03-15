@@ -65,13 +65,13 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li class='active'>
+					<li>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard'></i>
 							<span class='text'>HOME</span>
 						</a>
 					</li>
-					<li>
+					<li class='active'>
 						<a href='booking.php'>
 							<i class='bx bxs-shopping-bag-alt'></i>
 							<span class='text'>BOOKINGS</span>
@@ -106,11 +106,7 @@ if ($_SESSION["loggedin"]) {
 					</li>
 				</ul>
 			</section>
-			<!-- SIDEBAR -->
-
-			<!-- CONTENT -->
 			<section id='content'>
-				<!-- NAVBAR -->
 				<nav>
 					<i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a>
@@ -120,19 +116,12 @@ if ($_SESSION["loggedin"]) {
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
 						</div>
 					</form>
-					<!-- <input type='checkbox' id='switch-mode' hidden> -->
-					<!-- <label for='switch-mode' class='switch-mode'></label> -->
 					<a href='profiledash.html' class='profile' id='prop'>
-						<!-- <script>
-					document.body.classList.add('dark');
-				</script> -->
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
 					</a>
 				</nav>
-				<!-- NAVBAR -->
-
-				<!-- MAIN -->
+				
 				<main>
 					<div class='head-title'>
 						<div class='left'>
@@ -144,57 +133,29 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>Download PDF</span>
 						</a>
 					</div>
-
-					<?php
-
-					$sql = "SELECT * FROM vehicle";
-					$result = $conn->query($sql);
-					// $row = $result->fetch_assoc();
-					// $total = mysqli_num_rows($row);
-					while ($row = $result->fetch_assoc()) {
-					?>
-					<div id="home">
-
-						<ul class='box-info'>
-							<!-- <li>
-							<i class='bx bxs-calendar-check'></i>
-							<span class='text'>
-								<h3>1020</h3>
-								<p>New Order</p>
-							</span>
-						</li>
-						<li>
-							<i class='bx bxs-group'></i>
-							<span class='text'>
-								<h3>2834</h3>
-								<p>Visitors</p>
-							</span>
-						</li> -->
-							<li>
-								<!-- <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-								<!-- <i class='bx bxs-dollar-circle' ></i> -->
-								<span class='text'>
-									<h3><?php echo $row["V_name"]; ?></h3>
-									<img src="../img/fav.png"></img>
-									<!-- <img class="veh_img" src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-									<hr><br>
-									<h4>Vehicle ID: <?php echo $row["V_id"];?></h4>
-									<br>
-									<h4>Booking Status: <?php echo $row["V_booking_status"];?></h4>
-									<br>
-									<h4>Km Driven: <?php echo $row["V_km_driven"];?></h4>
-									<br>
-									<h4>Emmision type: <?php echo $row["V_emmision_type"];?></h4>
-									<br>
-									<h4>Rate per hour: <?php echo $row["V_rate-per_hour"];?></h4>
-									<br>
-									<input type="submit" name="book" value="Book now"></input>
-									</a>
-								</span>
-							</li>
-						</ul>
-						</div>
-					<?php } ?>
+					<div class='table-data'>
+						<div class='order' id="booking">
+							<div class='head'>
+								<h3>Recent Orders</h3>
+								<i class='bx bx-search'></i>
+								<i class='bx bx-filter'></i>
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>User</th>
+										<th>Date Order</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p>John Doe</p>
+										</td>
+										<td>01-10-2021</td>
+										<td><span class='status completed'>Completed</span></td>
+									</tr>
 			<script src='../JS/dash.js'></script>
 		</body>
 

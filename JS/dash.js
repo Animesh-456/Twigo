@@ -12,8 +12,6 @@ allSideMenu.forEach(item=> {
 });
 
 
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');
@@ -21,12 +19,6 @@ const sidebar = document.getElementById('sidebar');
 menuBar.addEventListener('click', function () {
 	sidebar.classList.toggle('hide');
 })
-
-
-
-
-
-
 
 const searchButton = document.querySelector('#content nav form .form-input button');
 const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
@@ -44,10 +36,6 @@ searchButton.addEventListener('click', function (e) {
 	}
 })
 
-
-
-
-
 if(window.innerWidth < 768) {
 	sidebar.classList.add('hide');
 } else if(window.innerWidth > 576) {
@@ -63,11 +51,20 @@ window.addEventListener('resize', function () {
 	}
 })
 
-function myFunction(){
-	if(document.getElementById("home").style.color="red"){
+function homeFunction(){
+	// document.getElementById("booking").style.display="none";
+	if(document.getElementById("home").style.display="none"){
 		document.getElementById("home").style.display="block";
+	}else{
+		document.getElementById("home").style.display="none";
 	}
 }
+
+// function myFunction(){
+// 	if(document.getElementById("home").style.color="red"){
+// 		document.getElementById("home").style.display="block";
+// 	}
+// }
 
 // const switchMode = document.getElementById('switch-mode');
 

@@ -30,7 +30,7 @@ if ($_SESSION["loggedin"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Dashboard</title>
+			<title>TwiGo History</title>
 		</head>
 
 		<body>
@@ -65,7 +65,7 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li class='active'>
+					<li>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard'></i>
 							<span class='text'>HOME</span>
@@ -77,7 +77,7 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>BOOKINGS</span>
 						</a>
 					</li>
-					<li>
+					<li class='active'>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
@@ -144,57 +144,30 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>Download PDF</span>
 						</a>
 					</div>
-
-					<?php
-
-					$sql = "SELECT * FROM vehicle";
-					$result = $conn->query($sql);
-					// $row = $result->fetch_assoc();
-					// $total = mysqli_num_rows($row);
-					while ($row = $result->fetch_assoc()) {
-					?>
-					<div id="home">
-
-						<ul class='box-info'>
-							<!-- <li>
-							<i class='bx bxs-calendar-check'></i>
-							<span class='text'>
-								<h3>1020</h3>
-								<p>New Order</p>
-							</span>
-						</li>
-						<li>
-							<i class='bx bxs-group'></i>
-							<span class='text'>
-								<h3>2834</h3>
-								<p>Visitors</p>
-							</span>
-						</li> -->
-							<li>
-								<!-- <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-								<!-- <i class='bx bxs-dollar-circle' ></i> -->
-								<span class='text'>
-									<h3><?php echo $row["V_name"]; ?></h3>
-									<img src="../img/fav.png"></img>
-									<!-- <img class="veh_img" src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-									<hr><br>
-									<h4>Vehicle ID: <?php echo $row["V_id"];?></h4>
-									<br>
-									<h4>Booking Status: <?php echo $row["V_booking_status"];?></h4>
-									<br>
-									<h4>Km Driven: <?php echo $row["V_km_driven"];?></h4>
-									<br>
-									<h4>Emmision type: <?php echo $row["V_emmision_type"];?></h4>
-									<br>
-									<h4>Rate per hour: <?php echo $row["V_rate-per_hour"];?></h4>
-									<br>
-									<input type="submit" name="book" value="Book now"></input>
-									</a>
-								</span>
-							</li>
-						</ul>
-						</div>
-					<?php } ?>
+					<div class='table-data'>
+						<div class='order' id="booking">
+							<div class='head'>
+								<h3>History</h3>
+								<i class='bx bx-search'></i>
+								<i class='bx bx-filter'></i>
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>User</th>
+										<th>Date Order</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<!-- <img src=''> -->
+											<p>John Doe</p>
+										</td>
+										<td>01-10-2021</td>
+										<td><span class='status completed'>Completed</span></td>
+									</tr>
 			<script src='../JS/dash.js'></script>
 		</body>
 
