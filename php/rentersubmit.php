@@ -30,12 +30,13 @@ if($_POST){
          echo $gender;
          echo $psw;
 
-        $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password) values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', '".$lisence."', '".$dob."', '".$gender."', '".$psw."' )";
+        $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password)
+        VALUE('$name', '$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw')";
 
         if($conn->query($sql)){
             header("location: ../html/RenterLogin.html");
         }else{
-            echo "Error submitting the form!";
+            echo "Error submitting the form!" . $conn->error;
         }
     }
 ?>
