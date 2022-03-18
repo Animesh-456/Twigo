@@ -100,8 +100,8 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li>
 						<a href='logout.php' class='logout'>
-							<i class='bx bxs-log-out-circle'></i>
-							<span class='text'>Logout</span>
+							<i class='bx bxs-log-out-circle'style="color: #ee0000;"></i>
+							<span class='text'style="color: #ee0000;">Logout</span>
 						</a>
 					</li>
 				</ul>
@@ -144,7 +144,7 @@ if ($_SESSION["loggedin"]) {
 					<div class="table-data">
 				<div class="order">
 					<div class="head">
-						<h3>SORRY! FOR INCONVENIENCE -- REACH OUT VIA </h3>
+						<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
 						<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 					</div>

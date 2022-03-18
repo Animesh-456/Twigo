@@ -88,8 +88,8 @@
       display: inline-block;
       opacity: 0.9;
       border-radius: 30px;
-      
-      
+
+
     }
 
     .clearbtn:hover {
@@ -97,41 +97,43 @@
     }
 
 
-    .backbtn{
+    .backbtn {
       background-color: #ee0000;
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 16px 30px;
-    font-size: 13px;
-    position: relative;
-    border: none ;
-    border-radius: 30px;
-   
-}
+      display: inline-block;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      padding: 16px 30px;
+      font-size: 13px;
+      position: relative;
+      border: none;
+      border-radius: 30px;
 
-.backbtn:hover {
-    opacity: 1;
-}
+    }
 
-input[type=submit]{
-  background-color: #ee0000;
+    .backbtn:hover {
+      opacity: 1;
+    }
+
+    input[type=submit] {
+      background-color: #ee0000;
       color: white;
       padding: 16px 20px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
       width: 35%;
-      display:inline-block;
+      display: inline-block;
       opacity: 0.9;
       border-radius: 30px;
-}
-.image{
-    /* padding: 10px ; */
-    width: 80%;
-    padding-right: 10px;
-}
+    }
+
+    .image {
+      /* padding: 10px ; */
+      width: 80%;
+      padding-right: 10px;
+    }
+
     /* Add a blue text color to links */
     a {
       color: rgb(255, 9, 9);
@@ -142,16 +144,16 @@ input[type=submit]{
 <body>
   <form action="customersubmit.php" method="post">
     <div class="container">
-        <table>
-            <tr>
-                <td>
-                    <br>
-      <h1>Twi<span style="color: #ee0000;">Go</span> Booking </h1>
-      <hr>
-      <br>
-     
+      <table>
+        <tr>
+          <td>
+            <br>
+            <h1>Twi<span style="color: #ee0000;">Go</span> Booking </h1>
+            <hr>
+            <br>
 
-      <!-- <table style="width: 100%;"> -->
+
+            <!-- <table style="width: 100%;"> -->
             <label for="sdate"><b>Start Date</b></label>
             <input type="date" placeholder="" name="sdate" id="sdate" required>
 
@@ -166,15 +168,15 @@ input[type=submit]{
 
             <label for="days"><b>A/C Number- 6734565784654</b></label><br>
             <br>
-      <input type="submit" name="Book" value="Book">
-    </input>
-      
-      <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
-      <button type="reset" class="clearbtn" style="font-size: 20px; margin-left: 150px">Clear</button>
-    </td>
-      <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td>
-    </tr>
-    </table>
+            <input type="submit" name="Book" value="Book">
+            </input>
+
+            <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
+            <button type="reset" class="clearbtn" style="font-size: 20px; margin-left: 150px">Clear</button>
+          </td>
+          <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td>
+        </tr>
+      </table>
     </div>
   </form>
 

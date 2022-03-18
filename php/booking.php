@@ -52,14 +52,13 @@ if ($_SESSION["loggedin"]) {
 					border-radius: 30px;
 				}
 
-				
+
 				#sidebar .side-menu.top li.active a {
-	color: red;	
-}
-			
+					color: red;
+				}
 			</style>
 			<!-- SIDEBAR -->
-			
+
 			<section id='sidebar'>
 				<a href='#' class='brand'>
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
@@ -73,8 +72,8 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li class='active'>
 						<a href='booking.php'>
-							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>BOOKINGS</span>
+							<i class='bx bxs-shopping-bag-alt' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">BOOKINGS</span>
 						</a>
 					</li>
 					<li>
@@ -100,8 +99,8 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li>
 						<a href='logout.php' class='logout'>
-							<i class='bx bxs-log-out-circle'></i>
-							<span class='text'>Logout</span>
+							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">Logout</span>
 						</a>
 					</li>
 				</ul>
@@ -121,7 +120,7 @@ if ($_SESSION["loggedin"]) {
 
 					</a>
 				</nav>
-				
+
 				<main>
 					<div class='head-title'>
 						<div class='left'>
@@ -156,7 +155,7 @@ if ($_SESSION["loggedin"]) {
 										<td>01-10-2021</td>
 										<td><span class='status completed'>Completed</span></td>
 									</tr>
-			<script src='../JS/dash.js'></script>
+									<script src='../JS/dash.js'></script>
 		</body>
 
 		</html>

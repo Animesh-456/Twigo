@@ -52,14 +52,13 @@ if ($_SESSION["loggedin"]) {
 					border-radius: 30px;
 				}
 
-				
+
 				#sidebar .side-menu.top li.active a {
-	color: red;	
-}
-			
+					color: red;
+				}
 			</style>
 			<!-- SIDEBAR -->
-			
+
 			<section id='sidebar'>
 				<a href='#' class='brand'>
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
@@ -67,8 +66,8 @@ if ($_SESSION["loggedin"]) {
 				<ul class='side-menu top'>
 					<li class='active'>
 						<a href='dash.php'>
-							<i class='bx bxs-dashboard'></i>
-							<span class='text'>HOME</span>
+							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">HOME</span>
 						</a>
 					</li>
 					<li>
@@ -100,8 +99,8 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li>
 						<a href='logout.php' class='logout'>
-							<i class='bx bxs-log-out-circle'></i>
-							<span class='text'>Logout</span>
+							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">Logout</span>
 						</a>
 					</li>
 				</ul>
@@ -153,51 +152,125 @@ if ($_SESSION["loggedin"]) {
 					// $total = mysqli_num_rows($row);
 					while ($row = $result->fetch_assoc()) {
 					?>
-					<div id="home">
+						<div class='table-data'>
+							<div class='order' id="booking">
+								<div class='head'>
 
-						<ul class='box-info'>
-							<!-- <li>
-							<i class='bx bxs-calendar-check'></i>
-							<span class='text'>
-								<h3>1020</h3>
-								<p>New Order</p>
-							</span>
+									<!-- <i class='bx bx-search'></i>
+								<i class='bx bx-filter'></i> -->
+								</div>
+								<div class="table-data">
+									<div class="order">
+										<div class="head">
+											<h3></h3>
+											<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+										</div>
+										<table>
+											<thead>
+												<tr>
+													<th>VEHICLE NAME</th>
+													<th>VEHICLE ID</th>
+													<th>VEHICLE RATING</th>
+													<th>KM DRIVEN</th>
+													<th>EMMISION TYPE</th>
+													<th>RATE PER HOUR</th>
+													<th>BOOKING STATUS</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
+													</td>
+
+													<td><?php echo $row["V_id"] ?></td>
+													<td>0</td>
+													<td><?php echo $row["V_km_driven"] ?></td>
+													<td><?php echo $row["V_emmision_type"] ?></td>
+													<td><?php echo $row["V_rate-per_hour"] ?></td>
+													<?php
+													if ($row["V_booking_status"] == 0) {
+														$booking = "pending";
+														$bookingstatus = "available";
+													} else {
+														$booking = "complete";
+														$bookingstatus = "unavailable";
+													}
+													?>
+													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+													<td>
+														<form action="bookingform.php" method="POST"><input type="submit" name="login" value="Book now"></input></form>
+													</td>
+												</tr>
+												<!-- <tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status process">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr> -->
+											</tbody>
+										</table>
+									</div>
+									<!-- <div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class='bx bx-plus' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
 						</li>
-						<li>
-							<i class='bx bxs-group'></i>
-							<span class='text'>
-								<h3>2834</h3>
-								<p>Visitors</p>
-							</span>
-						</li> -->
-							<li>
-								<!-- <img src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-								<!-- <i class='bx bxs-dollar-circle' ></i> -->
-								<span class='text'>
-									<h3><?php echo $row["V_name"]; ?></h3>
-									<img src="../img/fav.png"></img>
-									<!-- <img class="veh_img" src="https://www.hyundai.com/content/dam/hyundai/in/en/data/Proposed-homepage/Pc_1600x590.jpg"></img> -->
-									<hr><br>
-									<h4>Vehicle ID: <?php echo $row["V_id"];?></h4>
-									<br>
-									<h4>Booking Status: <?php echo $row["V_booking_status"];?></h4>
-									<br>
-									<h4>Km Driven: <?php echo $row["V_km_driven"];?></h4>
-									<br>
-									<h4>Emmision type: <?php echo $row["V_emmision_type"];?></h4>
-									<br>
-									<h4>Rate per hour: <?php echo $row["V_rate-per_hour"];?></h4>
-									<br>
-									<form action="bookingform.php" method="POST">
-									<input type="submit" name="book" value="Book now"></input>
-									</form>
-									</a>
-								</span>
-							</li>
-						</ul>
-						</div>
-					<?php } ?>
-			<script src='../JS/dash.js'></script>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div> -->
+								</div>
+							<?php } ?>
+							<script src='../JS/dash.js'></script>
 		</body>
 
 		</html>
