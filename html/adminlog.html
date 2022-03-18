@@ -101,17 +101,30 @@
     width: 80%;
     padding-right: 10px;
 }
+
+input[type=submit]{
+  background-color: #ee0000;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+      display:inline-block;
+      opacity: 0.9;
+      border-radius: 30px;
+}
   </style>
 </head>
 
 <body>
 
-  <form action="../php/" method="post">
+  <form action="../php/customerlogin.php" method="post">
     <div class="container">
       <table>
         <tr>
           <td>
-            <h1>Twi<span style="color: #ee0000;">Go</span> Driver Login</h1>
+            <h1>Twi<span style="color: #ee0000;">Go</span> Admin Login</h1>
       <hr style=" border: 1px solid #ff0000;
       margin-bottom: 25px;
       margin-right: 850px;">
@@ -122,10 +135,13 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-      <p>New driver? <a href="driverregister.html">Register</a></p>
-      <p> <a href="">Forget Password?</a></p>
+      <!-- <p>New customer? <a href="customerregister.html">Register</a></p> -->
 
-      <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button>
+      <!-- <button type="submit" class="loginbtn" style="font-size: 20px;">Login</button> -->
+
+      <input type="submit" name="login" value="Login">
+      <!-- <button type="submit" class="registerbtn" style="font-size: 20px;" >Register</button> -->
+    </input>
       <a href="../html/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
           </td>
           <td><img src="../img/undraw_building_websites_i78t.svg" class="image"></img></td>
