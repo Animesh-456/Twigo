@@ -140,7 +140,6 @@ input[type=submit]{
 </head>
 
 <body>
-
   <form action="customersubmit.php" method="post">
     <div class="container">
         <table>

@@ -84,16 +84,16 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href='#'>
+						<a href='profiledash.php'>
 							<i class='bx bxs-message-dots'></i>
-							<span class='text'>TRANSACTIONS</span>
+							<span class='text'>MY PROFILE</span>
 						</a>
 					</li>
 
 				</ul>
 				<ul class='side-menu'>
 					<li>
-						<a href='helpdash.html'>
+						<a href='helpdash.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
@@ -116,7 +116,7 @@ if ($_SESSION["loggedin"]) {
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
 						</div>
 					</form>
-					<a href='profiledash.html' class='profile' id='prop'>
+					<a href='profiledash.php' class='profile' id='prop'>
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
 					</a>

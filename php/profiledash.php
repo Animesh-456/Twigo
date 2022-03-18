@@ -30,7 +30,7 @@ if ($_SESSION["loggedin"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo History</title>
+			<title>TwiGo MyProfile</title>
 		</head>
 
 		<body>
@@ -77,14 +77,14 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>BOOKINGS</span>
 						</a>
 					</li>
-					<li class='active'>
+					<li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
 					</li>
-					<li>
-						<a href='profiledash.php'>
+					<li class='active'>
+						<a href='#'>
 							<i class='bx bxs-message-dots'></i>
 							<span class='text'>MY PROFILE</span>
 						</a>
@@ -139,36 +139,118 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
+						<a href='customereditprofile.php' class='btn-download'>
 							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
+							<span class='text'>Edit Profile</span>
 						</a>
 					</div>
 					<div class='table-data'>
 						<div class='order' id="booking">
 							<div class='head'>
-								<h3>History</h3>
+								<h3>Your Profile</h3>
 								<i class='bx bx-search'></i>
 								<i class='bx bx-filter'></i>
 							</div>
-							<table>
-								<thead>
-									<tr>
-										<th>User</th>
-										<th>Date Order</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<!-- <img src=''> -->
-											<p>John Doe</p>
-										</td>
-										<td>01-10-2021</td>
-										<td><span class='status completed'>Completed</span></td>
-									</tr>
-</table>
+							<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3></h3>
+						<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>NAME</th>
+                                <th>DOB</th>
+								<th>ADDRESS</th>
+                                <th>CITY</th>
+								<th>LISENCE NUMBER</th>
+                                <th>AADHAR NUMBER</th>
+                                <th>CONTACT</th>
+                                <th>BOOKING</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="../img/undraw_male_avatar_323b.svg">
+									<p><?php echo $row["C_name"]?></p>
+								</td>
+								<td><?php echo $row["C_dob"]?></td>
+                                <td><?php echo $row["C_address"]?></td>
+                                <td><?php echo $row["C_city"]?></td>
+                                <td><?php echo $row["C_lisence_no"]?></td>
+                                <td><?php echo $row["C_adhar_id"]?></td>
+                                <td><?php echo $row["C_contact"]?></td>
+                                <td><span class="status pending">Pending</span></td>
+								
+							</tr>
+							<!-- <tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status process">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class='bx bx-plus' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div> -->
+			</div>
 			<script src='../JS/dash.js'></script>
 		</body>
 

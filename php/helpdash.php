@@ -30,7 +30,7 @@ if ($_SESSION["loggedin"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo History</title>
+			<title>TwiGo Help Centre</title>
 		</head>
 
 		<body>
@@ -77,7 +77,7 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>BOOKINGS</span>
 						</a>
 					</li>
-					<li class='active'>
+					<li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
@@ -92,7 +92,7 @@ if ($_SESSION["loggedin"]) {
 
 				</ul>
 				<ul class='side-menu'>
-					<li>
+					<li class='active'>
 						<a href='helpdash.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
@@ -139,36 +139,112 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
-						</a>
+						
 					</div>
-					<div class='table-data'>
-						<div class='order' id="booking">
-							<div class='head'>
-								<h3>History</h3>
-								<i class='bx bx-search'></i>
-								<i class='bx bx-filter'></i>
-							</div>
-							<table>
-								<thead>
-									<tr>
-										<th>User</th>
-										<th>Date Order</th>
-										<th>Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<!-- <img src=''> -->
-											<p>John Doe</p>
-										</td>
-										<td>01-10-2021</td>
-										<td><span class='status completed'>Completed</span></td>
-									</tr>
-</table>
+					<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>SORRY! FOR INCONVENIENCE -- REACH OUT VIA </h3>
+						<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>CITY NAME</th>
+								<th>CUSTOMER HELPLINE NUMBER</th>
+								<th>EMAIL</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<p>KOLKATA</p>
+								</td>
+								<td>1800 900546</td>
+								<td>twigo247@gmail.com</td>
+
+
+							</tr>
+							<tr>
+								<td>
+									<p>MUMBAI</p>
+								<td>1800 900548</td>
+								<td>twigo247@gmail.com</td>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>DELHI</p>
+								<td>1800 900547</td>
+								<td>twigo247@gmail.com</td>
+								</td>
+							</tr>
+							<!-- <tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status process">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr> -->
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class='bx bx-plus' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div> -->
+			</div>
 			<script src='../JS/dash.js'></script>
 		</body>
 

@@ -84,16 +84,16 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href='#'>
+						<a href='profiledash.php'>
 							<i class='bx bxs-message-dots'></i>
-							<span class='text'>TRANSACTIONS</span>
+							<span class='text'>MY PROFILE</span>
 						</a>
 					</li>
 
 				</ul>
 				<ul class='side-menu'>
 					<li>
-						<a href='helpdash.html'>
+						<a href='helpdash.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
@@ -122,7 +122,7 @@ if ($_SESSION["loggedin"]) {
 					</form>
 					<!-- <input type='checkbox' id='switch-mode' hidden> -->
 					<!-- <label for='switch-mode' class='switch-mode'></label> -->
-					<a href='profiledash.html' class='profile' id='prop'>
+					<a href='profiledash.php' class='profile' id='prop'>
 						<!-- <script>
 					document.body.classList.add('dark');
 				</script> -->
@@ -188,7 +188,9 @@ if ($_SESSION["loggedin"]) {
 									<br>
 									<h4>Rate per hour: <?php echo $row["V_rate-per_hour"];?></h4>
 									<br>
+									<form action="bookingform.php" method="POST">
 									<input type="submit" name="book" value="Book now"></input>
+									</form>
 									</a>
 								</span>
 							</li>
