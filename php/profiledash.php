@@ -167,7 +167,7 @@ if ($_SESSION["loggedin"]) {
 												<th>LISENCE NUMBER</th>
 												<th>AADHAR NUMBER</th>
 												<th>CONTACT</th>
-												<th>BOOKING</th>
+
 											</tr>
 										</thead>
 										<tbody>
@@ -182,8 +182,6 @@ if ($_SESSION["loggedin"]) {
 												<td><?php echo $row["C_lisence_no"] ?></td>
 												<td><?php echo $row["C_adhar_id"] ?></td>
 												<td><?php echo $row["C_contact"] ?></td>
-												<td><span class="status pending">Pending</span></td>
-
 											</tr>
 											<!-- <tr>
 								<td>

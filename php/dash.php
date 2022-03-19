@@ -119,12 +119,9 @@ if ($_SESSION["loggedin"]) {
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
 						</div>
 					</form>
-					<!-- <input type='checkbox' id='switch-mode' hidden> -->
-					<!-- <label for='switch-mode' class='switch-mode'></label> -->
+
 					<a href='profiledash.php' class='profile' id='prop'>
-						<!-- <script>
-					document.body.classList.add('dark');
-				</script> -->
+
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
 					</a>
@@ -148,23 +145,16 @@ if ($_SESSION["loggedin"]) {
 
 					$sql = "SELECT * FROM vehicle";
 					$result = $conn->query($sql);
-					// $row = $result->fetch_assoc();
-					// $total = mysqli_num_rows($row);
 					while ($row = $result->fetch_assoc()) {
 					?>
 						<div class='table-data'>
 							<div class='order' id="booking">
 								<div class='head'>
-
-									<!-- <i class='bx bx-search'></i>
-								<i class='bx bx-filter'></i> -->
 								</div>
 								<div class="table-data">
 									<div class="order">
 										<div class="head">
 											<h3></h3>
-											<!-- <i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i> -->
 										</div>
 										<table>
 											<thead>
@@ -195,79 +185,24 @@ if ($_SESSION["loggedin"]) {
 														$booking = "pending";
 														$bookingstatus = "available";
 													} else {
-														$booking = "complete";
+														$booking = "completed";
 														$bookingstatus = "unavailable";
 													}
 													?>
 													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
-													<td>
-														<form action="bookingform.php" method="POST"><input type="submit" name="login" value="Book now"></input></form>
-													</td>
+													<?php
+													if ($row["V_booking_status"] == 0) {
+														echo "<td>
+															<form action='bookingform.php' method='POST'><input type='submit' name='login' value='Book now'></input></form>
+															</td>";
+													}
+													?>
 												</tr>
-												<!-- <tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr> -->
+
 											</tbody>
 										</table>
 									</div>
-									<!-- <div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div> -->
+
 								</div>
 							<?php } ?>
 							<script src='../JS/dash.js'></script>
