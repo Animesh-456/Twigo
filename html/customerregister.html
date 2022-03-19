@@ -52,7 +52,7 @@
 
     /* Overwrite default styles of hr */
     hr {
-      border: 1px solid #ff0000;
+      border: 0.5px solid #ff0000;
       margin-bottom: 25px;
       margin-right: 850px;
     }
@@ -153,6 +153,9 @@ input[type=submit]{
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
+      <label for="adhar"><b>Aadhar ID</b></label>
+      <input type="number" placeholder="123XXX456" name="adhar" id="adhar" required>
+
       <label for="sq"><b><span style="color: #ee0000;">Security Question</span></b>(In case you forget your Password)</label>
             <input type="text" placeholder="Enter your primary School name" name="sq" id="sq" required>
 
@@ -190,7 +193,7 @@ input[type=submit]{
       </table>
       <br>
       <p>Already a customer? <a href="customerlog.html">Login</a></p>
-      <input type="submit" name="register" value="Register">
+      <input type="submit" name="register" value="Register" style="font-size: 20px;">
       <!-- <button type="submit" class="registerbtn" style="font-size: 20px;" >Register</button> -->
     </input>
       

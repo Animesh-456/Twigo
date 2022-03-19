@@ -53,7 +53,7 @@
     .loginbtn {
       background-color: #ee0000;
       color: white;
-      padding: 16px 20px;
+      padding: 16px 30px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
@@ -80,16 +80,15 @@
 
     .backbtn{
       background-color: #ee0000;
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 16px 30px;
-    font-size: 13px;
-    position: relative;
-    border: none ;
-    border-radius: 30px;
-   
+            display: inline-block;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            padding: 16px 30px;
+            font-size: 13px;
+            position: relative;
+            border: none;
+            border-radius: 30px;
 }
 
 .backbtn:hover {
@@ -106,7 +105,7 @@
 
 <body>
 
-  <form action="../php/">
+  <form action="../php/customerupdatepass1.php" method="post">
     <div class="container">
       <table>
         <tr>
@@ -115,12 +114,19 @@
       <hr style=" border: 1px solid #ff0000;
       margin-bottom: 25px;
       margin-right: 850px;">
-<br><br>
+      
+      <br><br>
+<label for="email"><b><span style="color: #ee0000;">Email</span></b></label>
+<input type="text" placeholder="Enter your email" name="email" id="email" required>
+
+<br>
 <label for="sq"><b><span style="color: #ee0000;">Security Question</span></b></label>
 <input type="text" placeholder="Enter your primary School name" name="sq" id="sq" required>
 <br><br>
 
-      <button type="submit" class="loginbtn" style="font-size: 20px;">SUBMIT</button>
+<input class="loginbtn" type='submit' name='login' value='submit' style="font-size: 20px;"></input>
+
+      <!-- <button type="submit" class="loginbtn" style="font-size: 20px;">SUBMIT</button> -->
       <a href="../html/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
           </td>
           <td><img src="../img/undraw_surveillance_re_8tkl.svg" class="image"></img></td>

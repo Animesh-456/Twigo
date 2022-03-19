@@ -172,6 +172,10 @@ if ($_SESSION["loggedin"]) {
           <label for="email"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $row["C_email"] ?>" required>
 
+          <label for="sq"><b><span style="color: #ee0000;">Security Question</span></b>(In case you forget your Password)</label>
+            <input type="text" placeholder="Enter your primary School name" name="sq" id="sq" value="<?php echo $row["C_security"] ?>" required>
+
+
           <label for="city" name="city"><b>Choose your city:</b></label>
           <select id="city" name="city">
             <?php
@@ -259,9 +263,10 @@ if ($_SESSION["loggedin"]) {
       $dob = $_POST["dob"];
       $gender = $_POST["gender"];
       $adhar = $_POST["aadhar"];
+      $security = $_POST["sq"];
 
       $sql = "UPDATE customer SET C_name='$name', C_address='$address', C_email='$email', C_contact='$contact', C_city='$city', C_lisence_no='$lisence',
-    C_dob='$dob', C_gender='$gender', C_adhar_id='$adhar' WHERE C_email='$semail'";
+    C_dob='$dob', C_gender='$gender', C_security='$security', C_adhar_id='$adhar' WHERE C_email='$semail'";
 
       if ($conn->query($sql)) {
         // header("location: ../html/customerlog.html");

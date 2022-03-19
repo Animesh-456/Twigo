@@ -89,7 +89,6 @@
             position: relative;
             border: none;
             border-radius: 30px;
-
         }
 
         .backbtn:hover {
@@ -106,7 +105,7 @@
 
 <body>
 
-    <form action="../php/">
+    <form action="" method="post">
         <div class="container">
             <table>
                 <tr>
@@ -122,12 +121,13 @@
 
 
                         <label for="psw"><b>Type New Password</b></label>
-                        <input type="password" placeholder="Enter New Password" name="psw" id="psw" required>
+                        <input type="password" placeholder="Enter New Password" name="psw1" id="psw" required>
 
                         <label for="psw"><b>Reconfirm New Password</b></label>
                         <input type="password" placeholder="Reconfirm New Password" name="psw" id="psw" required>
 
-                        <button type="submit" class="loginbtn" style="font-size: 20px;">SUBMIT</button>
+                        <input class="loginbtn" type='submit' name='login' value='submit' style="font-size: 20px;"></input>
+
                         <a href="../html/index.html" class="backbtn"
                             style="font-size: 20px; margin-left: 100px;">Back</a>
                     </td>
@@ -140,5 +140,35 @@
     </form>
 
 </body>
+<?php 
 
+include '../php/db.php';
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+//   echo "Connected successfully";
+
+  if($_POST){
+
+    if($_POST["psw1"]==$_POST["psw"]){
+        $password = $_POST["psw"];
+        $email = $_POST["email"];
+
+        $sql = "UPDATE customer SET C_password='$password' WHERE C_email='$email'";
+    
+        if($conn->query($sql)){
+            header("location: ../html/customerlog.html");
+        }else{
+            echo "Error submitting the form!";
+        }
+    }
+  }else{
+      echo $conn->error;
+  }
+
+?>
 </html>
