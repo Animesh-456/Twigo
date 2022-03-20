@@ -174,7 +174,6 @@ if ($_SESSION["loggedin"]) {
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
-
 													<td><?php echo $row["V_id"] ?></td>
 													<td>0</td>
 													<td><?php echo $row["V_km_driven"] ?></td>
@@ -193,7 +192,7 @@ if ($_SESSION["loggedin"]) {
 													<?php
 													if ($row["V_booking_status"] == 0) {
 														echo "<td>
-															<form action='bookingform.php' method='POST'><input type='submit' name='login' value='Book now'></input></form>
+															<form action='bookingform.php' method='POST'><input type='submit' name='' value='Book now'></input></form>
 															</td>";
 													}
 													?>

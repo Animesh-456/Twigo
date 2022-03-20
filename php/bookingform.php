@@ -1,6 +1,24 @@
+<?php
+session_start();
+if ($_SESSION["loggedin"]) {
+	include '../php/db.php';
+
+	// $V_id = $_POST["V_id"];
+
+	$conn = new mysqli($servername, $username, $password, $dbname);
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "SELECT * FROM vehicle";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	if ($row) {
+?>
+
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="../img/fav.png">
@@ -88,8 +106,6 @@
       display: inline-block;
       opacity: 0.9;
       border-radius: 30px;
-
-
     }
 
     .clearbtn:hover {
@@ -138,6 +154,38 @@
     a {
       color: rgb(255, 9, 9);
     }
+
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  /* margin: auto; */
+ margin-left: -70%;
+  text-align: center;
+  /* font-family: arial; */
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color:#ee0000;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
   </style>
 </head>
 
@@ -168,13 +216,28 @@
 
             <label for="days"><b>A/C Number- 6734565784654</b></label><br>
             <br>
-            <input type="submit" name="Book" value="Book">
+            <input type="submit" name="Book" value="Book" style="font-size: 20px;">
             </input>
 
             <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
             <button type="reset" class="clearbtn" style="font-size: 20px; margin-left: 150px">Clear</button>
           </td>
-          <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td>
+          <td><div class="card">
+  <img src="../img/car.jpg" alt="John" style="width:50%">
+  <h1><?php echo $row["V_name"]?></h1>
+  <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"]?></p>
+  <p class="title">Vehicle Fuel Type:- Petrol</p>
+  <p class="title">Vehicle Rating:- 5</p>
+  <p></p>
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <p><span class="button">Vehicle ID: -</span></p>
+</div></td>
+          <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
         </tr>
       </table>
     </div>
@@ -184,3 +247,7 @@
 <script src="JS/booking.js"></script>
 
 </html>
+<?php }
+} else {
+	header("location: ../html/customerlog.html");
+} ?>
