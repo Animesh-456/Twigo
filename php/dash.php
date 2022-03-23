@@ -4,7 +4,7 @@ if ($_SESSION["loggedin"]) {
 	include '../php/db.php';
 
 	$semail = $_SESSION["email"];
-	$spassword = $_SESSION["pass"];
+	//$spassword = $_SESSION["pass"];
 
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ if ($_SESSION["loggedin"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM customer WHERE C_email='$semail' AND C_password='$spassword'";
+	$sql = "SELECT * FROM customer WHERE C_email='$semail'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if ($row) {
@@ -176,7 +176,7 @@ if ($_SESSION["loggedin"]) {
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
-													<td><?php echo $row["V_id"] ?></td>
+													<td id="V_id"><?php echo $row["V_id"] ?></td>
 													<td>0</td>
 													<td><?php echo $row["V_km_driven"] ?></td>
 													<td><?php echo $row["V_emmision_type"] ?></td>
@@ -193,8 +193,9 @@ if ($_SESSION["loggedin"]) {
 													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
 													<?php
 													if ($row["V_booking_status"] == 0) {
+														$name=$row["V_id"];
 														echo "<td>
-															<form action='bookingform.php' method='POST'><input type='submit' name='' value='Book now'></input></form>
+															<form action='bookingform.php' method='POST'><input type='submit' value='Book now' id='book'></input></form>
 															</td>";
 													}
 													?>

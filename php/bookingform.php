@@ -11,6 +11,8 @@ if ($_SESSION["loggedin"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
+ 
+
 	$sql = "SELECT * FROM vehicle";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();

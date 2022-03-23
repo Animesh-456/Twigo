@@ -21,9 +21,16 @@ if($_POST){
 
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
-        $_SESSION["pass"] = $password;
-        echo "Logged in succesfully !";
-        header("location: dash.php");
+        $sql = "SELECT * FROM customer WHERE C_email='$email' AND C_password='$password'";
+        $result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+
+        if($row!=null){
+            header("location: dash.php");
+        }else{
+            echo "Error submitting the form!";
+        }
+        // echo "Logged in succesfully !";
     }else{
         // header("location: ../html/customerlog.html");
         echo "err";
