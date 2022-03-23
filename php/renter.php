@@ -4,16 +4,14 @@ if ($_SESSION["loggedin"]) {
 	include '../php/db.php';
 
 	$semail = $_SESSION["email"];
-	$spassword = $_SESSION["pass"];
-
-
+	
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM customer WHERE C_email='$semail' AND C_password='$spassword'";
+	$sql = "SELECT * FROM customer WHERE C_email='$semail'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if ($row) {
@@ -75,15 +73,15 @@ if ($_SESSION["loggedin"]) {
 					<li>
 						<a href='booking.php'>
 							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>BOOKINGS</span>
+							<span class='text'>Your Cars</span>
 						</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
-					</li>
+					</li> -->
 					<li>
 						<a href='profiledash.php'>
 							<i class='bx bxs-message-dots'></i>
@@ -113,14 +111,14 @@ if ($_SESSION["loggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-					<i class='bx bx-menu'></i>
+					<!-- <i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a>
 					<form action='#'>
 						<div class='form-input'>
 							<input type='search' placeholder='Search...'>
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
 						</div>
-					</form>
+					</form> -->
 
 					<a href='profiledash.php' class='profile' id='prop'>
 
@@ -176,6 +174,7 @@ if ($_SESSION["loggedin"]) {
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
+
 													<td><?php echo $row["V_id"] ?></td>
 													<td>0</td>
 													<td><?php echo $row["V_km_driven"] ?></td>
@@ -194,7 +193,7 @@ if ($_SESSION["loggedin"]) {
 													<?php
 													if ($row["V_booking_status"] == 0) {
 														echo "<td>
-															<form action='bookingform.php' method='POST'><input type='submit' name='' value='Book now'></input></form>
+															<form action='bookingform.php' method='POST'><input type='submit' name='login' value='Book now'></input></form>
 															</td>";
 													}
 													?>
@@ -210,9 +209,7 @@ if ($_SESSION["loggedin"]) {
 		</body>
 
 		</html>
-<?php }else{
-	header("location: ../html/customerlog.html");
-}
+<?php }
 } else {
 	header("location: ../html/customerlog.html");
 } ?>

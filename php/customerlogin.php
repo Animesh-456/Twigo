@@ -21,6 +21,7 @@ if($_POST){
 
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
+        $_SESSION["pass"] = $password;
         echo "Logged in succesfully !";
         header("location: dash.php");
     }else{
