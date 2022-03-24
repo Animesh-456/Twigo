@@ -15,25 +15,19 @@ if($_POST){
     echo $email;
 
     $sql = "SELECT * FROM customer WHERE C_email='$email' AND C_password='$password'";
-
-    if($conn->query($sql)){
+    $result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+    if($row!=null){
         session_start();
 
         $_SESSION["loggedin"] = true;
         $_SESSION["email"] = $email;
-        $sql = "SELECT * FROM customer WHERE C_email='$email' AND C_password='$password'";
-        $result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-
-        if($row!=null){
-            header("location: dash.php");
-        }else{
+        header("location: dash.php");
+    }else{
             echo "Error submitting the form!";
         }
         // echo "Logged in succesfully !";
     }else{
-        // header("location: ../html/customerlog.html");
         echo "err";
     }
-}
 ?>
