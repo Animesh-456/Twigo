@@ -1,17 +1,17 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
+if ($_SESSION["remail"]) {
 	include '../php/db.php';
 
-	$semail = $_SESSION["email"];
-	
+	$remail = $_SESSION["remail"];
+
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM customer WHERE C_email='$semail'";
+	$sql = "SELECT * FROM renter WHERE R_email='$remail'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if ($row) {
@@ -26,11 +26,12 @@ if ($_SESSION["loggedin"]) {
 
 			<!-- Boxicons -->
 			<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 			<!-- My CSS -->
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Dashboard</title>
+			<title>TwiGo Renter Dashboard</title>
 		</head>
 
 		<body>
@@ -51,11 +52,6 @@ if ($_SESSION["loggedin"]) {
 					opacity: 0.9;
 					border-radius: 30px;
 				}
-
-
-				#sidebar .side-menu.top li.active a {
-					color: red;
-				}
 			</style>
 			<!-- SIDEBAR -->
 
@@ -67,23 +63,23 @@ if ($_SESSION["loggedin"]) {
 					<li class='active'>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">HOME</span>
+							<span class='text' style="color: #ee0000;">MY VEHICLES</span>
 						</a>
 					</li>
 					<li>
-						<a href='booking.php'>
+						<a href=''>
 							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>Your Cars</span>
+							<span class='text'>BOOKING DETAILS</span>
 						</a>
 					</li>
-					<!-- <li>
-						<a href='history.php'>
+					<li>
+						<a href=''>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
-					</li> -->
+					</li>
 					<li>
-						<a href='profiledash.php'>
+						<a href='renterprofiledash.php'>
 							<i class='bx bxs-message-dots'></i>
 							<span class='text'>MY PROFILE</span>
 						</a>
@@ -92,7 +88,7 @@ if ($_SESSION["loggedin"]) {
 				</ul>
 				<ul class='side-menu'>
 					<li>
-						<a href='helpdash.php'>
+						<a href=''>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
@@ -111,16 +107,16 @@ if ($_SESSION["loggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-					<!-- <i class='bx bx-menu'></i>
+					<i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a>
 					<form action='#'>
 						<div class='form-input'>
 							<input type='search' placeholder='Search...'>
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
 						</div>
-					</form> -->
+					</form>
 
-					<a href='profiledash.php' class='profile' id='prop'>
+					<a href='' class='profile' id='prop'>
 
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
@@ -132,50 +128,49 @@ if ($_SESSION["loggedin"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["C_name"]; ?></h1>
+							<h1><?php echo $row["R_name"]; ?></h1>
 
 						</div>
 						<a href='#' class='btn-download'>
 							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
+							<span class='text'>Add Vehicle</span>
 						</a>
 					</div>
-
 					<?php
 
-					$sql = "SELECT * FROM vehicle";
+					$sql = "SELECT * FROM vehicle WHERE R_email='$remail'";
 					$result = $conn->query($sql);
-					while ($row = $result->fetch_assoc()) {
+
 					?>
-						<div class='table-data'>
-							<div class='order' id="booking">
-								<div class='head'>
-								</div>
-								<div class="table-data">
-									<div class="order">
-										<div class="head">
-											<h3></h3>
-										</div>
-										<table>
-											<thead>
-												<tr>
-													<th>VEHICLE NAME</th>
-													<th>VEHICLE ID</th>
-													<th>VEHICLE RATING</th>
-													<th>KM DRIVEN</th>
-													<th>EMMISION TYPE</th>
-													<th>RATE PER HOUR</th>
-													<th>BOOKING STATUS</th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
+					<div class='table-data'>
+						<div class='order' id="booking">
+							<div class='head'>
+							</div>
+							<div class="table-data">
+								<div class="order">
+									<div class="head">
+										<h3></h3>
+									</div>
+									<table>
+										<thead>
+											<tr>
+												<th>VEHICLE NAME</th>
+												<th>VEHICLE ID</th>
+												<th>VEHICLE RATING</th>
+												<th>KM DRIVEN</th>
+												<th>EMMISION TYPE</th>
+												<th>RATE PER HOUR</th>
+												<th>BOOKING STATUS</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php while ($row = $result->fetch_assoc()) { ?>
 												<tr>
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
-
-													<td><?php echo $row["V_id"] ?></td>
+													<td id="V_id"><?php echo $row["V_id"] ?></td>
 													<td>0</td>
 													<td><?php echo $row["V_km_driven"] ?></td>
 													<td><?php echo $row["V_emmision_type"] ?></td>
@@ -186,30 +181,45 @@ if ($_SESSION["loggedin"]) {
 														$bookingstatus = "available";
 													} else {
 														$booking = "completed";
-														$bookingstatus = "unavailable";
+														$bookingstatus = "Booked";
 													}
 													?>
 													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+
 													<?php
-													if ($row["V_booking_status"] == 0) {
-														echo "<td>
-															<form action='bookingform.php' method='POST'><input type='submit' name='login' value='Book now'></input></form>
-															</td>";
-													}
+
+													$name = $row["V_id"];
+
+													echo "
+														<form action='' method='POST'>
+														<td style='display: none;'><label for='V_id'>V_id</label>
+														<input type='text' id='V_id' name='V_id' value='$name' readonly>
+													</td>
+														<td>
+														
+														<input type='submit' name='val' value='View Details' id='btn' class='button'>
+														</td>
+													</form>";
+													//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
+
 													?>
 												</tr>
+											<?php } ?>
 
-											</tbody>
-										</table>
-									</div>
+										</tbody>
+										<!-- <form action='bookingform.php' method='POST'>
+												<input type='submit' value='Submit' id='btn' class='button'>
+											</form> -->
 
-								</div>
-							<?php } ?>
-							<script src='../JS/dash.js'></script>
+									</table>
+									<script src='../JS/dash.js'></script>
 		</body>
 
+
 		</html>
-<?php }
+<?php } else {
+		echo "No data";
+	}
 } else {
-	header("location: ../html/customerlog.html");
+	header("location: ../html/RenterLogin.html");
 } ?>

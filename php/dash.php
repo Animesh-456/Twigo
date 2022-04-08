@@ -28,6 +28,7 @@ if ($_SESSION["loggedin"]) {
 
 			<!-- Boxicons -->
 			<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 			<!-- My CSS -->
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
@@ -52,11 +53,6 @@ if ($_SESSION["loggedin"]) {
 					display: inline-block;
 					opacity: 0.9;
 					border-radius: 30px;
-				}
-
-
-				#sidebar .side-menu.top li.active a {
-					color: red;
 				}
 			</style>
 			<!-- SIDEBAR -->
@@ -147,31 +143,32 @@ if ($_SESSION["loggedin"]) {
 
 					$sql = "SELECT * FROM vehicle";
 					$result = $conn->query($sql);
-					while ($row = $result->fetch_assoc()) {
+
 					?>
-						<div class='table-data'>
-							<div class='order' id="booking">
-								<div class='head'>
-								</div>
-								<div class="table-data">
-									<div class="order">
-										<div class="head">
-											<h3></h3>
-										</div>
-										<table>
-											<thead>
-												<tr>
-													<th>VEHICLE NAME</th>
-													<th>VEHICLE ID</th>
-													<th>VEHICLE RATING</th>
-													<th>KM DRIVEN</th>
-													<th>EMMISION TYPE</th>
-													<th>RATE PER HOUR</th>
-													<th>BOOKING STATUS</th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
+					<div class='table-data'>
+						<div class='order' id="booking">
+							<div class='head'>
+							</div>
+							<div class="table-data">
+								<div class="order">
+									<div class="head">
+										<h3></h3>
+									</div>
+									<table>
+										<thead>
+											<tr>
+												<th>VEHICLE NAME</th>
+												<th>VEHICLE ID</th>
+												<th>VEHICLE RATING</th>
+												<th>KM DRIVEN</th>
+												<th>EMMISION TYPE</th>
+												<th>RATE PER HOUR</th>
+												<th>BOOKING STATUS</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php while ($row = $result->fetch_assoc()) { ?>
 												<tr>
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
@@ -191,29 +188,51 @@ if ($_SESSION["loggedin"]) {
 													}
 													?>
 													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+
 													<?php
 													if ($row["V_booking_status"] == 0) {
-														$name=$row["V_id"];
-														echo "<td>
-															<form action='bookingform.php' method='POST'><input type='submit' value='Book now' id='book'></input></form>
-															</td>";
+														$name = $row["V_id"];
+
+														echo "
+														<form action='bookingform.php' method='POST'>
+														<td style='display: none;'><label for='V_id'>V_id</label>
+														<input type='text' id='V_id' name='V_id' value='$name' readonly>
+													</td>
+														<td>
+														
+														<input type='submit' name='val' value='Book now' id='btn' class='button'>
+														</td>
+													</form>";
+														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
 													}
 													?>
 												</tr>
+											<?php } ?>
 
-											</tbody>
-										</table>
-									</div>
+										</tbody>
+										<!-- <form action='bookingform.php' method='POST'>
+												<input type='submit' value='Submit' id='btn' class='button'>
+											</form> -->
+
+									</table>
 
 								</div>
-							<?php } ?>
+
+							</div>
+
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 							<script src='../JS/dash.js'></script>
+
+
+
+
 		</body>
 
+
 		</html>
-<?php }else{
-	header("location: ../html/customerlog.html");
-}
+<?php } else {
+		header("location: ../html/customerlog.html");
+	}
 } else {
 	header("location: ../html/customerlog.html");
 } ?>

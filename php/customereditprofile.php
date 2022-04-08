@@ -115,13 +115,13 @@ if ($_SESSION["loggedin"]) {
         }
 
         input[type=file] {
-        z-index: -1;
-        top: 10px;
-        left: 8px;
-        font-size: 17px;
-        color: #b8b8b8;
-        display: none;
-      }
+          z-index: -1;
+          top: 10px;
+          left: 8px;
+          font-size: 17px;
+          color: #b8b8b8;
+          display: none;
+        }
 
         .backbtn {
           background-color: #ee0000;
@@ -182,15 +182,15 @@ if ($_SESSION["loggedin"]) {
         }
 
         .button {
-        display: inline-block;
-        padding: 12px 18px;
-        cursor: pointer;
-        border-radius: 5px;
-        background-color:#ee0000;
-        font-size: 16px;
-        font-weight: bold;
-        color:#f1f1f1;
-      }
+          display: inline-block;
+          padding: 12px 18px;
+          cursor: pointer;
+          border-radius: 5px;
+          background-color: #ee0000;
+          font-size: 16px;
+          font-weight: bold;
+          color: #f1f1f1;
+        }
 
         a {
           text-decoration: none;
@@ -207,7 +207,7 @@ if ($_SESSION["loggedin"]) {
             <tr>
               <td>
                 <br>
-                <h1>Twi<span style="color: #ee0000;">Go</span> Booking </h1>
+                <h1>Twi<span style="color: #ee0000;">Go</span> Edit Profile </h1>
                 <hr>
                 <br>
 
@@ -276,7 +276,7 @@ if ($_SESSION["loggedin"]) {
 
                 <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
               </td>
-              <td>
+              <!-- <td>
                 <div class="card">
                   <img src="../img/undraw_male_avatar_323b.svg" alt="John" style="width:50%">
                   <p>
@@ -284,10 +284,10 @@ if ($_SESSION["loggedin"]) {
         <label class="button" for="upload">Upload Image</label>
         <input id="upload" type="file">
       
-                    <!-- <input type="submit" value="Upload Image" name="submit"> -->
+                   
                   </p>
                 </div>
-              </td>
+              </td> -->
               <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
             </tr>
           </table>

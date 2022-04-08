@@ -19,19 +19,24 @@ if($_POST){
         $dob = $_POST["dob"];
         $gender = $_POST["gender"];
         $psw = $_POST["psw"];
+        $security = $_post["sq"];
+        $adhar = $_POST["adhar"];
 
-         echo $name;
-         echo $address;
-         echo $email;
-         echo $contact;
-         echo $city;
-         echo $lisence;
-         echo $dob;
-         echo $gender;
-         echo $psw;
+        //  echo $name;
+        //  echo $address;
+        //  echo $email;
+        //  echo $contact;
+        //  echo $city;
+        //  echo $lisence;
+        //  echo $dob;
+        //  echo $gender;
+        //  echo $psw;
 
-        $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password)
-        VALUE('$name', '$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw')";
+         $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password, R_security, R_aadhar_id) 
+         values('$name','$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw', '$security', '$adhar' )";
+
+        // $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password, R_security)
+        // VALUE('$name', '$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw', '$security')";
 
         if($conn->query($sql)){
             header("location: ../html/RenterLogin.html");
