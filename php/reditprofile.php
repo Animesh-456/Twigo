@@ -309,7 +309,7 @@ if ($_SESSION["remail"]) {
 
 
             $sql = "UPDATE renter SET R_name='$name', R_address='$address', R_email='$email', R_contact='$contact', R_city='$city', R_lisence_no='$lisence',
-    R_dob='$dob', R_gender='$gender',  R_aadhar_id='$adhar' WHERE R_email='$semail'";
+    R_dob='$dob', R_gender='$gender',  R_aadhar_id='$adhar' WHERE R_email='$remail'";
 
             if ($conn->query($sql)) {
                 // header("location: ../html/customerlog.html");

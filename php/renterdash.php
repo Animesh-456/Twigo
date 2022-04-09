@@ -151,21 +151,24 @@ if ($_SESSION["remail"]) {
 									<div class="head">
 										<h3></h3>
 									</div>
-									<table>
-										<thead>
-											<tr>
-												<th>VEHICLE NAME</th>
-												<th>VEHICLE ID</th>
-												<th>VEHICLE RATING</th>
-												<th>KM DRIVEN</th>
-												<th>EMMISION TYPE</th>
-												<th>RATE PER HOUR</th>
-												<th>BOOKING STATUS</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php while ($row = $result->fetch_assoc()) { ?>
+
+									<?php while ($row = $result->fetch_assoc()) { ?>
+
+										<table>
+											<thead>
+												<tr>
+													<th>VEHICLE NAME</th>
+													<th>VEHICLE ID</th>
+													<th>VEHICLE RATING</th>
+													<th>KM DRIVEN</th>
+													<th>EMMISION TYPE</th>
+													<th>RATE PER HOUR</th>
+													<th>BOOKING STATUS</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+
 												<tr>
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
@@ -204,15 +207,17 @@ if ($_SESSION["remail"]) {
 
 													?>
 												</tr>
-											<?php } ?>
+											<?php
+										} ?>
 
-										</tbody>
-										<!-- <form action='bookingform.php' method='POST'>
+
+											</tbody>
+											<!-- <form action='bookingform.php' method='POST'>
 												<input type='submit' value='Submit' id='btn' class='button'>
 											</form> -->
 
-									</table>
-									<script src='../JS/dash.js'></script>
+										</table>
+										<script src='../JS/dash.js'></script>
 		</body>
 
 
