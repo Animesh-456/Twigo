@@ -53,7 +53,7 @@
     .loginbtn {
       background-color: #ee0000;
       color: white;
-      padding: 16px 20px;
+      padding: 16px 30px;
       margin: 8px 0;
       border: none;
       cursor: pointer;
@@ -80,16 +80,15 @@
 
     .backbtn{
       background-color: #ee0000;
-    display: inline-block;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 16px 30px;
-    font-size: 13px;
-    position: relative;
-    border: none ;
-    border-radius: 30px;
-   
+            display: inline-block;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            padding: 16px 30px;
+            font-size: 13px;
+            position: relative;
+            border: none;
+            border-radius: 30px;
 }
 
 .backbtn:hover {
@@ -106,29 +105,31 @@
 
 <body>
 
-  <form action="../php/renterlog.php" method="post">
+  <form action="../php/renterupdatepass1.php" method="post">
     <div class="container">
       <table>
         <tr>
           <td>
-            <h1>Twi<span style="color: #ee0000;">Go</span> Renter Login</h1>
+            <h1>Twi<span style="color: #ee0000;">Go</span> Renter Security</h1>
       <hr style=" border: 1px solid #ff0000;
       margin-bottom: 25px;
       margin-right: 850px;">
+      
+      <br><br>
+<label for="email"><b><span style="color: #ee0000;">Email</span></b></label>
+<input type="text" placeholder="Enter your email" name="email" id="email" required>
 
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
+<br>
+<label for="sq"><b><span style="color: #ee0000;">Security Question</span></b></label>
+<input type="text" placeholder="Enter your primary School name" name="sq" id="sq" required>
+<br><br>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+<input class="loginbtn" type='submit' name='login' value='submit' style="font-size: 20px;"></input>
 
-      <p>New renter? <a href="renterregister.html">Register</a></p>
-      <p> <a href="Renterupdatepass.html">Forget Password?</a></p>
-
-      <input class="loginbtn" type="submit" name="login" value="Login" style="font-size: 20px;">
+      <!-- <button type="submit" class="loginbtn" style="font-size: 20px;">SUBMIT</button> -->
       <a href="../html/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
           </td>
-          <td><img src="../img/undraw_building_websites_i78t.svg" class="image"></img></td>
+          <td><img src="../img/undraw_surveillance_re_8tkl.svg" class="image"></img></td>
         </tr>
       </table>
       

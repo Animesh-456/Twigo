@@ -22,6 +22,8 @@ if ($conn->connect_error) {
 	$row = $result->fetch_assoc();
 
         if($row!=null){
+            session_start();
+            $_SESSION["cemail"] = $email;
             header("location: custupdatepass2.php");
         }else{
             echo "Error submitting the form!";

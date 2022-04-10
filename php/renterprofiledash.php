@@ -87,7 +87,7 @@ if ($_SESSION["remail"]) {
                 </ul>
                 <ul class='side-menu'>
                     <li>
-                        <a href=''>
+                        <a href='rhelpcenter.php'>
                             <i class='bx bxs-cog'></i>
                             <span class='text'>HELP CENTER</span>
                         </a>
@@ -116,7 +116,7 @@ if ($_SESSION["remail"]) {
                     </form>
                     <!-- <input type='checkbox' id='switch-mode' hidden> -->
                     <!-- <label for='switch-mode' class='switch-mode'></label> -->
-                    <a href='profiledash.php' class='profile' id='prop'>
+                    <a href='renterprofiledash.php' class='profile' id='prop'>
                         <!-- <script>
 					document.body.classList.add('dark');
 				</script> -->

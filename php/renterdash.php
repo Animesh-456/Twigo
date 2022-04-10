@@ -88,7 +88,7 @@ if ($_SESSION["remail"]) {
 				</ul>
 				<ul class='side-menu'>
 					<li>
-						<a href=''>
+						<a href='rhelpcenter.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
@@ -116,7 +116,7 @@ if ($_SESSION["remail"]) {
 						</div>
 					</form>
 
-					<a href='' class='profile' id='prop'>
+					<a href='renterprofiledash.php' class='profile' id='prop'>
 
 						<img src='../img/undraw_male_avatar_323b.svg'>
 

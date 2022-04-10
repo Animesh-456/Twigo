@@ -1,6 +1,6 @@
 <?php session_start();
-if($_SESSION["cemail"]){
-    $cemail = $_SESSION["cemail"];
+if($_SESSION["remail"]){
+    $remail = $_SESSION["remail"];
     include '../php/db.php';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -129,7 +129,7 @@ if ($conn->connect_error) {
       margin-right: 850px;">
                         <br>
                         <label for="email"><b>Enter Your Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $cemail ?>" required readonly>
+                        <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $remail?>" required readonly >
 
 
 
@@ -166,16 +166,19 @@ if ($conn->connect_error) {
 //   echo "Connected successfully";
 
   if($_POST){
+    
     session_destroy();
 
     if($_POST["psw1"]==$_POST["psw"]){
         $password = $_POST["psw"];
         $email = $_POST["email"];
 
-        $sql = "UPDATE customer SET C_password='$password' WHERE C_email='$email'";
+        $sql = "UPDATE renter SET R_password='$password' WHERE R_email='$email'";
+        
     
         if($conn->query($sql)){
-            header("location: ../html/customerlog.html");
+
+            header("location: ../html/RenterLogin.html");
         }else{
             echo "Error submitting the form!";
         }
