@@ -1,25 +1,23 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
-  include '../php/db.php';
+if ($_SESSION["remail"]) {
+	include '../php/db.php';
 
-  if($_POST["val"]){
-    $V_id = $_POST["V_id"];
-  };
-  
-  $conn = new mysqli($servername, $username, $password, $dbname);
+	$remail = $_SESSION["remail"];
 
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
+	$conn = new mysqli($servername, $username, $password, $dbname);
 
-  $sql = "SELECT * FROM vehicle WHERE V_id='$V_id'";
-  $result = $conn->query($sql);
-  $row = $result->fetch_assoc();
-  if ($row) {
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql = "SELECT * FROM renter WHERE R_email='$remail'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	if ($row) {
 ?>
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html>
 
     <head>
@@ -75,7 +73,7 @@ if ($_SESSION["loggedin"]) {
         hr {
           border: 0.5px solid #ff0000;
           margin-bottom: 25px;
-          margin-right: 850px;
+          margin-right: 1150px;
           width: 20%;
         }
 
@@ -195,11 +193,11 @@ if ($_SESSION["loggedin"]) {
     <body>
       <form action="customersubmit.php" method="post">
         <div class="container">
-          <table>
-            <tr>
-              <td>
+          
+            
+              
                 <br>
-                <h1>Twi<span style="color: #ee0000;">Go</span> Booking </h1>
+                <h1>Twi<span style="color: #ee0000;">Go</span> Add Vehicle </h1>
                 <hr>
                 <br>
 
@@ -224,27 +222,11 @@ if ($_SESSION["loggedin"]) {
 
                 <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
                 <button type="reset" class="clearbtn" style="font-size: 20px; margin-left: 150px">Clear</button>
-              </td>
-              <td>
-                <div class="card">
-                  <img src="../img/<?php echo $row["V_name"] ?>.jfif" alt="John" width="80%">
-                  <h1><?php echo $row["V_name"] ?></h1>
-                  <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
-                  <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"] ?></p>
-                  <p class="title">Vehicle Rating:- </p>
-                  <p></p>
-                  <div style="margin: 24px 0;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                  </div>
-                  <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
-                </div>
-              </td>
+              
+              
               <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
-            </tr>
-          </table>
+            
+          
         </div>
       </form>
 

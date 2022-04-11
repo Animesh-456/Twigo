@@ -157,6 +157,7 @@ if ($_SESSION["loggedin"]) {
 									<table>
 										<thead>
 											<tr>
+												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>VEHICLE ID</th>
 												<th>VEHICLE RATING</th>
@@ -170,6 +171,11 @@ if ($_SESSION["loggedin"]) {
 										<tbody>
 											<?php while ($row = $result->fetch_assoc()) { ?>
 												<tr>
+													<?php 
+													$V_name = $row["V_name"];
+													?>
+												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:150px; height:100px;'></img></td>
+													
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
@@ -202,6 +208,7 @@ if ($_SESSION["loggedin"]) {
 														
 														<input type='submit' name='val' value='Book now' id='btn' class='button'>
 														</td>
+														
 													</form>";
 														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
 													}

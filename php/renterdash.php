@@ -131,7 +131,7 @@ if ($_SESSION["remail"]) {
 							<h1><?php echo $row["R_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
+						<a href='vehicleadd.php' class='btn-download'>
 							<i class='bx bxs-cloud-download'></i>
 							<span class='text'>Add Vehicle</span>
 						</a>
@@ -152,11 +152,12 @@ if ($_SESSION["remail"]) {
 										<h3></h3>
 									</div>
 
-									<?php while ($row = $result->fetch_assoc()) { ?>
+									
 
 										<table>
 											<thead>
 												<tr>
+													<th>VEHICLE IMAGE</th>
 													<th>VEHICLE NAME</th>
 													<th>VEHICLE ID</th>
 													<th>VEHICLE RATING</th>
@@ -167,9 +168,11 @@ if ($_SESSION["remail"]) {
 													<th></th>
 												</tr>
 											</thead>
+											<?php while ($row = $result->fetch_assoc()) { ?>
 											<tbody>
 
 												<tr>
+												<td><img src='../img/<?php echo $row["V_name"] ?>.jfif' style='width:150px; height:100px;'></img></td>
 													<td>
 														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
 													</td>
