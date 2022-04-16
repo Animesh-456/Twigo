@@ -159,31 +159,30 @@ if ($_SESSION["loggedin"]) {
 											<tr>
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
-												<th>VEHICLE ID</th>
-												<th>VEHICLE RATING</th>
-												<th>KM DRIVEN</th>
 												<th>EMMISION TYPE</th>
-												<th>RATE PER HOUR</th>
+												<th>RATE(AC/km)</th>
+												<th>RATE(NON-AC/km)</th>
 												<th>BOOKING STATUS</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
+											
 											<?php while ($row = $result->fetch_assoc()) { ?>
 												<tr>
+												<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
 													<?php 
 													$V_name = $row["V_name"];
 													?>
-												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:150px; height:100px;'></img></td>
+												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:180px; height:100px;'></img></td>
 													
 													<td>
-														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
+														<p style="font-weight: bold;"><?php echo $vname; ?></p>
 													</td>
-													<td id="V_id"><?php echo $row["V_id"] ?></td>
-													<td>0</td>
-													<td><?php echo $row["V_km_driven"] ?></td>
+													
 													<td><?php echo $row["V_emmision_type"] ?></td>
-													<td><?php echo $row["V_rate-per_hour"] ?></td>
+													<td><?php echo $row["V_rate_per_km_AC"] ?></td>
+													<td><?php echo $row["V_rate_per_km_NONAC"] ?></td>
 													<?php
 													if ($row["V_booking_status"] == 0) {
 														$booking = "pending";

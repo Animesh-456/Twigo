@@ -160,10 +160,10 @@ if ($_SESSION["remail"]) {
 													<th>VEHICLE IMAGE</th>
 													<th>VEHICLE NAME</th>
 													<th>VEHICLE ID</th>
-													<th>VEHICLE RATING</th>
+													<th>RATE(AC/km)</th>
+													<th>RATE(NON-AC/km)</th>
 													<th>KM DRIVEN</th>
 													<th>EMMISION TYPE</th>
-													<th>RATE PER HOUR</th>
 													<th>BOOKING STATUS</th>
 													<th></th>
 												</tr>
@@ -171,16 +171,19 @@ if ($_SESSION["remail"]) {
 											<?php while ($row = $result->fetch_assoc()) { ?>
 											<tbody>
 
+											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
+
 												<tr>
 												<td><img src='../img/<?php echo $row["V_name"] ?>.jfif' style='width:150px; height:100px;'></img></td>
 													<td>
-														<p style="font-weight: bold;"><?php echo $row["V_name"] ?></p>
+														<p style="font-weight: bold;"><?php echo $vname; ?></p>
 													</td>
 													<td id="V_id"><?php echo $row["V_id"] ?></td>
-													<td>0</td>
+													<td><?php echo $row["V_rate_per_km_AC"] ?></td>
+													<td><?php echo $row["V_rate_per_km_NONAC"] ?></td>
 													<td><?php echo $row["V_km_driven"] ?></td>
 													<td><?php echo $row["V_emmision_type"] ?></td>
-													<td><?php echo $row["V_rate-per_hour"] ?></td>
+													
 													<?php
 													if ($row["V_booking_status"] == 0) {
 														$booking = "pending";
@@ -197,7 +200,7 @@ if ($_SESSION["remail"]) {
 													$name = $row["V_id"];
 
 													echo "
-														<form action='' method='POST'>
+														<form action='cardetails.php' method='POST'>
 														<td style='display: none;'><label for='V_id'>V_id</label>
 														<input type='text' id='V_id' name='V_id' value='$name' readonly>
 													</td>

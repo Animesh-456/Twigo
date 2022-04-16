@@ -44,7 +44,7 @@ if ($_SESSION["remail"]) {
         /* Full-width input fields */
         input[type=text],
         input[type=password],
-        select[id=city],
+        select[id=vcity],
         input[type=number],
         input[type=tel],
         input[type=date],
@@ -54,7 +54,8 @@ if ($_SESSION["remail"]) {
         select[id=sedancname],
         select[id=suvcname],
         select[id=hatchbackcname],
-        select[id=evcname]{
+        select[id=evcname],
+        textarea {
           width: 50%;
           padding: 15px;
           margin: 5px 0px 33px 0px;
@@ -68,7 +69,7 @@ if ($_SESSION["remail"]) {
 
         input[type=text]:focus,
         input[type=password]:focus,
-        select[id=city]:focus,
+        select[id=vcity]:focus,
         input[type=number]:focus,
         input[type=date]:focus,
         input[type=tel]:focus,
@@ -78,7 +79,8 @@ if ($_SESSION["remail"]) {
         select[id=sedancname]:focus,
         select[id=suvcname]:focus,
         select[id=hatchbackcname]:focus,
-        select[id=ev]:focus{
+        select[id=ev]:focus,
+        textarea:focus {
           background-color: #ddd;
           outline: none;
         }
@@ -217,40 +219,31 @@ if ($_SESSION["remail"]) {
     </head>
 
     <body>
-      <form action="customersubmit.php" method="post">
+      <form action="" method="post">
         <div class="container">
 
 
 
           <br>
-          <h1>Twi<span style="color: #ee0000;">Go</span> Add Vehicle </h1>
+          <h1>Twi<span style="color: #ee0000;">Go</span> Vehicle Details </h1>
           <hr>
           <br>
 
 
           <!-- <table style="width: 100%;"> -->
 
-
-
-
-          <label for="F_type" name="ftype"><b>Fuel Type</b></label>
-          <select id="ftype" name="ftype">
-            <option value="diesel">Diesel</option>
-            <option value="electric">Electric</option>
-          </select>
-
-          <label for="V_type" name="vtype"><b>Vehicle Type</b></label>
-          <select id="vtype" name="vtype" >
-            <option value="sedan" selected="selected">Sedan</option>
+          <label for="V_type" name="vtype" id="vehtype"><b>Vehicle Type</b></label>
+          <select id="vtype" name="vtype">
+            <option value="sedan">Sedan</option>
             <option value="suv">Suv</option>
             <option value="hatchback">Hatchback</option>
             <option value="evsedan">EV-Sedan</option>
           </select>
 
           <label for="sedancname" name="sedancname"><b>Car name</b></label>
-          <div id="sedan" >
-            <select id="sedancname" name="carname">
-              <option value="Suzukidzire">Suzuki Dzire</option>
+          <div id="sedan">
+            <select id="sedancname" name="sedancname">
+              <option value="SuzukiDzire">Suzuki Dzire</option>
               <option value="TataTigor">Tata Tigor</option>
               <option value="HondaCity">Honda City</option>
               <option value="SuzukiCiaz">Suzuki Ciaz</option>
@@ -262,7 +255,7 @@ if ($_SESSION["remail"]) {
           </div>
           <div id="suv">
 
-            <select id="suvcname"  name="carname">
+            <select id="suvcname" name="suvcname">
               <option value="KiaSeltos">Kia Seltos</option>
               <option value="HyundaiCreta">Hyundai Creta</option>
               <option value="MahindraThar">Mahindra Thar</option>
@@ -276,39 +269,52 @@ if ($_SESSION["remail"]) {
             </select>
           </div>
           <div id="hatchback">
-          <select id="hatchbackcname"  name="carname">
-          <option value="RenaultKwid">Renault Kwid</option>
+            <select id="hatchbackcname" name="hatchbackcname">
+              <option value="RenaultKwid">Renault Kwid</option>
               <option value="HyundaiSantro">Hyundai Santro</option>
               <option value="TataTiago">Tata Tiago</option>
               <option value="HyundaiGrandi10nios">Hyundai Grand i10 nios</option>
               <option value="SuzukiSwift">Suzuki Swift</option>
               <option value="VolkswagenPolo">Volkswagen Polo</option>
-              <option value="Hyundaii20">Hyundai i20</option>
+              <option value="HyundaiI20">Hyundai i20</option>
               <option value="SuzukiWagonR">Suzuki WagonR </option>
               <option value="TataAltroz">Tata Altroz</option>
-          </select>
+            </select>
           </div>
           <div id="ev">
-          <select id="evcname" name="carname">
-              <option value="TataTigorEV">Tata Tigor EV</option>
-          </select>
+            <select id="evcname" name="evcname">
+              <option value="TataTigor">Tata Tigor EV</option>
+            </select>
           </div>
 
           <!-- <label for="V_type"><b>Start Date</b></label>
                 <input type="text" placeholder="" name="sdate" id="sdate" required> -->
 
-          <label for="edate"><b>End Date</b></label>
-          <input type="date" placeholder="" name="edate" id="edate" required>
+          <label for="vnumber"><b>Vehicle Number</b></label>
+          <input type="text" placeholder="WB42AD6423" name="vnumber" required>
 
-          <label for="days"><b>No of days</b></label>
-          <input type="number" placeholder="for how many days" name="days" id="days" required>
+          <label for="vchasis"><b>Vehicle Chasis Number</b></label>
+          <input type="number" placeholder="55476214" name="vchasis" required>
 
-          <label for="days"><b>Bill Amount</b></label>
-          <input type="number" placeholder="total money to pay" name="amt" id="amt" required>
+          <label for="vkmdriven"><b>Vehicle Km Driven</b></label>
+          <input type="number" placeholder="400" name="vkmdriven" required>
 
-          <label for="days"><b>A/C Number- 6734565784654</b></label><br>
+          <label for="vcity"><b>Vehicle City</b></label>
+          <select id="vcity" name="vcity">
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+          </select>
+
+
+          <label for="vaddress"><b>Vehicle Address</b></label>
+          <input type="text" placeholder="155, Shahani Trust, Navghar Road, Mulund (east), Mumbai" name="vaddress" required>
+
+          <label for="vdescription"><b>Vehicle Description</b></label>
+          <textarea id="" name="vdescription" rows="4" cols="50" placeholder="Something about this vehicle"></textarea>
+
           <br>
-          <input type="submit" name="Book" value="Book" style="font-size: 20px;">
+          <input type="submit" name="Add" value="Add Vehicle" style="font-size: 20px;">
           </input>
 
           <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
@@ -325,10 +331,15 @@ if ($_SESSION["remail"]) {
     <!-- <script src="JS/booking.js"></script> -->
     <script>
       var e = document.getElementById("vtype");
+
       var strUser;
+
       function show() {
         var as = document.forms[0].vtype.value;
+
+
         strUser = e.options[e.selectedIndex].value;
+
         console.log(as, strUser);
         if (strUser == "sedan") {
           console.log("This is a sedan car");
@@ -336,33 +347,103 @@ if ($_SESSION["remail"]) {
           document.getElementById("suv").style.display = "none";
           document.getElementById("hatchback").style.display = "none";
           document.getElementById("ev").style.display = "none";
+
         } else if (strUser == "suv") {
           console.log("This is a suv car");
           document.getElementById("sedan").style.display = "none";
           document.getElementById("suv").style.display = "block";
           document.getElementById("hatchback").style.display = "none";
           document.getElementById("ev").style.display = "none";
+
         } else if (strUser == "hatchback") {
           console.log("This is a hatchback car");
           document.getElementById("sedan").style.display = "none";
           document.getElementById("suv").style.display = "none";
           document.getElementById("hatchback").style.display = "block";
           document.getElementById("ev").style.display = "none";
-        }else if(strUser=="evsedan"){
+
+        } else if (strUser == "evsedan") {
           console.log("This is a ev car");
           document.getElementById("sedan").style.display = "none";
           document.getElementById("suv").style.display = "none";
           document.getElementById("hatchback").style.display = "none";
           document.getElementById("ev").style.display = "block";
-        }
 
+        }
       }
       e.onchange = show;
+
       show();
     </script>
+
+    <?php
+    if ($_POST) {
+      $acrate = "0";
+      $emmissiontype = "0";
+      $nonacrate = "0";
+      $ty=$_POST["vtype"];
+      if ($_POST["vtype"] == "sedan") {
+        $type = "Sedan";
+        $name = $_POST["sedancname"];
+        $acrate = "10";
+        $nonacrate = "9";
+        $emmissiontype = "Diesel";
+      } else if ($_POST["vtype"] == "suv") {
+        $type = "Suv";
+        $name = $_POST["suvcname"];
+        $acrate = "12";
+        $nonacrate = "11";
+        $emmissiontype = "Diesel";
+      } else if ($_POST["vtype"] == "evsedan") {
+        $type = "EV-Sedan";
+        $name = $_POST["evcname"];
+        $emmissiontype = "Electric";
+      } else if ($_POST["vtype"] == "hatchback") {
+        $type = "Hatchback";
+        $name = $_POST["hatchbackcname"];
+        $acrate = "9";
+        $nonacrate = "8";
+        $emmissiontype = "Diesel";
+      }
+      $V_num = $_POST["vnumber"];
+      $V_chasis = $_POST["vchasis"];
+      $V_km_driv = $_POST["vkmdriven"];
+      $V_address = $_POST["vaddress"];
+      $V_description = $_POST["vdescription"];
+      $V_city = $_POST["vcity"];
+
+
+      $sql = "INSERT INTO vehicle(V_name, R_email, V_address, V_no, V_Chasis_no, V_type, V_description, V_city, 
+      V_km_driven, V_emmision_type, V_rate_per_km_AC, V_rate_per_km_NONAC) 
+         values('$name','$remail', '$V_address', '$V_num', '$V_chasis', '$type', '$V_description', 
+         '$V_city', '$V_km_driv', '$emmissiontype', '$acrate', '$nonacrate')";
+
+      // $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password, R_security)
+      // VALUE('$name', '$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw', '$security')";
+
+      if ($conn->query($sql)) {
+        echo "<script>window.location='renterdash.php'</script>";
+      } else {
+        echo "Error submitting the form!" . $conn->error;
+        echo "<br>$V_num
+      $V_chasis
+      $V_km_driv
+      $V_address 
+      $V_description
+      $V_city
+      $acrate 
+      $nonacrate 
+      $emmissiontype
+      $ty
+      $name
+      $remail
+      $V_address";
+      }
+    }
+    ?>
 
     </html>
 <?php }
 } else {
-  header("location: ../html/customerlog.html");
+  header("location: ../html/RenterLogin.html");
 } ?>

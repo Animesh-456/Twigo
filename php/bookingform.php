@@ -228,17 +228,13 @@ if ($_SESSION["loggedin"]) {
               <td>
                 <div class="card">
                   <img src="../img/<?php echo $row["V_name"] ?>.jfif" alt="John" width="80%">
-                  <h1><?php echo $row["V_name"] ?></h1>
+                  <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
+                  <h1><?php echo $vname ?></h1>
                   <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
                   <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"] ?></p>
                   <p class="title">Vehicle Rating:- </p>
                   <p></p>
-                  <div style="margin: 24px 0;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                  </div>
+                  
                   <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
                 </div>
               </td>

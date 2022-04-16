@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2022 at 06:37 PM
+-- Generation Time: Apr 14, 2022 at 07:13 AM
 -- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,18 +83,18 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_contact`, `C_city`, `C_lisence_no`, `C_adhar_id`, `C_dob`, `C_image`, `C_gender`, `C_password`, `C_a/c_no`, `C_ifsc`, `RV_id`) VALUES
-('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '', '7407934219', 'Kolkata', '5555555555555', '123456', '2000-06-29', '', 'Male', 'Animesh2906', 0, 0, 0),
-('arpan23@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2022-03-13', '', 'Male', 'andamannicobarislands', 0, 0, 0),
-('bruno123@gmail.com', 'Swarnava Samanta', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '55223366', '0', '2022-03-02', '', 'Male', '22556688997744', 0, 0, 0),
-('h23@gmail.com', 'Henna Nielsen', 'Winden', 'I play i learn', '995587546', 'Mumbai', '45678910', '123456789', '1989-12-08', '', 'Female', '1234', 0, 0, 0),
-('h@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234', 0, 0, 0),
-('helge34@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234', 0, 0, 0),
-('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Female', '5678', 0, 0, 0),
-('m34@gmail.com', 'Martha Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '55223366', '0', '2022-03-06', '', 'Female', '1234', 0, 0, 0),
-('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '0', '2001-06-29', '', 'Male', '123456', 0, 0, 0),
-('suarna69@gmail.com', 'Suparna', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2010-10-15', '', 'Others', '123456789', 0, 0, 0),
-('Ulrich789@gmail.com', 'Ulrich Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '45678910', '0', '1997-05-25', '', 'Male', '1234', 0, 0, 0),
-('xyz@gmail.com', 'Ayshik', 'Howrah', '', '1234567890', 'Kolkata', '123456', '0', '2000-11-02', '', 'Male', '1234567890', 0, 0, 0);
+('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '', '7407934219', 'Kolkata', '5555555555555', '123456', '2000-06-29', '', 'Male', 'Animesh2906\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('arpan23@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2022-03-13', '', 'Male', 'andamannicobarislands\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('bruno123@gmail.com', 'Swarnava Samanta', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '55223366', '0', '2022-03-02', '', 'Male', '22556688997744\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('h23@gmail.com', 'Henna Nielsen', 'Winden', 'I play i learn', '995587546', 'Mumbai', '45678910', '123456789', '1989-12-08', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('h@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('helge34@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Female', '9999', 0, 0, 0),
+('m34@gmail.com', 'Martha Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '55223366', '0', '2022-03-06', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '0', '2001-06-29', '', 'Male', '1234', 0, 0, 0),
+('suarna69@gmail.com', 'Suparna', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2010-10-15', '', 'Others', '123456789\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('Ulrich789@gmail.com', 'Ulrich Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '45678910', '0', '1997-05-25', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
+('xyz@gmail.com', 'Ayshik', 'Howrah', '', '1234567890', 'Kolkata', '123456', '0', '2000-11-02', '', 'Male', '1234567890\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -112,11 +112,19 @@ CREATE TABLE `renter` (
   `R_gender` varchar(50) NOT NULL,
   `R_lisence_no` varchar(50) NOT NULL,
   `R_aadhar_id` int(12) NOT NULL,
-  `R_a/c_no` int(50) NOT NULL,
+  `R_acno` int(50) NOT NULL,
   `R_ifsc` int(50) NOT NULL,
   `R_vehicle_img` varchar(50) NOT NULL,
-  `R_DOB` date NOT NULL
+  `R_DOB` date NOT NULL,
+  `R_security` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `renter`
+--
+
+INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, `R_contact`, `R_gender`, `R_lisence_no`, `R_aadhar_id`, `R_acno`, `R_ifsc`, `R_vehicle_img`, `R_DOB`, `R_security`) VALUES
+('martha123@gmail.com', 'Martha Nielsen', '7777', 'Kolkata', 'Winden', 2147483647, 'Female', '55223366', 55446633, 55446666, 44558877, '', '1999-06-05', 'I play i learn');
 
 -- --------------------------------------------------------
 
@@ -160,9 +168,9 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_rate-per_hour`) VALUES
-(3, 'anim334@gmail.com', '', 'Swift Desire', 'Petrol', 885, 2000, 12556, 'petrol', '', 'ghuytyrtftf', 0, 10),
-(4, 'm34@gmail.com', '', 'Maruti Alto', 'Petrol', 669, 2010, 5523, 'petrol', '', 'ghuytyrtftf', 0, 10),
-(5, 'anim29006@gmail.com', '', 'Baleno', 'Petrol', 225, 2011, 55663, 'Petrol', '', 'ksdhfisegfvisdfgsd', 1, 12);
+(3, 'martha123@gmail.com', '', 'Dzire', 'Petrol', 885, 2000, 12556, 'petrol', '', 'ghuytyrtftf', 0, 10),
+(4, 'martha123@gmail.com', '', 'TATA TIGOR', 'Petrol', 669, 2010, 5523, 'petrol', '', 'ghuytyrtftf', 0, 10),
+(5, 'anim29006@gmail.com', '', 'city', 'Petrol', 225, 2011, 55663, 'Petrol', '', 'ksdhfisegfvisdfgsd', 1, 12);
 
 --
 -- Indexes for dumped tables
@@ -210,7 +218,8 @@ ALTER TABLE `review`
 ALTER TABLE `vehicle`
   ADD PRIMARY KEY (`V_id`),
   ADD KEY `R_email` (`R_email`),
-  ADD KEY `R_email_2` (`R_email`);
+  ADD KEY `R_email_2` (`R_email`),
+  ADD KEY `R_email_3` (`R_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
