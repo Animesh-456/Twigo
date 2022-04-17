@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Progressive Form | Multi Steps Form</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div class="head">
+			<header>Twi<span style="color : red;" color="red">GO</span> Booking Form</header>
+		</div>
+		<div class="header">
+
+			<ul>
+				<li class="active form_1_progessbar">
+					<div>
+						<p>1</p>
+					</div>
+				</li>
+				<li class="form_2_progessbar">
+					<div>
+						<p>2</p>
+					</div>
+				</li>
+				<li class="form_3_progessbar">
+					<div>
+						<p>3</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<form method="post" action="">
+			<div class="form_wrap">
+				<div class="form_1 data_info">
+					<h2>Choose</h2>
+					<form>
+						<div class="form_container">
+							<div class="input_wrap">
+								<label for="Ride Type">Ride type</label>
+
+								<select id="rt" required>
+									<option>City Ride</option>
+									<option>Long Trip</option>
+									<option>Solo Ride</option>
+								</select>
+							</div><br>
+						</div>
+					</form>
+				</div>
+				<div class="form_2 data_info" style="display: none;">
+					<h2>Personal Info</h2>
+					<form name="f2">
+						<div class="form_container">
+							<div class="input_wrap">
+								<label for="user_name">First Name</label>
+								<input type="text" name="fName" class="input" id="user_name" required>
+							</div>
+							<div class="input_wrap">
+								<label for="first_name">Last Name</label>
+								<input type="text" name="lName" class="input" id="first_name">
+							</div>
+							<div class="input_wrap">
+								<label for="last_name">E-mail</label>
+								<input type="email" name="email" class="input" id="last_name">
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="form_3 data_info" style="display: none;">
+					<h2>Address</h2>
+					<form name="f3">
+						<div class="form_container">
+							<div class="input_wrap">
+								<label for="company">Pick-Up Address</label>
+								<input type="text" name="padd" class="input" id="company" required>
+							</div>
+							<div class="input_wrap">
+								<label for="experience">Drop Address</label>
+								<input type="text" name="dadd" class="input" id="experience" required>
+							</div><br>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="btns_wrap">
+				<div class="common_btns form_1_btns">
+					<button type="button" class="btn_next">Next <span class="icon">
+							<ion-icon name="arrow-forward-sharp"></ion-icon>
+						</span></button>
+				</div>
+				<div class="common_btns form_2_btns" style="display: none;">
+					<button type="button" class="btn_back"><span class="icon">
+							<ion-icon name="arrow-back-sharp"></ion-icon>
+						</span>Back</button>
+					<button type="button" class="btn_next">Next <span class="icon">
+							<ion-icon name="arrow-forward-sharp"></ion-icon>
+						</span></button>
+				</div>
+				<div class="common_btns form_3_btns" style="display: none;">
+					<button type="button" class="btn_back"><span class="icon">
+							<ion-icon name="arrow-back-sharp"></ion-icon>
+						</span>Back</button>
+					<button type="button" class="btn_done">Done</button>
+				</div>
+			</div>
+	</div>
+
+	<div class="modal_wrapper">
+		<div class="shadow"></div>
+		<div class="success_wrap">
+			<span class="modal_icon">
+				<ion-icon name="checkmark-sharp"></ion-icon>
+			</span>
+			<p>You have successfully completed the process.</p>
+		</div>
+	</div>
+	</form>
+
+	<script type="text/javascript" src="scripts.js"></script>
+
+</body>
+
+</html>
