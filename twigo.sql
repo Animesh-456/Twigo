@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2022 at 07:13 AM
+-- Generation Time: Apr 17, 2022 at 01:43 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -83,6 +83,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_contact`, `C_city`, `C_lisence_no`, `C_adhar_id`, `C_dob`, `C_image`, `C_gender`, `C_password`, `C_a/c_no`, `C_ifsc`, `RV_id`) VALUES
+('', '', '', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0),
 ('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '', '7407934219', 'Kolkata', '5555555555555', '123456', '2000-06-29', '', 'Male', 'Animesh2906\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('arpan23@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2022-03-13', '', 'Male', 'andamannicobarislands\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('bruno123@gmail.com', 'Swarnava Samanta', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '55223366', '0', '2022-03-02', '', 'Male', '22556688997744\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
@@ -160,17 +161,21 @@ CREATE TABLE `vehicle` (
   `V_image` varchar(1000) NOT NULL,
   `V_address` varchar(50) NOT NULL,
   `V_booking_status` tinyint(1) NOT NULL DEFAULT 0,
-  `V_rate-per_hour` int(4) NOT NULL
+  `V_rate_per_km_AC` int(4) NOT NULL,
+  `V_rate_per_km_NONAC` int(5) NOT NULL,
+  `V_city` varchar(12) NOT NULL,
+  `V_description` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vehicle`
 --
 
-INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_rate-per_hour`) VALUES
-(3, 'martha123@gmail.com', '', 'Dzire', 'Petrol', 885, 2000, 12556, 'petrol', '', 'ghuytyrtftf', 0, 10),
-(4, 'martha123@gmail.com', '', 'TATA TIGOR', 'Petrol', 669, 2010, 5523, 'petrol', '', 'ghuytyrtftf', 0, 10),
-(5, 'anim29006@gmail.com', '', 'city', 'Petrol', 225, 2011, 55663, 'Petrol', '', 'ksdhfisegfvisdfgsd', 1, 12);
+INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_rate_per_km_AC`, `V_rate_per_km_NONAC`, `V_city`, `V_description`) VALUES
+(7, 'martha123@gmail.com', 'WB42AD6423', 'MahindraThar', 'Suv', 5678941, 0000, 110, 'Diesel', '', 'New Town Kolkata', 0, 12, 11, 'Kolkata', 'THAR IS AWESOME'),
+(8, 'martha123@gmail.com', 'WB42AD6427', 'RenaultKwid', 'Hatchback', 412375, 0000, 500, 'Diesel', '', 'New Town ', 1, 9, 8, 'Delhi', 'Its comfortable'),
+(10, 'martha123@gmail.com', 'WB42AD6429', 'HyundaiI20', 'Hatchback', 498756221, 0000, 250, 'Diesel', '', 'Knaud Place', 0, 9, 8, 'Delhi', 'This car really looks nice '),
+(12, 'martha123@gmail.com', 'WB42AD6422', 'TataTigor', 'EV-Sedan', 4568799, 0000, 4500, 'Electric', '', 'Knaud Place', 0, 0, 0, 'Delhi', 'This is an electric car');
 
 --
 -- Indexes for dumped tables
@@ -241,7 +246,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
