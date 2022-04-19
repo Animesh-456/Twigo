@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        width: 600px;
+       }
+    </style>
+  </head>
+  <body>
+    <!--The div elements for the map and message -->
+    <div id="map"></div>
+    <div id="msg"></div>
+    <script>
+// Initialize and add the map
+var map;
+function initMap() {
+  // The map, centered on Central Park
+  
+  const center = {lat: 19.0760, lng: 72.8777};
+  const options = {zoom: 15, scaleControl: true, center: center};
+  map = new google.maps.Map(
+      document.getElementById('map'), options);
+  // Locations of landmarks
+//   const dakota = {lat: 18.9220, lng: 72.9182};
+//   const frick = {lat: 19.2288, lng: 72.9182};
+//   // The markers for The Dakota and The Frick Collection
+//   var mk1 = new google.maps.Marker({position: dakota, map: map});
+//   var mk2 = new google.maps.Marker({position: frick, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL -- remember to replace YOUR_API_KEY-->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDhSuG4W4IhpCDyjaVHwr4ZqKfJzui21I&callback=initMap">
+    </script>
+  </body>
+</html>

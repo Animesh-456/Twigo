@@ -31,9 +31,10 @@ body{
 	width: 400px;
 	max-width: 100%;
 	background: var(--white);
+	box-shadow: 0 20px 20px 0 rgba(202, 18, 18, 0.856);
 	/* margin: 100px auto 0; */
-	margin-right: 50px;
-	margin-left: 200px;
+	margin-right: 30px;
+	margin-left: 50px;
 	margin-top: 80px;
 	padding: 50px;
 	border-radius: 5px;
@@ -265,3 +266,7 @@ select[id=rt] {
 	margin: 0 0 30px 0;
   
   }
+  
+  
+
+  

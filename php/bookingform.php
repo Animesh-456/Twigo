@@ -3,10 +3,13 @@ session_start();
 if ($_SESSION["loggedin"]) {
   include '../php/db.php';
 
-  if($_POST["val"]){
+  if ($_POST["val"]) {
     $V_id = $_POST["V_id"];
   };
-  
+
+  $semail = $_SESSION["email"];
+
+
   $conn = new mysqli($servername, $username, $password, $dbname);
 
   if ($conn->connect_error) {
@@ -25,10 +28,13 @@ if ($_SESSION["loggedin"]) {
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" type="image/x-icon" href="../img/fav.png">
+      <link rel="stylesheet" type="text/css" href="../CSS/bookingstyles.css">
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
       <style>
         body {
           font-family: Arial, Helvetica, sans-serif;
-          background-color: rgb(255, 255, 255);
+          background-color: black;
         }
 
         * {
@@ -39,12 +45,12 @@ if ($_SESSION["loggedin"]) {
         .container {
           margin-left: 10%;
           padding: 16px;
-          background-color: white;
+          background-color: black;
           margin-top: -30px;
         }
 
         /* Full-width input fields */
-        input[type=text],
+        /* input[type=text],
         input[type=password],
         select[id=city],
         input[type=number],
@@ -69,7 +75,7 @@ if ($_SESSION["loggedin"]) {
         select[id=gender]:focus {
           background-color: #ddd;
           outline: none;
-        }
+        } */
 
         /* Overwrite default styles of hr */
         hr {
@@ -159,11 +165,14 @@ if ($_SESSION["loggedin"]) {
         }
 
         .card {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          max-width: 500px;
+          box-shadow: 0 10px 10px 0 rgba(202, 18, 18, 0.856);
+          max-width: 600px;
           /* margin: auto; */
-          margin-left: -70%;
+          margin-left: 20%;
+          margin-top: 70px;
           text-align: center;
+          background-color: white;
+
           /* font-family: arial; */
         }
 
@@ -182,6 +191,7 @@ if ($_SESSION["loggedin"]) {
           text-align: center;
           width: 100%;
           font-size: 18px;
+
         }
 
         a {
@@ -193,50 +203,145 @@ if ($_SESSION["loggedin"]) {
     </head>
 
     <body>
-      <form action="customersubmit.php" method="post">
+      <form action="" method="post">
         <div class="container">
           <table>
             <tr>
               <td>
                 <br>
-                <h1>Twi<span style="color: #ee0000;">Go</span> Booking </h1>
-                <hr>
-                <br>
+                <div class="wrapper">
 
 
-                <!-- <table style="width: 100%;"> -->
-                <label for="sdate"><b>Start Date</b></label>
-                <input type="date" placeholder="" name="sdate" id="sdate" required>
+                  <div class="head">
+                    <header>
+                      <center>Twi<span style="color : red;" color="red">GO</span> Booking Form</center>
+                    </header>
+                  </div>
+                  <div class="header">
 
-                <label for="edate"><b>End Date</b></label>
-                <input type="date" placeholder="" name="edate" id="edate" required>
+                    <ul>
+                      <li class="active form_1_progessbar">
+                        <div>
+                          <p>1</p>
+                        </div>
+                      </li>
+                      <li class="form_2_progessbar">
+                        <div>
+                          <p>2</p>
+                        </div>
+                      </li>
+                      <li class="form_3_progessbar">
+                        <div>
+                          <p>3</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <form method="post" action="">
+                    <div class="form_wrap">
+                      <div class="form_1 data_info">
+                        <h2>Choose</h2>
+                        <form>
+                          <div class="form_container">
+                            <div class="input_wrap">
+                              <label for="Ride Type">Ride type</label>
 
-                <label for="days"><b>No of days</b></label>
-                <input type="number" placeholder="for how many days" name="days" id="days" required>
+                              <select id="rt" required name="rt">
+                                <option>City Ride</option>
+                                <option>Long Trip</option>
+                                <option>Solo Ride</option>
+                              </select>
+                            </div><br>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="form_2 data_info" style="display: none;">
+                        <h2>Personal Info</h2>
+                        <form name="f2">
+                          <div class="form_container">
+                            <div class="input_wrap">
+                              <label for="user_name">First Name</label>
+                              <input type="text" name="fName" class="input" id="user_name" required>
+                            </div>
+                            <div class="input_wrap">
+                              <label for="first_name">Last Name</label>
+                              <input type="text" name="lName" class="input" id="first_name">
+                            </div>
+                            <div class="input_wrap">
+                              <label for="last_name">E-mail</label>
+                              <input type="email" name="email" class="input" id="last_name">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="form_3 data_info" style="display: none;">
+                        <h2>Address</h2>
+                        <form name="f3">
+                          <div class="form_container">
+                            <div class="input_wrap">
+                              <label for="company">Pick-Up Address</label>
+                              <input type="text" name="padd" class="input" id="company" required>
+                            </div>
+                            <div class="input_wrap">
+                              <label for="experience">Drop Address</label>
+                              <input type="text" name="dadd" class="input" id="experience" required>
+                            </div><br>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="btns_wrap">
+                      <div class="common_btns form_1_btns">
+                        <button type="button" class="btn_next">Next <span class="icon">
+                            <ion-icon name="arrow-forward-sharp"></ion-icon>
+                          </span></button>
+                      </div>
+                      <div class="common_btns form_2_btns" style="display: none;">
+                        <button type="button" class="btn_back"><span class="icon">
+                            <ion-icon name="arrow-back-sharp"></ion-icon>
+                          </span>Back</button>
+                        <button type="button" class="btn_next">Next <span class="icon">
+                            <ion-icon name="arrow-forward-sharp"></ion-icon>
+                          </span></button>
+                      </div>
+                      <div class="common_btns form_3_btns" style="display: none;">
+                        <button type="button" class="btn_back"><span class="icon">
+                            <ion-icon name="arrow-back-sharp"></ion-icon>
+                          </span>Back</button>
+                        <button type="button" class="btn_done">Done</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
 
-                <label for="days"><b>Bill Amount</b></label>
-                <input type="number" placeholder="total money to pay" name="amt" id="amt" required>
+                <div class="modal_wrapper">
+                  <div class="shadow"></div>
+                  <div class="success_wrap">
+                    <span class="modal_icon">
+                      <ion-icon name="checkmark-sharp"></ion-icon>
+                    </span>
+                    <p>You have successfully completed the process.</p>
+                    <input type="submit" name="submit"></input>
+                  </div>
+                </div>
 
-                <label for="days"><b>A/C Number- 6734565784654</b></label><br>
-                <br>
-                <input type="submit" name="Book" value="Book" style="font-size: 20px;">
-                </input>
-
-                <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
-                <button type="reset" class="clearbtn" style="font-size: 20px; margin-left: 150px">Clear</button>
               </td>
               <td>
-                <div class="card">
+                <div class="card" id="card">
                   <img src="../img/<?php echo $row["V_name"] ?>.jfif" alt="John" width="80%">
-                  <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
+                  <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]); ?>
                   <h1><?php echo $vname ?></h1>
                   <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
                   <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"] ?></p>
                   <p class="title">Vehicle Rating:- </p>
                   <p></p>
-                  
+
                   <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
                 </div>
+              </td>
+
+              <td>
+                
               </td>
               <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
             </tr>
@@ -245,7 +350,27 @@ if ($_SESSION["loggedin"]) {
       </form>
 
     </body>
-    <script src="JS/booking.js"></script>
+    <!-- <script src="JS/booking.js"></script> -->
+    <script type="text/javascript" src="../JS/bookingscripts.js"></script>
+    <?php 
+    
+    if(isset($_POST["submit"])){
+
+      $rtype = $_POST["rt"];
+
+      $sql = "INSERT INTO booking(B_img_pay) 
+      values('$rtype' )";
+
+      if($conn->query($sql)){
+        header("location: ../php/renterdash.php");
+      }else{
+          echo "Error submitting the form!";
+      }
+
+    }
+    
+    
+    ?>
 
     </html>
 <?php }
