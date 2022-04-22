@@ -251,7 +251,7 @@ body{
 	transform: translate(-50%,-50%);
 }
 
-select[id=rt] {
+select[id=rt], select[id=km] {
 	border: 2px solid var(--secondary);
 	border-radius: 3px;
 	padding: 10px;

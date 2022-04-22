@@ -199,7 +199,7 @@ if ($_SESSION["loggedin"]) {
 														$name = $row["V_id"];
 
 														echo "
-														<form action='bookingform.php' method='POST'>
+														<form action='rtype.php' method='POST'>
 														<td style='display: none;'><label for='V_id'>V_id</label>
 														<input type='text' id='V_id' name='V_id' value='$name' readonly>
 													</td>

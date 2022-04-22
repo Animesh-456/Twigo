@@ -3,9 +3,9 @@ session_start();
 if ($_SESSION["loggedin"]) {
   include '../php/db.php';
 
-  if ($_POST["val"]) {
-    $V_id = $_POST["V_id"];
-  };
+  
+    $V_id = $_SESSION["V_id"];
+  
 
   $semail = $_SESSION["email"];
 
@@ -203,15 +203,13 @@ if ($_SESSION["loggedin"]) {
     </head>
 
     <body>
-      <form action="" method="post">
+      <form action="citysubmit.php" method="post" name="f">
         <div class="container">
           <table>
             <tr>
               <td>
                 <br>
                 <div class="wrapper">
-
-
                   <div class="head">
                     <header>
                       <center>Twi<span style="color : red;" color="red">GO</span> Booking Form</center>
@@ -237,42 +235,40 @@ if ($_SESSION["loggedin"]) {
                       </li>
                     </ul>
                   </div>
-                  <form method="post" action="">
+                  
                     <div class="form_wrap">
                       <div class="form_1 data_info">
                         <h2>Choose</h2>
-                        <form>
+                        
                           <div class="form_container">
                             <div class="input_wrap">
                               <label for="Ride Type">Ride type</label>
 
                               <select id="rt" required name="rt">
                                 <option>City Ride</option>
-                                <option>Long Trip</option>
-                                <option>Solo Ride</option>
+                                
                               </select>
                             </div><br>
                           </div>
-                        </form>
+                        
                       </div>
                       <div class="form_2 data_info" style="display: none;">
-                        <h2>Personal Info</h2>
-                        <form name="f2">
+                        <h2>Travel Info</h2>
+                        <!-- <form name="f2"> -->
                           <div class="form_container">
+
                             <div class="input_wrap">
-                              <label for="user_name">First Name</label>
-                              <input type="text" name="fName" class="input" id="user_name" required>
-                            </div>
-                            <div class="input_wrap">
-                              <label for="first_name">Last Name</label>
-                              <input type="text" name="lName" class="input" id="first_name">
-                            </div>
-                            <div class="input_wrap">
-                              <label for="last_name">E-mail</label>
-                              <input type="email" name="email" class="input" id="last_name">
-                            </div>
+                              <label for="Ride Type">Select Distance</label>
+
+                              <select id="km" required name="km">
+                                <option value="0-10">0-10 KM</option>
+                                <option value="10-20">10-20 KM</option>
+                                <option value="20-30">20-30 KM</option>
+                              </select>
+                              <br>
+                            </div><br>
                           </div>
-                        </form>
+                        <!-- </form> -->
                       </div>
                       <div class="form_3 data_info" style="display: none;">
                         <h2>Address</h2>
@@ -311,7 +307,7 @@ if ($_SESSION["loggedin"]) {
                         <button type="button" class="btn_done">Done</button>
                       </div>
                     </div>
-                  </form>
+
                 </div>
 
                 <div class="modal_wrapper">
@@ -322,55 +318,41 @@ if ($_SESSION["loggedin"]) {
                     </span>
                     <p>You have successfully completed the process.</p>
                     <input type="submit" name="submit"></input>
-                  </div>
-                </div>
+                    
+      </form>
+      </div>
+      </div>
 
-              </td>
-              <td>
-                <div class="card" id="card">
-                  <img src="../img/<?php echo $row["V_name"] ?>.jfif" alt="John" width="80%">
-                  <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]); ?>
-                  <h1><?php echo $vname ?></h1>
-                  <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
-                  <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"] ?></p>
-                  <p class="title">Vehicle Rating:- </p>
-                  <p></p>
+      </td>
+      <td>
+        <div class="card" id="card">
+          <img src="../img/<?php echo $row["V_name"] ?>.jfif" alt="John" width="80%">
+          <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]); ?>
+          <h1><?php echo $vname ?></h1>
+          <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
+          <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"];
+          $_SESSION["V_type"]=$row["V_type"];
+          $_SESSION["V_id"]=$row["V_id"]; ?></p>
+          
+          <p></p>
 
-                  <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
-                </div>
-              </td>
-
-              <td>
-                
-              </td>
-              <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
-            </tr>
-          </table>
+          <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
         </div>
+      </td>
+
+      <td>
+
+      </td>
+      <!-- <td><img src="../img/undraw_travel_booking_re_6umu.svg" class="image"></img></td> -->
+      </tr>
+      </table>
+      </div>
       </form>
 
     </body>
     <!-- <script src="JS/booking.js"></script> -->
-    <script type="text/javascript" src="../JS/bookingscripts.js"></script>
-    <?php 
-    
-    if(isset($_POST["submit"])){
+    <script type="text/javascript" src="../JS/citybookingscripts.js"></script>
 
-      $rtype = $_POST["rt"];
-
-      $sql = "INSERT INTO booking(B_img_pay) 
-      values('$rtype' )";
-
-      if($conn->query($sql)){
-        header("location: ../php/renterdash.php");
-      }else{
-          echo "Error submitting the form!";
-      }
-
-    }
-    
-    
-    ?>
 
     </html>
 <?php }

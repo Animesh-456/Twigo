@@ -45,11 +45,7 @@ form_2_back_btn.addEventListener("click", function(){
 form_2_next_btn.addEventListener("click", function(){
 
 		
-	var x = document.forms["f2"]["fName"].value;
-	var y= document.forms["f2"]["lName"].value;
-	var z= document.forms["f2"]["email"].value;
-
-	if(x,y,z!=""){
+	
 	form_2.style.display = "none";
 	form_3.style.display = "block";
 
@@ -57,12 +53,14 @@ form_2_next_btn.addEventListener("click", function(){
 	form_2_btns.style.display = "none";
 
 	form_3_progessbar.classList.add("active");
-	document.getElementById("card").style.display="none";
-	}
+	
 });
 
 form_3_back_btn.addEventListener("click", function(){
 
+
+
+	
 	form_2.style.display = "block";
 	form_3.style.display = "none";
 
@@ -70,7 +68,6 @@ form_3_back_btn.addEventListener("click", function(){
 	form_2_btns.style.display = "flex";
 
 	form_3_progessbar.classList.remove("active");
-	document.getElementById("card").style.display="block";
 	
 });
 
@@ -78,8 +75,8 @@ form_3_back_btn.addEventListener("click", function(){
 
 
 btn_done.addEventListener("click", function(){
-	 var x = document.forms["f3"]["padd"].value;
-	 var y= document.forms["f3"]["dadd"].value;
+	 var x = document.forms["f"]["padd"].value;
+	 var y= document.forms["f"]["dadd"].value;
 
 	if(x,y!=""){
 	
