@@ -12,7 +12,7 @@ if ($_SESSION["loggedin"]) {
     $rtype = $_POST["ridetype"];
     if ($rtype == "CityRide") {
         header("location: cityride.php");
-    } else if ($rtype == "LongRide") {
+    } else if ($rtype == "LongTrip") {
         header("location: longride.php");
     } else if ($rtype == "SoloTrip") {
         header("location: soloride.php");
