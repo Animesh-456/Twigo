@@ -164,7 +164,7 @@ if ($_SESSION["loggedin"]) {
 								<tbody>
 									<tr>
 										<td>
-											<p>1-10KM -> ₹80</p>
+											<p>1-10km -> ₹80</p>
 										</td>
 										<td>1-10km -> ₹100</td>
 										<td>1-10km -> ₹160</td>
@@ -213,20 +213,20 @@ if ($_SESSION["loggedin"]) {
 								<tbody>
                                 <tr>
 										<td>
-											<p>NON-AC -> 10</p>
+											<p>NON-AC -> 10/km</p>
 										</td>
-										<td>NON-AC -> 12</td>
-                                        <td>NON-AC -> 17</td>
-                                        <td>NON-AC -> 12</td>
+										<td>NON-AC -> 12/km</td>
+                                        <td>NON-AC -> 17/km</td>
+                                        <td>NON-AC -> 12/km</td>
 
 
 									</tr>
 									<tr>
 										<td>
-											<p>AC -> 11</p>
-										<td>AC -> 13</td>
-										<td>AC -> 18</td>
-                                        <td>AC -> 13</td>
+											<p>AC -> 11/km</p>
+										<td>AC -> 13/km</td>
+										<td>AC -> 18/km</td>
+                                        <td>AC -> 13/km</td>
 										</td>
 									</tr>
 								</tbody>
