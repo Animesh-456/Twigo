@@ -108,3 +108,24 @@ EV
 10-20km - 180/-
 
 20-30km - 320/-
+
+
+SOLO 
+Sedan
+
+1day=5000
+
+SUV
+
+1 day = 8000
+
+
+Hatchback
+
+1day=3500
+
+
+EV
+
+1day=4000
+

@@ -52,14 +52,13 @@ if ($_SESSION["loggedin"]) {
 					border-radius: 30px;
 				}
 
-				
+
 				#sidebar .side-menu.top li.active a {
-	color: red;	
-}
-			
+					color: red;
+				}
 			</style>
 			<!-- SIDEBAR -->
-			
+
 			<section id='sidebar'>
 				<a href='#' class='brand'>
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
@@ -77,6 +76,15 @@ if ($_SESSION["loggedin"]) {
 							<span class='text'>BOOKINGS</span>
 						</a>
 					</li>
+
+					<li>
+						<a href='rate.php'>
+
+							<i class='bx bx-rupee'></i>
+							<span class='text'>RATES</span>
+						</a>
+					</li>
+
 					<li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
@@ -100,8 +108,8 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li>
 						<a href='logout.php' class='logout'>
-							<i class='bx bxs-log-out-circle'style="color: #ee0000;"></i>
-							<span class='text'style="color: #ee0000;">Logout</span>
+							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">Logout</span>
 						</a>
 					</li>
 				</ul>
@@ -139,48 +147,48 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						
+
 					</div>
 					<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
-						<!-- <i class='bx bx-search' ></i>
+						<div class="order">
+							<div class="head">
+								<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
+								<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>CITY NAME</th>
-								<th>CUSTOMER HELPLINE NUMBER</th>
-								<th>EMAIL</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<p>KOLKATA</p>
-								</td>
-								<td>1800 900546</td>
-								<td>twigo247@gmail.com</td>
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>CITY NAME</th>
+										<th>CUSTOMER HELPLINE NUMBER</th>
+										<th>EMAIL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p>KOLKATA</p>
+										</td>
+										<td>1800 900546</td>
+										<td>twigo247@gmail.com</td>
 
 
-							</tr>
-							<tr>
-								<td>
-									<p>MUMBAI</p>
-								<td>1800 900548</td>
-								<td>twigo247@gmail.com</td>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<p>DELHI</p>
-								<td>1800 900547</td>
-								<td>twigo247@gmail.com</td>
-								</td>
-							</tr>
-							<!-- <tr>
+									</tr>
+									<tr>
+										<td>
+											<p>MUMBAI</p>
+										<td>1800 900548</td>
+										<td>twigo247@gmail.com</td>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>DELHI</p>
+										<td>1800 900547</td>
+										<td>twigo247@gmail.com</td>
+										</td>
+									</tr>
+									<!-- <tr>
 								<td>
 									<img src="img/people.png">
 									<p>John Doe</p>
@@ -212,10 +220,10 @@ if ($_SESSION["loggedin"]) {
 								<td>01-10-2021</td>
 								<td><span class="status completed">Completed</span></td>
 							</tr> -->
-						</tbody>
-					</table>
-				</div>
-				<!-- <div class="todo">
+								</tbody>
+							</table>
+						</div>
+						<!-- <div class="todo">
 					<div class="head">
 						<h3>Todos</h3>
 						<i class='bx bx-plus' ></i>
@@ -244,8 +252,8 @@ if ($_SESSION["loggedin"]) {
 						</li>
 					</ul>
 				</div> -->
-			</div>
-			<script src='../JS/dash.js'></script>
+					</div>
+					<script src='../JS/dash.js'></script>
 		</body>
 
 		</html>

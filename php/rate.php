@@ -62,26 +62,24 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					
+					<li>
 						<a href='dash.php'>
-							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">HOME</span>
+							<i class='bx bxs-dashboard'></i>
+							<span class='text'>HOME</span>
 						</a>
-					
+					</li>
 					<li>
 						<a href='booking.php'>
 							<i class='bx bxs-shopping-bag-alt'></i>
 							<span class='text'>BOOKINGS</span>
 						</a>
 					</li>
-					<li>
-                    <li class='active'>
+					<li class='active'>
 						<a href='rate.php'>
-						
-							<i class='bx bx-rupee'></i>
-							<span class='text'>RATES</span>
+
+							<i class='bx bx-rupee' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">RATES</span>
 						</a>
-                    </li>
 					</li>
 					<li>
 						<a href='history.php'>
@@ -142,101 +140,119 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
+						<!-- <a href='#' class='btn-download'>
 							<i class='bx bxs-cloud-download'></i>
 							<span class='text'>Download PDF</span>
-						</a>
+						</a> -->
 					</div>
-
-					<?php
-
-					$sql = "SELECT * FROM vehicle";
-					$result = $conn->query($sql);
-
-					?>
-					<div class='table-data'>
-						<div class='order' id="booking">
-							<div class='head'>
+					<div class="table-data">
+						<div class="order">
+							<div class="head">
+								<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
+								<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
 							</div>
-							<div class="table-data">
-								<div class="order">
-									<div class="head">
-										<h3></h3>
-									</div>
-									<table>
-										<thead>
-											<tr>
-												<th>VEHICLE IMAGE</th>
-												<th>VEHICLE NAME</th>
-												<th>EMMISION TYPE</th>
-												<th>RATE(AC/km)</th>
-												<th>RATE(NON-AC/km)</th>
-												<th>BOOKING STATUS</th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											
-											<?php while ($row = $result->fetch_assoc()) { ?>
-												<tr>
-												<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
-													<?php 
-													$V_name = $row["V_name"];
-													?>
-												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:180px; height:100px;'></img></td>
-													
-													<td>
-														<p style="font-weight: bold;"><?php echo $vname; ?></p>
-													</td>
-													
-													<td><?php echo $row["V_emmision_type"] ?></td>
-													<td><?php echo $row["V_rate_per_km_AC"] ?></td>
-													<td><?php echo $row["V_rate_per_km_NONAC"] ?></td>
-													<?php
-													if ($row["V_booking_status"] == 0) {
-														$booking = "pending";
-														$bookingstatus = "available";
-													} else {
-														$booking = "completed";
-														$bookingstatus = "unavailable";
-													}
-													?>
-													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+							<table>
+								<thead>
+									<tr>
+										<th>CITY NAME</th>
+										<th>CUSTOMER HELPLINE NUMBER</th>
+										<th>EMAIL</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<p>KOLKATA</p>
+										</td>
+										<td>1800 900546</td>
+										<td>twigo247@gmail.com</td>
 
-													<?php
-													if ($row["V_booking_status"] == 0) {
-														$name = $row["V_id"];
 
-														echo "
-														<form action='rtype.php' method='POST'>
-														<td style='display: none;'><label for='V_id'>V_id</label>
-														<input type='text' id='V_id' name='V_id' value='$name' readonly>
-													</td>
-														<td>
-														
-														<input type='submit' name='val' value='Book now' id='btn' class='button'>
-														</td>
-														
-													</form>";
-														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
-													}
-													?>
-												</tr>
-											<?php } ?>
+									</tr>
+									<tr>
+										<td>
+											<p>MUMBAI</p>
+										<td>1800 900548</td>
+										<td>twigo247@gmail.com</td>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>DELHI</p>
+										<td>1800 900547</td>
+										<td>twigo247@gmail.com</td>
+										</td>
+									</tr>
+									<!-- <tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status process">Process</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status pending">Pending</span></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="img/people.png">
+									<p>John Doe</p>
+								</td>
+								<td>01-10-2021</td>
+								<td><span class="status completed">Completed</span></td>
+							</tr> -->
+								</tbody>
+							</table>
+						</div>
+						<!-- <div class="todo">
+					<div class="head">
+						<h3>Todos</h3>
+						<i class='bx bx-plus' ></i>
+						<i class='bx bx-filter' ></i>
+					</div>
+					<ul class="todo-list">
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+						<li class="not-completed">
+							<p>Todo List</p>
+							<i class='bx bx-dots-vertical-rounded' ></i>
+						</li>
+					</ul>
+				</div> -->
+					</div>
+				</main>
 
-										</tbody>
-										<!-- <form action='bookingform.php' method='POST'>
-												<input type='submit' value='Submit' id='btn' class='button'>
-											</form> -->
-
-									</table>
-
-								</div>
-
-							</div>
-
-							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-							<script src='../JS/dash.js'></script>
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+					<script src='../JS/dash.js'></script>
 
 
 

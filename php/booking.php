@@ -76,6 +76,15 @@ if ($_SESSION["loggedin"]) {
 							<span class='text' style="color: #ee0000;">BOOKINGS</span>
 						</a>
 					</li>
+
+					<li>
+						<a href='rate.php'>
+						
+							<i class='bx bx-rupee'></i>
+							<span class='text'>RATES</span>
+						</a>
+					</li>
+					
 					<li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>

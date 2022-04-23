@@ -15,7 +15,7 @@ if ($_SESSION["loggedin"]) {
     } else if ($rtype == "LongRide") {
         header("location: longride.php");
     } else if ($rtype == "SoloTrip") {
-        header("location: solo.php");
+        header("location: soloride.php");
     }
 }
 }else{
