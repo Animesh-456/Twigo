@@ -148,106 +148,123 @@ if ($_SESSION["loggedin"]) {
 					<div class="table-data">
 						<div class="order">
 							<div class="head">
-								<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
+								<h3><span style="color: #ee0000;">CITY RIDE</span>  </h3>
 								<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 							</div>
 							<table>
 								<thead>
 									<tr>
-										<th>CITY NAME</th>
-										<th>CUSTOMER HELPLINE NUMBER</th>
-										<th>EMAIL</th>
+										<th>HATCHBACK</th>
+										<th>SEDAN</th>
+										<th>SUV</th>
+                                        <th>SEDAN EV</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>
-											<p>KOLKATA</p>
+											<p>1-10KM -> ₹80</p>
 										</td>
-										<td>1800 900546</td>
-										<td>twigo247@gmail.com</td>
+										<td>1-10km -> ₹100</td>
+										<td>1-10km -> ₹160</td>
+                                        <td>1-10km -> ₹50</td>
 
 
 									</tr>
 									<tr>
 										<td>
-											<p>MUMBAI</p>
-										<td>1800 900548</td>
-										<td>twigo247@gmail.com</td>
+											<p>10-20km -> ₹200</p>
+										<td>10-20km -> ₹250</td>
+										<td>10-20km -> ₹300</td>
+                                        <td>10-20km -> ₹180</td>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<p>DELHI</p>
-										<td>1800 900547</td>
-										<td>twigo247@gmail.com</td>
+											<p>20-30km -> ₹380</p>
+										<td>20-30km -> ₹400</td>
+										<td>20-30km -> ₹500</td>
+                                        <td>20-30km -> ₹320</td>
 										</td>
 									</tr>
-									<!-- <tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr> -->
 								</tbody>
 							</table>
+                            
 						</div>
-						<!-- <div class="todo">
-					<div class="head">
-						<h3>Todos</h3>
-						<i class='bx bx-plus' ></i>
-						<i class='bx bx-filter' ></i>
+                        
 					</div>
-					<ul class="todo-list">
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-						<li class="not-completed">
-							<p>Todo List</p>
-							<i class='bx bx-dots-vertical-rounded' ></i>
-						</li>
-					</ul>
-				</div> -->
+                    <div class="table-data">
+						<div class="order">
+							<div class="head">
+								<h3><span style="color: #ee0000;">LONG RIDE</span>  </h3>
+								<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>HATCHBACK</th>
+										<th>SEDAN</th>
+										<th>SUV</th>
+                                        <th>SEDAN EV</th>
+									</tr>
+								</thead>
+								<tbody>
+                                <tr>
+										<td>
+											<p>NON-AC -> 10</p>
+										</td>
+										<td>NON-AC -> 12</td>
+                                        <td>NON-AC -> 17</td>
+                                        <td>NON-AC -> 12</td>
+
+
+									</tr>
+									<tr>
+										<td>
+											<p>AC -> 11</p>
+										<td>AC -> 13</td>
+										<td>AC -> 18</td>
+                                        <td>AC -> 13</td>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+                            
+						</div>
+                        
+					</div>
+                    <div class="table-data">
+						<div class="order">
+							<div class="head">
+								<h3><span style="color: #ee0000;">SOLO RIDE</span>(NO OF DAYS x RATE)  </h3>
+								<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>HATCHBACK</th>
+										<th>SEDAN</th>
+										<th>SUV</th>
+                                        <th>SEDAN EV</th>
+									</tr>
+								</thead>
+								<tbody>
+                                <tr>
+										<td>
+											<p>1 DAY -> 3500</p>
+										</td>
+										<td>1 DAY -> 5000</td>
+                                        <td>1 DAY -> 8000</td>
+                                        <td>1 DAY -> 4000</td>
+									</tr>
+								</tbody>
+							</table>
+                            
+						</div>
+                        
 					</div>
 				</main>
 
