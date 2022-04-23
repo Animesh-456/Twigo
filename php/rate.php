@@ -62,12 +62,12 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li class='active'>
+					
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
 							<span class='text' style="color: #ee0000;">HOME</span>
 						</a>
-					</li>
+					
 					<li>
 						<a href='booking.php'>
 							<i class='bx bxs-shopping-bag-alt'></i>
@@ -75,11 +75,13 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</li>
 					<li>
+                    <li class='active'>
 						<a href='rate.php'>
 						
 							<i class='bx bx-rupee'></i>
 							<span class='text'>RATES</span>
 						</a>
+                    </li>
 					</li>
 					<li>
 						<a href='history.php'>
