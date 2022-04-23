@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2022 at 01:43 PM
+-- Generation Time: Apr 23, 2022 at 08:07 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -45,14 +45,26 @@ CREATE TABLE `booking` (
   `B_id` int(50) NOT NULL,
   `C_email` varchar(50) NOT NULL,
   `V_id` int(50) NOT NULL,
-  `R_email` varchar(50) NOT NULL,
-  `V_pickup_address` varchar(50) NOT NULL,
+  `R_email` varchar(50) DEFAULT NULL,
+  `B_type` varchar(50) NOT NULL,
+  `B_distance` varchar(5) NOT NULL,
+  `B_round_trip` binary(5) NOT NULL,
+  `B_pickup_address` varchar(50) NOT NULL,
+  `B_drop_address` varchar(50) NOT NULL,
   `B_date` datetime(5) NOT NULL,
   `B_amount` int(50) NOT NULL,
-  `B_payment` int(50) NOT NULL,
+  `B_payment` binary(50) NOT NULL,
   `B_img_pay` varchar(1000) NOT NULL,
-  `B_end_date` datetime(5) NOT NULL
+  `B_end_date` datetime(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `R_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_payment`, `B_img_pay`, `B_end_date`) VALUES
+(17, 'k123@gmail.com', 7, NULL, 'City Ride', '0-10', 0x0000000000, 'del', 'kol', '2022-04-22 06:39:41.00000', 160, 0x3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, '', NULL),
+(18, 'k123@gmail.com', 10, NULL, 'City Ride', '10-20', 0x0000000000, 'del', 'kol', '2023-04-22 08:03:55.00000', 200, 0x3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +102,7 @@ INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_conta
 ('h23@gmail.com', 'Henna Nielsen', 'Winden', 'I play i learn', '995587546', 'Mumbai', '45678910', '123456789', '1989-12-08', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('h@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('helge34@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
-('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Female', '9999', 0, 0, 0),
+('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Female', '1234', 0, 0, 0),
 ('m34@gmail.com', 'Martha Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '55223366', '0', '2022-03-06', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '0', '2001-06-29', '', 'Male', '1234', 0, 0, 0),
 ('suarna69@gmail.com', 'Suparna', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2010-10-15', '', 'Others', '123456789\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
@@ -172,9 +184,9 @@ CREATE TABLE `vehicle` (
 --
 
 INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_rate_per_km_AC`, `V_rate_per_km_NONAC`, `V_city`, `V_description`) VALUES
-(7, 'martha123@gmail.com', 'WB42AD6423', 'MahindraThar', 'Suv', 5678941, 0000, 110, 'Diesel', '', 'New Town Kolkata', 0, 12, 11, 'Kolkata', 'THAR IS AWESOME'),
+(7, 'martha123@gmail.com', 'WB42AD6423', 'MahindraThar', 'Suv', 5678941, 0000, 110, 'Diesel', '', 'New Town Kolkata', 1, 12, 11, 'Kolkata', 'THAR IS AWESOME'),
 (8, 'martha123@gmail.com', 'WB42AD6427', 'RenaultKwid', 'Hatchback', 412375, 0000, 500, 'Diesel', '', 'New Town ', 1, 9, 8, 'Delhi', 'Its comfortable'),
-(10, 'martha123@gmail.com', 'WB42AD6429', 'HyundaiI20', 'Hatchback', 498756221, 0000, 250, 'Diesel', '', 'Knaud Place', 0, 9, 8, 'Delhi', 'This car really looks nice '),
+(10, 'martha123@gmail.com', 'WB42AD6429', 'HyundaiI20', 'Hatchback', 498756221, 0000, 250, 'Diesel', '', 'Knaud Place', 1, 9, 8, 'Delhi', 'This car really looks nice '),
 (12, 'martha123@gmail.com', 'WB42AD6422', 'TataTigor', 'EV-Sedan', 4568799, 0000, 4500, 'Electric', '', 'Knaud Place', 0, 0, 0, 'Delhi', 'This is an electric car');
 
 --
@@ -234,7 +246,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `review`

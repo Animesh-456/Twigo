@@ -58,9 +58,6 @@ form_2_next_btn.addEventListener("click", function(){
 
 form_3_back_btn.addEventListener("click", function(){
 
-
-
-	
 	form_2.style.display = "block";
 	form_3.style.display = "none";
 
