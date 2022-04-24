@@ -10,6 +10,7 @@ if ($_SESSION["loggedin"]) {
 
   $email = $_SESSION["email"];
   $V_id = $_SESSION["V_id"];
+  
 
 
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,38 +26,91 @@ if ($_SESSION["loggedin"]) {
     $pickup = $_POST["padd"];
     $drop = $_POST["dadd"];
     $V_type = $_SESSION["V_type"];
+    $round = $_POST["roundtrip"];
     if ($V_type == "Sedan") {
       if ($distance == "0-10") {
-        $amount = "100";
+        if($round == "null"){
+          $amount = "100";
+        }else if($round == "yes"){
+          $amount = "200";
+        }
       } else if ($distance == "10-20") {
-        $amount = "250";
+        if($round == "null"){
+          $amount = "250";
+        }else if($round == "yes"){
+          $amount = "500";
+        }
       } else if ($distance == "20-30") {
-        $amount = "400";
+        if($round == "null"){
+          $amount = "400";
+        }else if($round == "yes"){
+          $amount = "800";
+        }
       }
     } else if ($V_type == "Suv") {
       if ($distance == "0-10") {
-        $amount = "160";
+        if($round == "null"){
+          $amount = "160";
+        }else if($round == "yes"){
+          $amount = "320";
+        }
       } else if ($distance == "10-20") {
-        $amount = "300";
+        if($round == "null"){
+          $amount = "300";
+        }else if($round == "yes"){
+          $amount = "600";
+        }
       } else if ($distance == "20-30") {
-        $amount = "500";
+        if($round == "null"){
+          $amount = "500";
+        }else if($round == "yes"){
+          $amount = "1000";
+        }
       }
     } else if ($V_type == "Hatchback") {
       if ($distance == "0-10") {
-        $amount = "80";
+        if($round == "null"){
+          $amount = "80";
+        }else if($round == "yes"){
+          $amount = "160";
+        }
       } else if ($distance == "10-20") {
-        $amount = "200";
+        if($round == "null"){
+          $amount = "200";
+        }else if($round == "yes"){
+          $amount = "400";
+        }
       } else if ($distance == "20-30") {
-        $amount = "300";
+        if($round == "null"){
+          $amount = "300";
+        }else if($round == "yes"){
+          $amount = "600";
+        }
       }
     } else if ($V_type == "EV-Sedan") {
       if ($distance == "0-10") {
-        $amount = "50";
+        if($round == "null"){
+          $amount = "50";
+        }else if($round == "yes"){
+          $amount = "100";
+        }
       } else if ($distance == "10-20") {
-        $amount = "100";
+        if($round == "null"){
+          $amount = "100";
+        }else if($round == "yes"){
+          $amount = "200";
+        }
       } else if ($distance == "20-30") {
-        $amount = "320";
+        if($round == "null"){
+          $amount = "320";
+        }else if($round == "yes"){
+          $amount = "640";
+        }
       }
+
+      
+
+      
     }
     $date = date('d-m-y h:i:s');
     $paymentstatus = "0";
@@ -73,7 +127,7 @@ if ($_SESSION["loggedin"]) {
 
     if ($conn->query($sq)) {
       $conn->query($sql);
-      header("location: ../php/booking.php");
+      header("location: ../php/checkout.php");
     } else {
       echo "Error submitting the form!" . $conn->error;
     }

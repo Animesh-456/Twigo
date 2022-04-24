@@ -270,6 +270,18 @@ if ($_SESSION["loggedin"]) {
                                 <option value="7passenger">7 passenger</option>
                               </select>
                               <br>
+                              <label for="AC/NONAC">A/C or NON-AC</label>
+                              <select id="acnonac" required name="acnonac">
+                                <option value="AC">AC</option>
+                                <option value="NONAC">NON AC</option>
+                              </select>
+                              <br>
+                              <label for="Round Trip">Round Trip</label>
+                          <select id="roundtrip" required name="roundtrip">
+                            <option value="null">Select</option>
+                            <option value="yes">Yes</option>
+                            
+                          </select>
                             </div><br>
                           </div>
                         <!-- </form> -->

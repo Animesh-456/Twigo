@@ -3,9 +3,9 @@ session_start();
 if ($_SESSION["loggedin"]) {
   include '../php/db.php';
 
-  
-    $V_id = $_SESSION["V_id"];
-  
+
+  $V_id = $_SESSION["V_id"];
+
 
   $semail = $_SESSION["email"];
 
@@ -49,33 +49,7 @@ if ($_SESSION["loggedin"]) {
           margin-top: -30px;
         }
 
-        /* Full-width input fields */
-        /* input[type=text],
-        input[type=password],
-        select[id=city],
-        input[type=number],
-        input[type=tel],
-        input[type=date],
-        select[id=gender] {
-          width: 50%;
-          padding: 15px;
-          margin: 5px 0px 33px 0px;
-          display: block;
-          border: none;
-          background: #f1f1f1;
-          border-radius: 30px;
-        }
-
-        input[type=text]:focus,
-        input[type=password]:focus,
-        select[id=city]:focus,
-        input[type=number]:focus,
-        input[type=date]:focus,
-        input[type=tel]:focus,
-        select[id=gender]:focus {
-          background-color: #ddd;
-          outline: none;
-        } */
+        
 
         /* Overwrite default styles of hr */
         hr {
@@ -85,20 +59,7 @@ if ($_SESSION["loggedin"]) {
           width: 20%;
         }
 
-        /* Set a style for the submit button */
-        /* .registerbtn {
-      background-color: #ee0000;
-      color: white;
-      padding: 16px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 35%;
-      display:inline-block;
-      opacity: 0.9;
-      border-radius: 30px;
-      
-    } */
+        
 
         .registerbtn:hover {
           opacity: 1;
@@ -235,78 +196,84 @@ if ($_SESSION["loggedin"]) {
                       </li>
                     </ul>
                   </div>
-                  
-                    <div class="form_wrap">
-                      <div class="form_1 data_info">
-                        <h2>Choose</h2>
-                        
-                          <div class="form_container">
-                            <div class="input_wrap">
-                              <label for="Ride Type">Ride type</label>
 
-                              <select id="rt" required name="rt">
-                                <option>City Ride</option>
-                                
-                              </select>
-                            </div><br>
-                          </div>
-                        
-                      </div>
-                      <div class="form_2 data_info" style="display: none;">
-                        <h2>Travel Info</h2>
-                        <!-- <form name="f2"> -->
-                          <div class="form_container">
+                  <div class="form_wrap">
+                    <div class="form_1 data_info">
+                      <h2>Choose</h2>
 
-                            <div class="input_wrap">
-                              <label for="Ride Type">Select Distance</label>
+                      <div class="form_container">
+                        <div class="input_wrap">
+                          <label for="Ride Type">Ride type</label>
 
-                              <select id="km" required name="km">
-                                <option value="0-10">0-10 KM</option>
-                                <option value="10-20">10-20 KM</option>
-                                <option value="20-30">20-30 KM</option>
-                              </select>
-                              <br>
-                            </div><br>
-                          </div>
-                        <!-- </form> -->
+                          <select id="rt" required name="rt">
+                            <option>City Ride</option>
+
+                          </select>
+                        </div><br>
                       </div>
-                      <div class="form_3 data_info" style="display: none;">
-                        <h2>Address</h2>
-                        <form name="f3">
-                          <div class="form_container">
-                            <div class="input_wrap">
-                              <label for="company">Pick-Up Address</label>
-                              <input type="text" name="padd" class="input" id="company" required>
-                            </div>
-                            <div class="input_wrap">
-                              <label for="experience">Drop Address</label>
-                              <input type="text" name="dadd" class="input" id="experience" required>
-                            </div><br>
-                          </div>
-                        </form>
-                      </div>
+
                     </div>
-                    <div class="btns_wrap">
-                      <div class="common_btns form_1_btns">
-                        <button type="button" class="btn_next">Next <span class="icon">
-                            <ion-icon name="arrow-forward-sharp"></ion-icon>
-                          </span></button>
+                    <div class="form_2 data_info" style="display: none;">
+                      <h2>Travel Info</h2>
+                      <!-- <form name="f2"> -->
+                      <div class="form_container">
+
+                        <div class="input_wrap">
+                          <label for="Ride Type">Select Distance</label>
+
+                          <select id="km" required name="km">
+                            <option value="0-10">0-10 KM</option>
+                            <option value="10-20">10-20 KM</option>
+                            <option value="20-30">20-30 KM</option>
+                          </select>
+                          <br>
+                          <label for="Round Trip">Round Trip</label>
+                          <select id="roundtrip" required name="roundtrip">
+                            <option value="null">Select</option>
+                            <option value="yes">Yes</option>
+                            
+                          </select>
+                        </div><br>
                       </div>
-                      <div class="common_btns form_2_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon">
-                            <ion-icon name="arrow-back-sharp"></ion-icon>
-                          </span>Back</button>
-                        <button type="button" class="btn_next">Next <span class="icon">
-                            <ion-icon name="arrow-forward-sharp"></ion-icon>
-                          </span></button>
-                      </div>
-                      <div class="common_btns form_3_btns" style="display: none;">
-                        <button type="button" class="btn_back"><span class="icon">
-                            <ion-icon name="arrow-back-sharp"></ion-icon>
-                          </span>Back</button>
-                        <button type="button" class="btn_done">Done</button>
-                      </div>
+                      <!-- </form> -->
                     </div>
+                    <div class="form_3 data_info" style="display: none;">
+                      <h2>Address</h2>
+                      <form name="f3">
+                        <div class="form_container">
+                          <div class="input_wrap">
+                            <label for="company">Pick-Up Address</label>
+                            <input type="text" name="padd" class="input" id="company" required>
+                          </div>
+                          <div class="input_wrap">
+                            <label for="experience">Drop Address</label>
+                            <input type="text" name="dadd" class="input" id="experience" required>
+                          </div><br>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="btns_wrap">
+                    <div class="common_btns form_1_btns">
+                      <button type="button" class="btn_next">Next <span class="icon">
+                          <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        </span></button>
+                    </div>
+                    <div class="common_btns form_2_btns" style="display: none;">
+                      <button type="button" class="btn_back"><span class="icon">
+                          <ion-icon name="arrow-back-sharp"></ion-icon>
+                        </span>Back</button>
+                      <button type="button" class="btn_next">Next <span class="icon">
+                          <ion-icon name="arrow-forward-sharp"></ion-icon>
+                        </span></button>
+                    </div>
+                    <div class="common_btns form_3_btns" style="display: none;">
+                      <button type="button" class="btn_back"><span class="icon">
+                          <ion-icon name="arrow-back-sharp"></ion-icon>
+                        </span>Back</button>
+                      <button type="button" class="btn_done">Done</button>
+                    </div>
+                  </div>
 
                 </div>
 
@@ -318,7 +285,7 @@ if ($_SESSION["loggedin"]) {
                     </span>
                     <p>You have successfully completed the process.</p>
                     <input type="submit" name="submit"></input>
-                    
+
       </form>
       </div>
       </div>
@@ -331,9 +298,9 @@ if ($_SESSION["loggedin"]) {
           <h1><?php echo $vname ?></h1>
           <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
           <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"];
-          $_SESSION["V_type"]=$row["V_type"];
-          $_SESSION["V_id"]=$row["V_id"]; ?></p>
-          
+                                                $_SESSION["V_type"] = $row["V_type"];
+                                                $_SESSION["V_id"] = $row["V_id"]; ?></p>
+
           <p></p>
 
           <p><span class="button">Vehicle ID: - <?php echo $row["V_id"] ?></span></p>
