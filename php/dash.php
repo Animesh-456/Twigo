@@ -167,8 +167,7 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
-												<th>RATE(AC/km)</th>
-												<th>RATE(NON-AC/km)</th>
+												<!-- <th>SEATER</th> -->
 												<th>BOOKING STATUS</th>
 												<th></th>
 											</tr>
@@ -181,15 +180,14 @@ if ($_SESSION["loggedin"]) {
 													<?php 
 													$V_name = $row["V_name"];
 													?>
-												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:180px; height:100px;'></img></td>
+												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:200px; height:100px;'></img></td>
 													
 													<td>
 														<p style="font-weight: bold;"><?php echo $vname; ?></p>
 													</td>
 													
 													<td><?php echo $row["V_emmision_type"] ?></td>
-													<td><?php echo $row["V_rate_per_km_AC"] ?></td>
-													<td><?php echo $row["V_rate_per_km_NONAC"] ?></td>
+													
 													<?php
 													if ($row["V_booking_status"] == 0) {
 														$booking = "pending";
@@ -235,10 +233,6 @@ if ($_SESSION["loggedin"]) {
 
 							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 							<script src='../JS/dash.js'></script>
-
-
-
-
 		</body>
 
 

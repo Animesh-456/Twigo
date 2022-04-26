@@ -120,11 +120,11 @@ if ($_SESSION["loggedin"]) {
                     <div class="row">
                       <div class="field">
                         <div class="item__description">
-                          <ul >
+                          <ul>
                             <li>Excludes toll costs , parking , permits and state tax</li>
                             <li>Rs 18/km will be charged for extra km</li>
                             <li>Night tiime allowance (11:00 PM - 06:00 AM) - Rs200/night</li>
-                            <li>Extra fare may apply if you don;t end trip at given location </li>
+                            <li>Extra fare may apply if you don't end trip at given location </li>
                           </ul>
 
 
@@ -133,19 +133,22 @@ if ($_SESSION["loggedin"]) {
                     </div>
                 </form>
               </div>
-              <form action="" method="POST">
-              <div class="payment__shipping">
-                <div class="payment__title">
-                  <i class="icon icon-plane"></i>Upload Bill SS
-                </div>
+              <form action="checkoutsubmit.php" method="POST" enctype="multipart/form-data">
+                <div class="payment__shipping">
+                  <div class="payment__title">
+                    <i class="icon icon-plane"></i>Upload Bill SS
+                  </div>
 
-                <div class="details__user">
-                  
+                  <div class="details__user">
+
                     <input type="file" id="myFile" name="filename">
-                    
-                </div>
+                    <input style="margin-left: 350px;" type="submit" value="Confirm Booking" class="btn action__submit"  name="submit"></input>
 
-              </div>
+                  </div>
+
+                </div>
+                </form>
+
             </div>
           </div>
         </div>
@@ -154,21 +157,18 @@ if ($_SESSION["loggedin"]) {
 
             <a href="#">
 
-              <input type="submit" value="Confirm Booking" class="btn action__submit"></input>
-              </form>
+             
+              
             </a>
-            
-            <a href="dash.php" class="backBtn" style="text-decoration: none;">Go Back to Previous Page</a>
+
+            <a href="dash.php" class="backBtn" style="text-decoration: none; color:red;">Go Back to Previous Page</a>
 
           </div>
+        </div>
       </section>
-      </div>
-    </body>
-    <?php
-    if ($_POST) {
-    }
 
-    ?>
+    </body>
+    
 
     </html>
 <?php }

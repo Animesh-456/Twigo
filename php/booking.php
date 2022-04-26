@@ -12,7 +12,10 @@ if ($_SESSION["loggedin"]) {
 	}
 
 	$sql = "SELECT * FROM customer WHERE C_email='$email'";
+	$sq = "SELECT * FROM booking WHERE C_email='$email'";
+
 	$result = $conn->query($sql);
+	$res = $conn->query($sq);
 	$row = $result->fetch_assoc();
 	if ($row) {
 ?>
@@ -53,9 +56,9 @@ if ($_SESSION["loggedin"]) {
 				}
 
 
-				#sidebar .side-menu.top li.active a {
+				/* #sidebar .side-menu.top li.active a {
 					color: red;
-				}
+				} */
 			</style>
 			<!-- SIDEBAR -->
 
@@ -79,12 +82,12 @@ if ($_SESSION["loggedin"]) {
 
 					<li>
 						<a href='rate.php'>
-						
+
 							<i class='bx bx-rupee'></i>
 							<span class='text'>RATES</span>
 						</a>
 					</li>
-					
+
 					<li>
 						<a href='history.php'>
 							<i class='bx bxs-doughnut-chart'></i>
@@ -151,19 +154,48 @@ if ($_SESSION["loggedin"]) {
 							<table>
 								<thead>
 									<tr>
-										<th>User</th>
-										<th>Date Order</th>
-										<th>Status</th>
+										<th>Booking ID</th>
+										<th>Vehicle Name</th>
+										<th>Vehicle ID</th>
+										<th>Booking Date</th>
+										<th>Payment status</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>
-											<p>John Doe</p>
-										</td>
-										<td>01-10-2021</td>
-										<td><span class='status completed'>Completed</span></td>
-									</tr>
+									<?php while ($r = $res->fetch_assoc()) { ?>
+										<tr>
+											<td><?php echo $r["B_id"] ?></td>
+											<?php
+											$s = "SELECT * FROM vehicle WHERE V_id='$r[V_id]'";
+											$ro = $conn->query($s);
+											$po = $ro->fetch_assoc()
+											?>
+											<td><?php echo $po["V_name"] ?></td>
+											<td>
+												<p><?php echo $r["V_id"] ?></p>
+											</td>
+											<td><?php echo $r["B_date"] ?></td>
+											<?php
+											$pay = $r["B_img_pay"];
+											
+											if ($pay != "") {
+												$pstat = "pending";
+												$wr = "completed";
+											} else {
+												$pstat = "completed";
+												$wr = "pending";
+											} ?>
+											<td><span class='status <?php echo $pstat ?>'><?php echo $wr ?></span></td>
+											<td>
+												<form action="checkout.php" method="POST">
+												<input type='submit' name='val' value='Upload SS' id='btn' class='button'>
+												<?php $po  = $_SESSION["V_id"]?>
+												</form>
+												
+											</td>
+										</tr>
+									<?php } ?>
 									<script src='../JS/dash.js'></script>
 		</body>
 
