@@ -294,7 +294,7 @@ if ($_SESSION["remail"]) {
           <input type="text" placeholder="WB42AD6423" name="vnumber" required>
 
           <label for="vchasis"><b>Vehicle Chasis Number</b></label>
-          <input type="number" placeholder="55476214" name="vchasis" required>
+          <input type="text" placeholder="55476214" name="vchasis" required>
 
           <label for="vkmdriven"><b>Vehicle Km Driven</b></label>
           <input type="number" placeholder="400" name="vkmdriven" required>
@@ -306,6 +306,8 @@ if ($_SESSION["remail"]) {
             <option value="Mumbai">Mumbai</option>
           </select>
 
+          <label for="vseat"><b>No of seats</b></label>
+          <input type="number" placeholder="1 seat" name="vseat" required>
 
           <label for="vaddress"><b>Vehicle Address</b></label>
           <input type="text" placeholder="155, Shahani Trust, Navghar Road, Mulund (east), Mumbai" name="vaddress" required>
@@ -385,14 +387,12 @@ if ($_SESSION["remail"]) {
       if ($_POST["vtype"] == "sedan") {
         $type = "Sedan";
         $name = $_POST["sedancname"];
-        $acrate = "10";
-        $nonacrate = "9";
+        
         $emmissiontype = "Diesel";
       } else if ($_POST["vtype"] == "suv") {
         $type = "Suv";
         $name = $_POST["suvcname"];
-        $acrate = "12";
-        $nonacrate = "11";
+        
         $emmissiontype = "Diesel";
       } else if ($_POST["vtype"] == "evsedan") {
         $type = "EV-Sedan";
@@ -401,8 +401,7 @@ if ($_SESSION["remail"]) {
       } else if ($_POST["vtype"] == "hatchback") {
         $type = "Hatchback";
         $name = $_POST["hatchbackcname"];
-        $acrate = "9";
-        $nonacrate = "8";
+        
         $emmissiontype = "Diesel";
       }
       $V_num = $_POST["vnumber"];
@@ -411,12 +410,13 @@ if ($_SESSION["remail"]) {
       $V_address = $_POST["vaddress"];
       $V_description = $_POST["vdescription"];
       $V_city = $_POST["vcity"];
+      $V_seat = $_POST["vseat"];
 
 
       $sql = "INSERT INTO vehicle(V_name, R_email, V_address, V_no, V_Chasis_no, V_type, V_description, V_city, 
-      V_km_driven, V_emmision_type, V_rate_per_km_AC, V_rate_per_km_NONAC) 
+      V_km_driven, V_emmision_type, V_no_seats) 
          values('$name','$remail', '$V_address', '$V_num', '$V_chasis', '$type', '$V_description', 
-         '$V_city', '$V_km_driv', '$emmissiontype', '$acrate', '$nonacrate')";
+         '$V_city', '$V_km_driv', '$emmissiontype', '$V_seat')";
 
       // $sql = "INSERT INTO renter(R_name, R_email, R_address, R_contact, R_city, R_lisence_no, R_DOB, R_gender, R_password, R_security)
       // VALUE('$name', '$email', '$address', '$contact', '$city', '$lisence', '$dob', '$gender', '$psw', '$security')";

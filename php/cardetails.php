@@ -216,7 +216,7 @@ if ($_SESSION["remail"]) {
                                 </input>
 
                                 <label for="vnumber"><b>Vehicle Chasis Number</b></label>
-                                <input type="number" placeholder="" name="vchasis" id="vchasis" value="<?php echo $row["V_Chasis_no"] ?>" required>
+                                <input type="text" placeholder="" name="vchasis" id="vchasis" value="<?php echo $row["V_Chasis_no"] ?>" required>
                                 </input>
 
                                 <label for="vcity" name="vcity"><b>Vehicle city:</b></label>

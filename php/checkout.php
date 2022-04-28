@@ -141,13 +141,21 @@ if ($_SESSION["loggedin"]) {
 
                   <div class="details__user">
 
-                    <input type="file" id="myFile" name="filename">
-                    <input style="margin-left: 350px;" type="submit" value="Confirm Booking" class="btn action__submit"  name="submit"></input>
+                    <input type="file" id="myFile" name="filename" onchange="getVal()">
+                    <script>
+                      function getVal() {
+                        const val = document.querySelector('input').value;
+                        if (val != null) {
+                          document.getElementById("btnimg").style.display = "block";
+                        }
+                      }
+                    </script>
+                    <input style="margin-left: 350px; display:none;" type="submit" value="Confirm Booking" class="btn action__submit" name="submit" id="btnimg"></input>
 
                   </div>
 
                 </div>
-                </form>
+              </form>
 
             </div>
           </div>
@@ -157,8 +165,8 @@ if ($_SESSION["loggedin"]) {
 
             <a href="#">
 
-             
-              
+
+
             </a>
 
             <a href="dash.php" class="backBtn" style="text-decoration: none; color:red;">Go Back to Previous Page</a>
@@ -168,7 +176,7 @@ if ($_SESSION["loggedin"]) {
       </section>
 
     </body>
-    
+
 
     </html>
 <?php }

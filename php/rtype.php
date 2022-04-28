@@ -16,6 +16,13 @@ if ($_SESSION["loggedin"]) {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // $s = "SELECT * FROM vehicle WHERE V_id='$V_id'";
+    // $res = $conn->query($s);
+    // $r = $res->fetch_assoc();
+
+    // $_SESSION["R_email"] = $r["R_email"];
+
+
     $sql = "SELECT * FROM vehicle WHERE V_id='$V_id'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
@@ -82,20 +89,6 @@ if ($_SESSION["loggedin"]) {
                     width: 20%;
                 }
 
-                /* Set a style for the submit button */
-                /* .registerbtn {
-      background-color: #ee0000;
-      color: white;
-      padding: 16px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 35%;
-      display:inline-block;
-      opacity: 0.9;
-      border-radius: 30px;
-      
-    } */
 
                 .registerbtn:hover {
                     opacity: 1;

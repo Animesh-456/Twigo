@@ -72,7 +72,7 @@ if ($_SESSION["remail"]) {
 						</a>
 					</li>
 					<li>
-						<a href=''>
+						<a href='rbookingdetails.php'>
 							<i class='bx bxs-shopping-bag-alt'></i>
 							<span class='text'>BOOKING DETAILS</span>
 						</a>

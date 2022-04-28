@@ -10,6 +10,7 @@ if ($_SESSION["loggedin"]) {
 
   $email = $_SESSION["email"];
   $V_id = $_SESSION["V_id"];
+  $R_email = $_SESSION["R_email"];
   
 
 
@@ -115,8 +116,7 @@ if ($_SESSION["loggedin"]) {
     $date = date('d-m-y h:i:s');
     $paymentstatus = "0";
 
-
-
+    
 
     $sq = "INSERT INTO booking(C_email, V_id, B_type, B_distance, B_pickup_address, B_drop_address, B_date, 
     B_amount, B_payment) 
@@ -125,10 +125,13 @@ if ($_SESSION["loggedin"]) {
 
     $sql = "UPDATE vehicle SET V_booking_status='1' WHERE V_id='$V_id'";
 
+    
+
     if ($conn->query($sq)) {
       $conn->query($sql);
       header("location: ../php/checkout.php");
     } else {
+      echo $R_email;
       echo "Error submitting the form!" . $conn->error;
     }
   }

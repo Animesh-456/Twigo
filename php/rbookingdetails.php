@@ -4,6 +4,7 @@ if ($_SESSION["remail"]) {
 	include '../php/db.php';
 
 	$remail = $_SESSION["remail"];
+	$rname = $_SESSION["R_name"];
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,11 +12,10 @@ if ($_SESSION["remail"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM renter WHERE R_email='$remail'";
+	$sql = "SELECT * FROM vehicle WHERE R_email='$remail'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
-	if ($row) {
-		$_SESSION["R_name"] = $row["R_name"];
+	
 ?>
 
 		<!DOCTYPE html>
@@ -61,16 +61,16 @@ if ($_SESSION["remail"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li class='active'>
-						<a href='dash.php'>
-							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">MY VEHICLES</span>
+					<li >
+						<a href='renterdash.php'>
+							<i class='bx bxs-dashboard' ></i>
+							<span class='text' >MY VEHICLES</span>
 						</a>
 					</li>
-					<li>
-						<a href='rbookingdetails.php'>
-							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>BOOKING DETAILS</span>
+					<li class='active'>
+						<a href=''>
+							<i class='bx bxs-shopping-bag-alt' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">BOOKING DETAILS</span>
 						</a>
 					</li>
 					<li>
@@ -129,7 +129,8 @@ if ($_SESSION["remail"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["R_name"]; ?></h1>
+							<h1><?php
+                             echo $rname; ?></h1>
 
 						</div>
 						<a href='vehicleadd.php' class='btn-download'>
@@ -139,7 +140,7 @@ if ($_SESSION["remail"]) {
 					</div>
 					<?php
 
-					$sql = "SELECT * FROM vehicle WHERE R_email='$remail'";
+					$sql = "SELECT * FROM vehicle WHERE V_booking_status='1'";
 					$result = $conn->query($sql);
 
 					?>
@@ -152,39 +153,42 @@ if ($_SESSION["remail"]) {
 									<div class="head">
 										<h3></h3>
 									</div>
-
-									
-
 										<table>
 											<thead>
 												<tr>
 													<th>VEHICLE IMAGE</th>
 													<th>VEHICLE NAME</th>
 													<th>VEHICLE ID</th>
-													
-													<th>SEATS</th>
-													<th>EMMISION TYPE</th>
-													<th>BOOKING STATUS</th>
+													<th>CUSTOMER NAME</th>
+													<th>BOOKING DATE</th>
+													<th>BOOKED FOR DATE</th>
 													<th></th>
 												</tr>
 											</thead>
+                                            
 											<?php while ($row = $result->fetch_assoc()) { ?>
 											<tbody>
+                                            <?php 
+                                            $V_id = $row["V_id"];
+                                            $s = "SELECT * FROM VEHICLE WHERE V_id = '$V_id'";
+                                            $res = $conn->query($s);
+                                            $r = $res->fetch_assoc();
+                                            ?>
 
-											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
+											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $r["V_name"]);?>
 
 												<tr>
 												<td><img src='../img/<?php echo $row["V_name"] ?>.jfif' style='width:150px; height:100px;'></img></td>
 													<td>
 														<p style="font-weight: bold;"><?php echo $vname; ?></p>
 													</td>
-													<td id="V_id"><?php echo $row["V_id"] ?></td>
+													<td id="V_id"><?php echo $r["V_id"] ?></td>
 													
-													<td><?php echo $row["V_no_seats"] ?></td>
-													<td><?php echo $row["V_emmision_type"] ?></td>
+													<td><?php  ?></td>
+													<td><?php echo $r["V_emmision_type"] ?></td>
 													
 													<?php
-													if ($row["V_booking_status"] == 0) {
+													if ($r["V_booking_status"] == 0) {
 														$booking = "pending";
 														$bookingstatus = "available";
 													} else {
@@ -197,18 +201,17 @@ if ($_SESSION["remail"]) {
 													<?php
 
 													$name = $row["V_id"];
-													 
 
-													echo "
-														<form action='cardetails.php' method='POST'>
-														<td style='display: none;'><label for='V_id'>V_id</label>
-														<input type='text' id='V_id' name='V_id' value='$name' readonly>
-													</td>
-														<td>
+													// echo "
+													// 	<form action='cardetails.php' method='POST'>
+													// 	<td style='display: none;'><label for='V_id'>V_id</label>
+													// 	<input type='text' id='V_id' name='V_id' value='$name' readonly>
+													// </td>
+													// 	<td>
 														
-														<input type='submit' name='val' value='View Details' id='btn' class='button'>
-														</td>
-													</form>";
+													// 	<input type='submit' name='val' value='View Details' id='btn' class='button'>
+													// 	</td>
+													// </form>";
 													//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
 
 													?>
@@ -228,9 +231,7 @@ if ($_SESSION["remail"]) {
 
 
 		</html>
-<?php } else {
-		echo "No data";
-	}
+<?php 
 } else {
 	header("location: ../html/RenterLogin.html");
 } ?>

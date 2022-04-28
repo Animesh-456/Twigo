@@ -188,10 +188,11 @@ if ($_SESSION["loggedin"]) {
 											} ?>
 											<td><span class='status <?php echo $pstat ?>'><?php echo $wr ?></span></td>
 											<td>
-												<form action="checkout.php" method="POST">
-												<input type='submit' name='val' value='Upload SS' id='btn' class='button'>
+												<form action="" method="POST">
+												<input type='submit' name='val' value='Cancel booking' id='btn' class='button' >
 												<?php $po  = $_SESSION["V_id"]?>
 												</form>
+												
 												
 											</td>
 										</tr>

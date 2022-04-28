@@ -299,7 +299,8 @@ if ($_SESSION["loggedin"]) {
           <p class="title">Vehicle KM Driven:- <?php echo $row["V_km_driven"] ?></p>
           <p class="title">Vehicle Fuel Type:- <?php echo $row["V_emmision_type"];
                                                 $_SESSION["V_type"] = $row["V_type"];
-                                                $_SESSION["V_id"] = $row["V_id"]; ?></p>
+                                                $_SESSION["V_id"] = $row["V_id"];
+                                                $_SESSION["R_email"] = $row["R_email"] ?></p>
 
           <p></p>
 
