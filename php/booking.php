@@ -139,10 +139,7 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
-						</a>
+						
 					</div>
 					<div class='table-data'>
 						<div class='order' id="booking">
@@ -190,7 +187,7 @@ if ($_SESSION["loggedin"]) {
 											<td>
 												<form action="" method="POST">
 												<input type='submit' name='val' value='Cancel booking' id='btn' class='button' >
-												<?php $po  = $_SESSION["V_id"]?>
+												<?php  $_SESSION["V_id"] = $po?>
 												</form>
 												
 												

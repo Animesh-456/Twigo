@@ -85,7 +85,7 @@ if ($_SESSION["loggedin"]) {
                   <li>Base Fare - 100</li>
                   <li>Driver allowance - 50</li>
                   <li>Taxes - 10 </li>
-                  <li>5 Seater - <?php echo $vname ?></li>
+                  <li>No of seats - <?php echo $r["V_no_seats"]?></li>
                 </ul>
 
               </div>
@@ -126,6 +126,11 @@ if ($_SESSION["loggedin"]) {
                             <li>Night tiime allowance (11:00 PM - 06:00 AM) - Rs200/night</li>
                             <li>Extra fare may apply if you don't end trip at given location </li>
                           </ul>
+                          <br>
+                          <bold style="color: red;"><h3>TRANSFER THE AMOUNT OF ₹<?php echo $row["B_amount"]?> TO THIS A/C</h3>
+                        <bold><h3>A/C NUMBER:- </h3>
+                        <h3>IFSC CODE:- </h3>
+                        <h3>BRANCH NAME:- </h3></bold></bold>
 
 
                         </div>

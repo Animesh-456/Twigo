@@ -140,10 +140,7 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
-						</a>
+						
 					</div>
 
 					<?php

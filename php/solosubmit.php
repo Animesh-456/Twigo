@@ -50,7 +50,7 @@ if ($_SESSION["loggedin"]) {
 
     if ($conn->query($sq)) {
       $conn->query($sql);
-      header("location: ../php/booking.php");
+      header("location: checkout.php");
     } else {
       echo "Error submitting the form!" . $conn->error;
     }

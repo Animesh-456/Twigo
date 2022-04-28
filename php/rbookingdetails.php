@@ -133,10 +133,7 @@ if ($_SESSION["remail"]) {
                              echo $rname; ?></h1>
 
 						</div>
-						<a href='vehicleadd.php' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Add Vehicle</span>
-						</a>
+						
 					</div>
 					<?php
 
@@ -159,7 +156,7 @@ if ($_SESSION["remail"]) {
 													<th>VEHICLE IMAGE</th>
 													<th>VEHICLE NAME</th>
 													<th>VEHICLE ID</th>
-													<th>CUSTOMER NAME</th>
+													<th>CUSTOMER EMAIL</th>
 													<th>BOOKING DATE</th>
 													<th>BOOKED FOR DATE</th>
 													<th></th>
@@ -170,12 +167,12 @@ if ($_SESSION["remail"]) {
 											<tbody>
                                             <?php 
                                             $V_id = $row["V_id"];
-                                            $s = "SELECT * FROM VEHICLE WHERE V_id = '$V_id'";
+                                            $s = "SELECT * FROM booking WHERE V_id = '$V_id'";
                                             $res = $conn->query($s);
                                             $r = $res->fetch_assoc();
                                             ?>
 
-											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $r["V_name"]);?>
+											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
 
 												<tr>
 												<td><img src='../img/<?php echo $row["V_name"] ?>.jfif' style='width:150px; height:100px;'></img></td>
@@ -184,11 +181,11 @@ if ($_SESSION["remail"]) {
 													</td>
 													<td id="V_id"><?php echo $r["V_id"] ?></td>
 													
-													<td><?php  ?></td>
-													<td><?php echo $r["V_emmision_type"] ?></td>
+													<td><?php echo $r["C_email"]?></td>
+													<td><?php echo $r["B_date"] ?></td>
 													
 													<?php
-													if ($r["V_booking_status"] == 0) {
+													if ($row["V_booking_status"] == 0) {
 														$booking = "pending";
 														$bookingstatus = "available";
 													} else {
