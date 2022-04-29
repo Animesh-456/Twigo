@@ -10,7 +10,6 @@ if ($_SESSION["loggedin"]) {
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-
 	$sql = "SELECT * FROM customer WHERE C_email='$email'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();

@@ -128,11 +128,9 @@ if ($_SESSION["loggedin"]) {
                           </ul>
                           <br>
                           <bold style="color: red;"><h3>TRANSFER THE AMOUNT OF ₹<?php echo $row["B_amount"]?> TO THIS A/C</h3>
-                        <bold><h3>A/C NUMBER:- </h3>
-                        <h3>IFSC CODE:- </h3>
-                        <h3>BRANCH NAME:- </h3></bold></bold>
-
-
+                        <bold><h3>A/C NUMBER:- 643070226364</h3>
+                        <h3>IFSC CODE:- SBIN0016342</h3>
+                        <h3>BRANCH NAME:- RBO 5 BURDWAN</h3></bold></bold>
                         </div>
                       </div>
                     </div>
@@ -141,7 +139,7 @@ if ($_SESSION["loggedin"]) {
               <form action="checkoutsubmit.php" method="POST" enctype="multipart/form-data">
                 <div class="payment__shipping">
                   <div class="payment__title">
-                    <i class="icon icon-plane"></i>Upload Bill SS
+                    <i class="icon icon-plane"></i>Upload Bank Transfer Screenshot here
                   </div>
 
                   <div class="details__user">

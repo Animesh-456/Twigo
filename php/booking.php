@@ -185,8 +185,11 @@ if ($_SESSION["loggedin"]) {
 											} ?>
 											<td><span class='status <?php echo $pstat ?>'><?php echo $wr ?></span></td>
 											<td>
-												<form action="" method="POST">
+												<form action="cancelbooking.php" method="POST">
+												<?php $name = $po["V_id"];?>
+												<input style="display: none;" type="text" name='V_id' value='<?php echo $name?>' readonly>
 												<input type='submit' name='val' value='Cancel booking' id='btn' class='button' >
+												
 												<?php  $_SESSION["V_id"] = $po?>
 												</form>
 												
