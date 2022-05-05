@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2022 at 08:07 AM
+-- Generation Time: May 05, 2022 at 04:57 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -45,7 +45,7 @@ CREATE TABLE `booking` (
   `B_id` int(50) NOT NULL,
   `C_email` varchar(50) NOT NULL,
   `V_id` int(50) NOT NULL,
-  `R_email` varchar(50) DEFAULT NULL,
+  `B_R_email` varchar(50) DEFAULT NULL,
   `B_type` varchar(50) NOT NULL,
   `B_distance` varchar(5) NOT NULL,
   `B_round_trip` binary(5) NOT NULL,
@@ -55,16 +55,9 @@ CREATE TABLE `booking` (
   `B_amount` int(50) NOT NULL,
   `B_payment` binary(50) NOT NULL,
   `B_img_pay` varchar(1000) NOT NULL,
-  `B_end_date` datetime(5) DEFAULT NULL
+  `B_end_date` datetime(5) DEFAULT NULL,
+  `B_passenger` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `R_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_payment`, `B_img_pay`, `B_end_date`) VALUES
-(17, 'k123@gmail.com', 7, NULL, 'City Ride', '0-10', 0x0000000000, 'del', 'kol', '2022-04-22 06:39:41.00000', 160, 0x3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, '', NULL),
-(18, 'k123@gmail.com', 10, NULL, 'City Ride', '10-20', 0x0000000000, 'del', 'kol', '2023-04-22 08:03:55.00000', 200, 0x3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,6 +105,26 @@ INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_conta
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `driver`
+--
+
+CREATE TABLE `driver` (
+  `D_email` varchar(50) NOT NULL,
+  `D_name` varchar(50) NOT NULL,
+  `D_address` varchar(50) NOT NULL,
+  `D_contact` varchar(12) NOT NULL,
+  `D_city` varchar(12) NOT NULL,
+  `D_lisence` varchar(20) NOT NULL,
+  `D_dob` date NOT NULL,
+  `D_gender` varchar(10) NOT NULL,
+  `D_psw` varchar(50) NOT NULL,
+  `D_security` varchar(50) NOT NULL,
+  `D_adhar` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `renter`
 --
 
@@ -125,8 +138,8 @@ CREATE TABLE `renter` (
   `R_gender` varchar(50) NOT NULL,
   `R_lisence_no` varchar(50) NOT NULL,
   `R_aadhar_id` int(12) NOT NULL,
-  `R_acno` int(50) NOT NULL,
-  `R_ifsc` int(50) NOT NULL,
+  `R_acno` varchar(50) NOT NULL,
+  `R_ifsc` varchar(50) NOT NULL,
   `R_vehicle_img` varchar(50) NOT NULL,
   `R_DOB` date NOT NULL,
   `R_security` varchar(50) NOT NULL
@@ -137,7 +150,19 @@ CREATE TABLE `renter` (
 --
 
 INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, `R_contact`, `R_gender`, `R_lisence_no`, `R_aadhar_id`, `R_acno`, `R_ifsc`, `R_vehicle_img`, `R_DOB`, `R_security`) VALUES
-('martha123@gmail.com', 'Martha Nielsen', '7777', 'Kolkata', 'Winden', 2147483647, 'Female', '55223366', 55446633, 55446666, 44558877, '', '1999-06-05', 'I play i learn');
+('annu@gmail.com', 'Arunabha Dutta', 'anu88', 'Delhi', 'Tagor Garden,West Delhi,110027', 2147483647, 'Male', 'MH-452306507139', 2147483647, '655264444344', 'SBIN45685634', '', '1988-02-07', 'chicken nudgets'),
+('aro@gmail.com', 'Arayanak Chatterjjee', 'pz67', 'Delhi', 'Bharat Nagar,110052', 2147483647, 'Male', 'DL-768935697', 2147483647, '894107724173', 'SBIN00956954', '', '2000-07-12', 'pizzahut'),
+('babi56@gmail.com', 'Babita Sharma', 'bb65', 'Delhi', 'Connught Place,110001', 2147483647, 'Female', 'WB-32889025821', 2147483647, '569094325629', 'SBIN8905954', '', '1986-02-08', 'french fries'),
+('dasayan31@gmail.com', 'Ayan Das', 'sudisna', 'Kolkata', 'Esplanade,700069', 2147483647, 'Male', 'WB-76389025821', 2147483647, '367177170252', 'SBIN76495954', '', '2000-06-09', 'AfraidofSudisna'),
+('dasgupta8@gmail.com', 'Yash Dasgupta', 'yd67', 'Kolkata', 'Bowbazar,700012', 2147483647, 'Male', 'MH7589002136', 2147483647, '484000212352', 'SBIN45684965', '', '2000-06-08', 'i love bacon'),
+('dbose5@gmail.com', 'Dipyan Bose', 'dbose12', 'Kolkata', 'Dhakuria,700031', 2147483647, 'Male', 'DL-768935697', 2147483647, '662436706535', 'SBIN76495923', '', '1995-12-05', 'cup of tea makes me happy'),
+('DStinni23@gmail.com', 'Debapriya Sarkar', 'ds45', 'Kolkata', 'Brace Bridge,700088', 2147483647, 'Female', 'WB-56680025821', 2147483647, '632341351182', 'SBIN45690034', '', '2000-12-23', 'rabindranritto'),
+('ganguly6@gmail.com', 'Sohini Ganguly', 'sg656', 'Kolkata', 'Behala,700034', 2147483647, 'Female', 'WB-78609853', 2147483647, '473051852879', 'SBIN45690965', '', '1996-08-18', 'nahutt'),
+('martha123@gmail.com', 'Martha Nielsen', '7777', 'Kolkata', 'Winden', 2147483647, 'Male', '55223366', 55446633, '55446666', '44558877', '', '1999-06-05', 'I play i learn'),
+('rev4@gmail.com', 'Revaan Roy', 'rev7', 'Mumbai', 'Mandvi,400003', 2147483647, 'Male', 'MH-452300867139', 2147483647, '584576446463', 'SBIN76495975', '', '1997-04-07', 'MarthaNielsen'),
+('samantas3@gmail.com', 'Sneha Samanta', '1234', 'Kolkata', 'Janpath, Central Delhi 110001', 2147483647, 'Male', 'DL-4567891235671', 2147483647, '791455048023', 'UTIB00018985', '', '1999-02-04', 'nikkhedinia'),
+('sharmad4@gmail.com       ', 'Divya Sharma', 'dv87', 'Mumbai', 'Chamarbaug,400012', 2147483647, 'Female', 'WB-76980025821', 2147483647, '570601090574', 'SBIN45684990', '', '1987-02-05', 'cupcake'),
+('thakur8@gmail.com', 'Prasant Thakur', 'tg56', 'Kolkata', 'Ballygunge,700019', 2147483647, 'Male', 'WB-32884565821', 2147483647, '394815281260', 'SBIN45676690', '', '1988-11-07', 'vadilal');
 
 -- --------------------------------------------------------
 
@@ -166,28 +191,26 @@ CREATE TABLE `vehicle` (
   `V_no` varchar(12) NOT NULL,
   `V_name` varchar(50) NOT NULL,
   `V_type` varchar(50) NOT NULL,
-  `V_Chasis_no` int(50) NOT NULL,
+  `V_Chasis_no` varchar(50) NOT NULL,
   `V_Y_of_reg.` year(4) NOT NULL,
   `V_km_driven` bigint(50) NOT NULL,
   `V_emmision_type` varchar(50) NOT NULL,
   `V_image` varchar(1000) NOT NULL,
   `V_address` varchar(50) NOT NULL,
   `V_booking_status` tinyint(1) NOT NULL DEFAULT 0,
-  `V_rate_per_km_AC` int(4) NOT NULL,
-  `V_rate_per_km_NONAC` int(5) NOT NULL,
   `V_city` varchar(12) NOT NULL,
-  `V_description` varchar(500) NOT NULL
+  `V_description` varchar(500) NOT NULL,
+  `V_no_seats` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `vehicle`
 --
 
-INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_rate_per_km_AC`, `V_rate_per_km_NONAC`, `V_city`, `V_description`) VALUES
-(7, 'martha123@gmail.com', 'WB42AD6423', 'MahindraThar', 'Suv', 5678941, 0000, 110, 'Diesel', '', 'New Town Kolkata', 1, 12, 11, 'Kolkata', 'THAR IS AWESOME'),
-(8, 'martha123@gmail.com', 'WB42AD6427', 'RenaultKwid', 'Hatchback', 412375, 0000, 500, 'Diesel', '', 'New Town ', 1, 9, 8, 'Delhi', 'Its comfortable'),
-(10, 'martha123@gmail.com', 'WB42AD6429', 'HyundaiI20', 'Hatchback', 498756221, 0000, 250, 'Diesel', '', 'Knaud Place', 1, 9, 8, 'Delhi', 'This car really looks nice '),
-(12, 'martha123@gmail.com', 'WB42AD6422', 'TataTigor', 'EV-Sedan', 4568799, 0000, 4500, 'Electric', '', 'Knaud Place', 0, 0, 0, 'Delhi', 'This is an electric car');
+INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_city`, `V_description`, `V_no_seats`) VALUES
+(20, 'annu@gmail.com', 'WB42AD6423', 'SuzukiDzire', 'Sedan', '1HGBH41JXMN109186', 0000, 12302, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'xyz', '5'),
+(21, 'annu@gmail.com', 'WB42AD6454', 'MahindraThar', 'Suv', '1HLBH41JXON109184', 0000, 25000, 'Diesel', '', 'Behala', 0, 'Kolkata', 'xyz', '5'),
+(22, 'annu@gmail.com', 'DL42AD6427', 'VolkswagenPolo', 'Hatchback', '1HGBU41JQMN109182', 0000, 124563, 'Diesel', '', 'Sadar Bazar', 0, 'Delhi', 'asd', '5');
 
 --
 -- Indexes for dumped tables
@@ -206,7 +229,7 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`B_id`),
   ADD KEY `C_email` (`C_email`),
   ADD KEY `V_id` (`V_id`),
-  ADD KEY `R_email` (`R_email`);
+  ADD KEY `R_email` (`B_R_email`);
 
 --
 -- Indexes for table `customer`
@@ -215,6 +238,12 @@ ALTER TABLE `customer`
   ADD PRIMARY KEY (`C_email`),
   ADD KEY `RV_id` (`RV_id`),
   ADD KEY `RV_id_2` (`RV_id`);
+
+--
+-- Indexes for table `driver`
+--
+ALTER TABLE `driver`
+  ADD PRIMARY KEY (`D_email`);
 
 --
 -- Indexes for table `renter`
@@ -236,7 +265,8 @@ ALTER TABLE `vehicle`
   ADD PRIMARY KEY (`V_id`),
   ADD KEY `R_email` (`R_email`),
   ADD KEY `R_email_2` (`R_email`),
-  ADD KEY `R_email_3` (`R_email`);
+  ADD KEY `R_email_3` (`R_email`),
+  ADD KEY `R_email_4` (`R_email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -246,7 +276,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -258,7 +288,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
@@ -270,7 +300,7 @@ ALTER TABLE `vehicle`
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`C_email`) REFERENCES `customer` (`C_email`) ON UPDATE CASCADE,
   ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`V_id`) REFERENCES `vehicle` (`V_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`R_email`) REFERENCES `renter` (`R_email`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`B_R_email`) REFERENCES `renter` (`R_email`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`

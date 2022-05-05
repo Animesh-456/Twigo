@@ -120,7 +120,7 @@
 
 <body>
 
-  <form action="../php/">
+  <form action="../php/driverreg.php" method="post"> 
     <div class="container">
       <h1>Twi<span style="color: #ee0000;">Go</span> Driver Registration</h1>
       <hr>
@@ -145,7 +145,7 @@
 
 
       <label for="city"><b>Choose your city:</b></label>
-      <select id="city">
+      <select id="city" name="city">
         <option value="Kolkata">Kolkata</option>
         <option value="Delhi">Delhi</option>
         <option value="Mumbai">Mumbai</option>
@@ -165,7 +165,7 @@
         <tr>
           <td>
             <label for="gender"><b>Gender:</b></label>
-            <select id="gender">
+            <select id="gender" name="gender">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
