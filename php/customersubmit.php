@@ -23,7 +23,10 @@ if($_POST){
         $security = $_POST["sq"];
         $adhar = $_POST["adhar"];
 
-        $sql = "INSERT INTO customer(C_name, C_email, C_address, C_contact, C_city, C_lisence_no, C_dob, C_gender, C_password, C_security, C_adhar_id) values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', '".$lisence."', '".$dob."', '".$gender."', '".$psw."', '".$security."', '".$adhar."' )";
+        $sql = "INSERT INTO customer(C_name, C_email, C_address, C_contact, C_city, 
+        C_lisence_no, C_dob, C_gender, C_password, C_security, C_adhar_id) 
+        values('".$name."','".$email."', '".$address."', '".$contact."', '".$city."', 
+        '".$lisence."', '".$dob."', '".$gender."', '".$psw."', '".$security."', '".$adhar."' )";
 
         if($conn->query($sql)){
             header("location: ../html/customerlog.html");
