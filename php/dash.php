@@ -116,12 +116,13 @@ if ($_SESSION["loggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-					<i class='bx bx-menu'></i>
-					<a href='#' class='nav-link'>Categories</a>
+					<!-- <i class='bx bx-menu'></i>
+					<a href='#' class='nav-link'>Categories</a> -->
+					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
-							<input type='search' placeholder='Search...'>
-							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
+							<!-- <input type='date' > -->
+							<!-- <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
 						</div>
 					</form>
 
