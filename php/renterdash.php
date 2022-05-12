@@ -62,7 +62,7 @@ if ($_SESSION["remail"]) {
 				</a>
 				<ul class='side-menu top'>
 					<li class='active'>
-						<a href='dash.php'>
+						<a href='renterdash.php'>
 							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
 							<span class='text' style="color: #ee0000;">MY VEHICLES</span>
 						</a>
