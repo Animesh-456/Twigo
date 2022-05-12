@@ -1,24 +1,3 @@
-<?php
-session_start();
-if ($_SESSION["loggedin"]) {
-	include '../php/db.php';
-
-	$semail = $_SESSION["email"];
-	//$spassword = $_SESSION["pass"];
-
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-
-	$sql = "SELECT * FROM customer WHERE C_email='$semail'";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	if ($row) {
-?>
-
 		<!DOCTYPE html>
 		<html lang='en'>
 
@@ -137,7 +116,7 @@ if ($_SESSION["loggedin"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["C_name"]; ?></h1>
+							<h1></h1>
 
 						</div>
 						<!-- <a href='#' class='btn-download'>
@@ -148,7 +127,7 @@ if ($_SESSION["loggedin"]) {
 					<div class="table-data">
 						<div class="order">
 							<div class="head">
-								<h3><span style="color: #ee0000;">CITY RIDE</span>  </h3>
+								<h3><span style="color: #ee0000;">CITY RIDE</span> </h3>
 								<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 							</div>
@@ -158,7 +137,7 @@ if ($_SESSION["loggedin"]) {
 										<th>HATCHBACK</th>
 										<th>SEDAN</th>
 										<th>SUV</th>
-                                        <th>SEDAN EV</th>
+										<th>SEDAN EV</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -168,7 +147,7 @@ if ($_SESSION["loggedin"]) {
 										</td>
 										<td>1-10km -> ₹100</td>
 										<td>1-10km -> ₹160</td>
-                                        <td>1-10km -> ₹50</td>
+										<td>1-10km -> ₹50</td>
 
 
 									</tr>
@@ -177,7 +156,7 @@ if ($_SESSION["loggedin"]) {
 											<p>10-20km -> ₹200</p>
 										<td>10-20km -> ₹250</td>
 										<td>10-20km -> ₹300</td>
-                                        <td>10-20km -> ₹180</td>
+										<td>10-20km -> ₹180</td>
 										</td>
 									</tr>
 									<tr>
@@ -185,19 +164,19 @@ if ($_SESSION["loggedin"]) {
 											<p>20-30km -> ₹380</p>
 										<td>20-30km -> ₹400</td>
 										<td>20-30km -> ₹500</td>
-                                        <td>20-30km -> ₹320</td>
+										<td>20-30km -> ₹320</td>
 										</td>
 									</tr>
 								</tbody>
 							</table>
-                            
+
 						</div>
-                        
+
 					</div>
-                    <div class="table-data">
+					<div class="table-data">
 						<div class="order">
 							<div class="head">
-								<h3><span style="color: #ee0000;">LONG RIDE</span>  </h3>
+								<h3><span style="color: #ee0000;">LONG RIDE</span> </h3>
 								<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 							</div>
@@ -207,17 +186,17 @@ if ($_SESSION["loggedin"]) {
 										<th>HATCHBACK</th>
 										<th>SEDAN</th>
 										<th>SUV</th>
-                                        <th>SEDAN EV</th>
+										<th>SEDAN EV</th>
 									</tr>
 								</thead>
 								<tbody>
-                                <tr>
+									<tr>
 										<td>
 											<p>NON-AC -> 10/km</p>
 										</td>
 										<td>NON-AC -> 12/km</td>
-                                        <td>NON-AC -> 17/km</td>
-                                        <td>NON-AC -> 12/km</td>
+										<td>NON-AC -> 17/km</td>
+										<td>NON-AC -> 12/km</td>
 
 
 									</tr>
@@ -226,19 +205,19 @@ if ($_SESSION["loggedin"]) {
 											<p>AC -> 11/km</p>
 										<td>AC -> 13/km</td>
 										<td>AC -> 18/km</td>
-                                        <td>AC -> 13/km</td>
+										<td>AC -> 13/km</td>
 										</td>
 									</tr>
 								</tbody>
 							</table>
-                            
+
 						</div>
-                        
+
 					</div>
-                    <div class="table-data">
+					<div class="table-data">
 						<div class="order">
 							<div class="head">
-								<h3><span style="color: #ee0000;">SOLO RIDE</span>(NO OF DAYS x RATE)  </h3>
+								<h3><span style="color: #ee0000;">SOLO RIDE</span>(NO OF DAYS x RATE) </h3>
 								<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
 							</div>
@@ -248,28 +227,28 @@ if ($_SESSION["loggedin"]) {
 										<th>HATCHBACK</th>
 										<th>SEDAN</th>
 										<th>SUV</th>
-                                        <th>SEDAN EV</th>
+										<th>SEDAN EV</th>
 									</tr>
 								</thead>
 								<tbody>
-                                <tr>
+									<tr>
 										<td>
 											<p>1 DAY -> 3500</p>
 										</td>
 										<td>1 DAY -> 5000</td>
-                                        <td>1 DAY -> 8000</td>
-                                        <td>1 DAY -> 4000</td>
+										<td>1 DAY -> 8000</td>
+										<td>1 DAY -> 4000</td>
 									</tr>
 								</tbody>
 							</table>
-                            
+
 						</div>
-                        
+
 					</div>
 				</main>
 
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-					<script src='../JS/dash.js'></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+				<script src='../JS/dash.js'></script>
 
 
 
@@ -278,9 +257,3 @@ if ($_SESSION["loggedin"]) {
 
 
 		</html>
-<?php } else {
-		header("location: ../html/customerlog.html");
-	}
-} else {
-	header("location: ../html/customerlog.html");
-} ?>
