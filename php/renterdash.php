@@ -164,7 +164,7 @@ if ($_SESSION["remail"]) {
 													
 													<th>SEATS</th>
 													<th>EMMISION TYPE</th>
-													<th>BOOKING STATUS</th>
+													
 													<th></th>
 												</tr>
 											</thead>
@@ -183,16 +183,8 @@ if ($_SESSION["remail"]) {
 													<td><?php echo $row["V_no_seats"] ?></td>
 													<td><?php echo $row["V_emmision_type"] ?></td>
 													
-													<?php
-													if ($row["V_booking_status"] == 0) {
-														$booking = "pending";
-														$bookingstatus = "available";
-													} else {
-														$booking = "completed";
-														$bookingstatus = "Booked";
-													}
-													?>
-													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+													
+													
 
 													<?php
 

@@ -24,7 +24,8 @@ if($_POST){
         $_SESSION["remail"] = $email;
         header("location: renterdash.php");
     }else{
-            echo "Error submitting the form!";
+        echo "<script>alert('Incorrect Username or Password!')
+       window.location='../html/RenterLogin.html';</script>";
         }
         // echo "Logged in succesfully !";
     }else{

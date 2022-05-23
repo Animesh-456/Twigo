@@ -65,7 +65,25 @@ if ($_SESSION["loggedin"]) {
 					<li class='active'>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">HOME</span>
+							<span class='text' style="color: #ee0000;">HOME (All cars)</span>
+						</a>
+					</li>
+					<li>
+						<a href='suv.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SUV</span>
+						</a>
+					</li>
+					<li>
+						<a href='sedan.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SEDAN</span>
+						</a>
+					</li>
+					<li>
+						<a href='hatchback.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>HATCHBACK</span>
 						</a>
 					</li>
 					<li>
@@ -76,7 +94,7 @@ if ($_SESSION["loggedin"]) {
 					</li>
 					<li>
 						<a href='rate.php'>
-						
+
 							<i class='bx bx-rupee'></i>
 							<span class='text'>RATES</span>
 						</a>
@@ -121,7 +139,7 @@ if ($_SESSION["loggedin"]) {
 					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
-							<!-- <input type='date' > -->
+							
 							<!-- <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
 						</div>
 					</form>
@@ -141,7 +159,7 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						
+
 					</div>
 
 					<?php
@@ -165,40 +183,28 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
-												<!-- <th>SEATER</th> -->
-												<th>BOOKING STATUS</th>
+												
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											
+
 											<?php while ($row = $result->fetch_assoc()) { ?>
 												<tr>
-												<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
-													<?php 
+													<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]); ?>
+													<?php
 													$V_name = $row["V_name"];
 													?>
-												<td><img src='../img/<?php echo "$V_name.jfif";?>' style='width:200px; height:100px;'></img></td>
-													
+													<td><img src='../img/<?php echo "$V_name.jfif"; ?>' style='width:200px; height:100px;'></img></td>
+
 													<td>
 														<p style="font-weight: bold;"><?php echo $vname; ?></p>
 													</td>
-													
+
 													<td><?php echo $row["V_emmision_type"] ?></td>
-													
-													<?php
-													if ($row["V_booking_status"] == 0) {
-														$booking = "pending";
-														$bookingstatus = "available";
-													} else {
-														$booking = "completed";
-														$bookingstatus = "unavailable";
-													}
-													?>
-													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
 
 													<?php
-													if ($row["V_booking_status"] == 0) {
+													
 														$name = $row["V_id"];
 
 														echo "
@@ -213,7 +219,7 @@ if ($_SESSION["loggedin"]) {
 														
 													</form>";
 														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
-													}
+													
 													?>
 												</tr>
 											<?php } ?>
@@ -231,6 +237,7 @@ if ($_SESSION["loggedin"]) {
 
 							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 							<script src='../JS/dash.js'></script>
+							
 		</body>
 
 

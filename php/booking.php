@@ -70,9 +70,28 @@ if ($_SESSION["loggedin"]) {
 					<li>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard'></i>
-							<span class='text'>HOME</span>
+							<span class='text'>HOME (All cars)</span>
 						</a>
 					</li>
+					<li>
+						<a href='suv.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SUV</span>
+						</a>
+					</li>
+					<li>
+						<a href='sedan.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SEDAN</span>
+						</a>
+					</li>
+					<li>
+						<a href='hatchback.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>HATCHBACK</span>
+						</a>
+					</li>
+
 					<li class='active'>
 						<a href='booking.php'>
 							<i class='bx bxs-shopping-bag-alt' style="color: #ee0000;"></i>
@@ -139,7 +158,7 @@ if ($_SESSION["loggedin"]) {
 							<h1><?php echo $row["C_name"]; ?></h1>
 
 						</div>
-						
+
 					</div>
 					<div class='table-data'>
 						<div class='order' id="booking">
@@ -151,31 +170,40 @@ if ($_SESSION["loggedin"]) {
 							<table>
 								<thead>
 									<tr>
-										<th>Booking ID</th>
+
 										<th>Vehicle Name</th>
+										<th>Renter Contact</th>
 										<th>Vehicle ID</th>
 										<th>Booking Date</th>
 										<th>Payment status</th>
+										<th>Driver name</th>
+										<th>Vehicle Address</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php while ($r = $res->fetch_assoc()) { ?>
 										<tr>
-											<td><?php echo $r["B_id"] ?></td>
+
 											<?php
 											$s = "SELECT * FROM vehicle WHERE V_id='$r[V_id]'";
 											$ro = $conn->query($s);
 											$po = $ro->fetch_assoc()
 											?>
 											<td><?php echo $po["V_name"] ?></td>
+											<td><?php $rentersql = "SELECT R_contact FROM renter WHERE R_email='$po[R_email]'";
+												$renterres = $conn->query($rentersql);
+												$rrow = $renterres->fetch_assoc();
+												echo $rrow["R_contact"];
+
+												?></td>
 											<td>
 												<p><?php echo $r["V_id"] ?></p>
 											</td>
 											<td><?php echo $r["B_date"] ?></td>
 											<?php
 											$pay = $r["B_img_pay"];
-											
+
 											if ($pay != "") {
 												$pstat = "pending";
 												$wr = "completed";
@@ -185,16 +213,33 @@ if ($_SESSION["loggedin"]) {
 											} ?>
 											<td><span class='status <?php echo $pstat ?>'><?php echo $wr ?></span></td>
 											<td>
-												<form action="cancelbooking.php" method="POST">
-												<?php $name = $po["V_id"];?>
-												<input style="display: none;" type="text" name='V_id' value='<?php echo $name?>' readonly>
-												<input type='submit' name='val' value='Cancel booking' id='btn' class='button' >
-												
-												<?php  $_SESSION["V_id"] = $po?>
-												</form>
-												
-												
+												<?php
+												$demail = $r["D_email"];
+												$d = "SELECT * FROM driver WHERE D_email='$demail'";
+												$rd = $conn->query($d);
+
+												if ($rd->num_rows > 0) {
+													$pd = $rd->fetch_assoc();
+													echo $pd["D_name"];
+												} else {
+													echo "No driver for Solo Ride";
+												}
+
+												?>
 											</td>
+											<td><?php echo $po["V_address"]; ?></td>
+											<td>
+												<form action="cancelbooking.php" method="POST">
+													<?php $name = $r["B_id"]; ?>
+													<input style="display: none;" type="text" name='B_id' value='<?php echo $name ?>' readonly>
+													<input type='submit' name='val' value='Cancel booking' id='btn' class='button'>
+
+													<?php $_SESSION["V_id"] = $po ?>
+												</form>
+
+
+											</td>
+
 										</tr>
 									<?php } ?>
 									<script src='../JS/dash.js'></script>

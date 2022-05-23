@@ -24,7 +24,8 @@ if($_POST){
         $_SESSION["demail"] = $email;
         echo "Logged in sucessfully!";
     }else{
-            echo "Error submitting the form!";
+        echo "<script>alert('Incorrect Username or Password!')
+        window.location='../html/driverLogin.html';</script>";
         }
         // echo "Logged in succesfully !";
     }else{

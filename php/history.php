@@ -63,10 +63,28 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li>
+				<li>
 						<a href='dash.php'>
 							<i class='bx bxs-dashboard'></i>
-							<span class='text'>HOME</span>
+							<span class='text'>HOME (All cars)</span>
+						</a>
+					</li>
+					<li>
+						<a href='suv.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SUV</span>
+						</a>
+					</li>
+					<li>
+						<a href='sedan.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>SEDAN</span>
+						</a>
+					</li>
+					<li>
+						<a href='hatchback.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>HATCHBACK</span>
 						</a>
 					</li>
 					<li>

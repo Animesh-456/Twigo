@@ -20,6 +20,10 @@ var btn_done = document.querySelector(".btn_done");
 var modal_wrapper = document.querySelector(".modal_wrapper");
 var shadow = document.querySelector(".shadow");
 
+
+                           
+
+
 form_1_next_btn.addEventListener("click", function(){
 	form_1.style.display = "none";
 	form_2.style.display = "block";

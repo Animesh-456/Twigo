@@ -1,12 +1,12 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
+if ($_SESSION["loggedin"]){
   include '../php/db.php';
 
   $semail = $_SESSION["email"];
   //$spassword = $_SESSION["pass"];
   $V_id = $_SESSION["V_id"];
-
+  $bid = $_SESSION["bookingid"];
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,12 +14,15 @@ if ($_SESSION["loggedin"]) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM booking WHERE V_id='$V_id'";
+  $sql = "SELECT * FROM booking WHERE B_id='$bid'";
   $sq = "SELECT * FROM vehicle WHERE V_id='$V_id'";
   $result = $conn->query($sql);
   $res = $conn->query($sq);
   $row = $result->fetch_assoc();
   $r = $res->fetch_assoc();
+
+  
+
   if ($row) {
 ?>
     <!DOCTYPE html>
@@ -47,7 +50,8 @@ if ($_SESSION["loggedin"]) {
             </div>
             <div class="secure">
               <i class="icon icon-shield"></i>
-              <span>Secure Checkout - 29/04/2022</span>
+              <?php $bdate = $row["B_date"] ?>
+              <span>Secure Checkout For - <?php echo $bdate?></span>
 
             </div>
           </div>
@@ -85,7 +89,7 @@ if ($_SESSION["loggedin"]) {
                   <li>Base Fare - 100</li>
                   <li>Driver allowance - 50</li>
                   <li>Taxes - 10 </li>
-                  <li>No of seats - <?php echo $r["V_no_seats"]?></li>
+                  <li>No of seats - <?php echo $r["V_no_seats"] ?></li>
                 </ul>
 
               </div>
@@ -127,13 +131,32 @@ if ($_SESSION["loggedin"]) {
                             <li>Extra fare may apply if you don't end trip at given location </li>
                           </ul>
                           <br>
-                          <bold style="color: red;"><h3>TRANSFER THE AMOUNT OF ₹<?php echo $row["B_amount"]?> TO THIS A/C</h3>
-                        <bold><h3>A/C NUMBER:- 643070226364</h3>
-                        <h3>IFSC CODE:- SBIN0016342</h3>
-                        <h3>BRANCH NAME:- RBO 5 BURDWAN</h3></bold></bold>
+                          <bold style="color: red;">
+                            <h3>TRANSFER THE AMOUNT OF ₹<?php echo $row["B_amount"] ?> TO THIS A/C</h3>
+                            <bold>
+                              <h3>A/C NUMBER:- 643070226364</h3>
+                              <h3>IFSC CODE:- SBIN0016342</h3>
+                              <h3>BRANCH NAME:- RBO 5 BURDWAN</h3>
+                            </bold>
+                          </bold>
                         </div>
                       </div>
                     </div>
+                    <?php
+                    $drivq = "SELECT * FROM driver WHERE D_status=0";
+                    $drivresult = $conn->query($drivq);
+                    $drow = $drivresult->fetch_assoc();
+                    ?>
+                    
+                     <?php if($drow){
+                       $driveremail = $drow["D_email"];
+                       echo "Your Driver's name :- ", $drow["D_name"];
+                      }else{
+                        echo "<h1 style='color: red;'>No Driver available please cancel your booking</h1>";
+                      }
+                       ?>
+                        </select>
+                       
                 </form>
               </div>
               <form action="checkoutsubmit.php" method="POST" enctype="multipart/form-data">
@@ -145,15 +168,9 @@ if ($_SESSION["loggedin"]) {
                   <div class="details__user">
 
                     <input type="file" id="myFile" name="filename" onchange="getVal()">
-                    <script>
-                      function getVal() {
-                        const val = document.querySelector('input').value;
-                        if (val != null) {
-                          document.getElementById("btnimg").style.display = "block";
-                        }
-                      }
-                    </script>
+                    <input type="text" style="display: none;" name="dn" value="<?php echo $driveremail?>" readonly>
                     <input style="margin-left: 350px; display:none;" type="submit" value="Confirm Booking" class="btn action__submit" name="submit" id="btnimg"></input>
+                    
 
                   </div>
 
@@ -172,15 +189,15 @@ if ($_SESSION["loggedin"]) {
 
             </a>
 
-            <a href="dash.php" class="backBtn" style="text-decoration: none; color:red;">Go Back to Previous Page</a>
+            <a href="cancelbooking.php" class="backBtn" style="text-decoration: none; color:red;"><B>CANCEL BOOKING</B></a>
 
           </div>
         </div>
       </section>
 
     </body>
-
+    <script type="text/javascript" src="../JS/checkout.js"></script>
 
     </html>
-<?php }
-} ?>
+<?php }?>
+<?php } ?>

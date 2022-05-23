@@ -49,7 +49,7 @@ if ($_SESSION["loggedin"]) {
           margin-top: -30px;
         }
 
-        
+
 
         /* Overwrite default styles of hr */
         hr {
@@ -59,7 +59,7 @@ if ($_SESSION["loggedin"]) {
           width: 20%;
         }
 
-        
+
 
         .registerbtn:hover {
           opacity: 1;
@@ -202,12 +202,31 @@ if ($_SESSION["loggedin"]) {
                       <h2>Choose</h2>
 
                       <div class="form_container">
+                        <?php $date  = new DateTime();
+                        $maxdate = $date->modify("+28 days");
+                        $newd = $maxdate->format("Y-m-d");
+                        
+                        ?>
                         <div class="input_wrap">
-                          <label for="Ride Type">Ride type</label>
+                          <label for="Ride Type">Book for</label>
+                          <input type="date" id="txtDate" style="width: 100%;
+                          border: 2px solid var(--secondary);
+                          border-radius: 3px;
+                          padding: 10px;
+                          display: block;
+                          width: 100%;	
+                          font-size: 16px;
+                          transition: 0.5s ease;" name="bdate" min="<?php echo date("Y-m-d")?>" max="<?php echo $newd?>"></input>
+                          <br>
 
                           <select id="rt" required name="rt">
-                            <option>City Ride</option>
+                            <option value="CityRide">City Ride</option>
 
+                          </select>
+
+                          <!-- <select id="rt" required name="rt">
+                            <option>City Ride</option> -->
+                          
                           </select>
                         </div><br>
                       </div>
@@ -231,7 +250,7 @@ if ($_SESSION["loggedin"]) {
                           <select id="roundtrip" required name="roundtrip">
                             <option value="null">Select</option>
                             <option value="yes">Yes</option>
-                            
+
                           </select>
                         </div><br>
                       </div>
@@ -320,6 +339,7 @@ if ($_SESSION["loggedin"]) {
     </body>
     <!-- <script src="JS/booking.js"></script> -->
     <script type="text/javascript" src="../JS/citybookingscripts.js"></script>
+    
 
 
     </html>

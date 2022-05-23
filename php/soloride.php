@@ -256,11 +256,26 @@ if ($_SESSION["loggedin"]) {
                         <h2>Travel Info</h2>
                         <!-- <form name="f2"> -->
                           <div class="form_container">
+                          <?php $date  = new DateTime();
+                        $maxdate = $date->modify("+28 days");
+                        $newd = $maxdate->format("Y-m-d");
+                        
+                        ?>
 
                             <div class="input_wrap">
-                              <label for="Ride Type">Select Distance</label>
-
-                              <select id="km" required name="km">
+                              
+                              <label for="Ride Type">Book for</label>
+                          <input type="date" id="km" style="width: 100%;
+                          border: 2px solid var(--secondary);
+                          border-radius: 3px;
+                          padding: 10px;
+                          display: block;
+                          width: 100%;	
+                          font-size: 16px;
+                          transition: 0.5s ease;" name="bdate" min="<?php echo date("Y-m-d")?>" max="<?php echo $newd?>"></input>
+                          <br>
+                          <h3>You can only book for one day</h3>
+                              <!-- <select id="km" required name="km">
                                 <option value="1day">1 day</option>
                                 <option value="2days">2 days</option>
                                 <option value="3days">3 days</option>
@@ -268,7 +283,7 @@ if ($_SESSION["loggedin"]) {
                                 <option value="5days">5 days</option>
                                 <option value="6days">6 days</option>
                                 <option value="7days">7 days</option>
-                              </select>
+                              </select> -->
                               <br>
                             </div><br>
                           </div>
@@ -279,8 +294,8 @@ if ($_SESSION["loggedin"]) {
                         <form name="f3">
                           <div class="form_container">
                             <div class="input_wrap">
-                              <label for="company">Pick-Up Address</label>
-                              <input type="text" name="padd" class="input" id="company" required>
+                              <label for="company">Vehicle Address</label>
+                              <input type="text" name="padd" class="input" id="company" value="<?php echo $row["V_address"] ?>" readonly required>
                             </div>
                             <div class="input_wrap">
                               <label for="experience">Drop Address</label>
@@ -318,7 +333,7 @@ if ($_SESSION["loggedin"]) {
                   <div class="shadow"></div>
                   <div class="success_wrap">
                     <span class="modal_icon">
-                      <ion-icon name="checkmark-sharp"></ion-icon>
+                      <!-- <ion-icon name="checkmark-sharp"></ion-icon> -->
                     </span>
                     <p>You have successfully completed the process.</p>
                     <input type="submit" name="submit"></input>

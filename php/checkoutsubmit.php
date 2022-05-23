@@ -4,8 +4,11 @@ if ($_SESSION["loggedin"]) {
   include '../php/db.php';
 
   $semail = $_SESSION["email"];
-  //$spassword = $_SESSION["pass"];
+  
   $V_id = $_SESSION["V_id"];
+  
+  $bid = $_SESSION["bookingid"];
+  
 
 
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,10 +17,16 @@ if ($_SESSION["loggedin"]) {
     die("Connection failed: " . $conn->connect_error);
   }
 
+  $rent = "SELECT * FROM VEHICLE WHERE V_id = '$V_id' ";
+  $rentresult = $conn->query($rent);
+  $rentres = $rentresult->fetch_assoc(); 
+
+  $renteremail = $rentres["R_email"];
+
 
 if (isset($_POST['submit']) && isset($_FILES['filename'])) {
-	include "db.php";
-
+	
+	$dn = $_POST["dn"];
 	echo "<pre>";
 	print_r($_FILES['filename']);
 	echo "</pre>";
@@ -43,13 +52,20 @@ if (isset($_POST['submit']) && isset($_FILES['filename'])) {
 				move_uploaded_file($tmp_name, $img_upload_path);
 
 				// Insert into Database
-				$sql = "UPDATE booking SET B_img_pay = '$new_img_name'
-				        WHERE V_id='$V_id'";
-				if($conn->query($sql)){
+				$sql = "UPDATE booking SET B_img_pay = '$new_img_name', D_email='$dn', R_email = '$renteremail'
+				        WHERE B_id='$bid'";
+						$s="UPDATE driver SET D_status = 1 WHERE  D_email='$dn'";
+						$cans = "SELECT * FROM driver WHERE D_status=0";
+						$drivresult = $conn->query($cans);
+    					$drow = $drivresult->fetch_assoc();
+				if($conn->query($sql) && $drow!=null){
+					$conn->query($s);
 					echo "Inserted";
 					header("location: booking.php");
 				}else{
-					echo $conn->error;
+					$cancelbooking = "DELETE FROM booking WHERE V_id='$V_id'";
+					$conn->query($cancelbooking);
+					header("location: ../php/booking.php");
 				}
 				// header("Location: view.php");
 			}else {
@@ -61,7 +77,6 @@ if (isset($_POST['submit']) && isset($_FILES['filename'])) {
 		$em = "unknown error occurred!";
 		header("Location: index.php?error=$em");
 	}
-
 }else {
 	header("Location: checkout.php");
 }

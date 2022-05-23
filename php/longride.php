@@ -241,7 +241,22 @@ if ($_SESSION["loggedin"]) {
                         <h2>Choose</h2>
                         
                           <div class="form_container">
+                          <?php $date  = new DateTime();
+                        $maxdate = $date->modify("+28 days");
+                        $newd = $maxdate->format("Y-m-d");
+                        
+                        ?>
                             <div class="input_wrap">
+                            <label for="Ride Type">Book for</label>
+                          <input type="date" id="txtDate" style="width: 100%;
+                          border: 2px solid var(--secondary);
+                          border-radius: 3px;
+                          padding: 10px;
+                          display: block;
+                          width: 100%;	
+                          font-size: 16px;
+                          transition: 0.5s ease;" name="bdate" min="<?php echo date("Y-m-d")?>" max="<?php echo $newd?>"></input>
+                          <br>
                               <label for="Ride Type">Ride type</label>
 
                               <select id="rt" required name="rt">
