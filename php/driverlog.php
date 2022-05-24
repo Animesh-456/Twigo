@@ -22,7 +22,7 @@ if($_POST){
 
         $_SESSION["dloggedin"] = true;
         $_SESSION["demail"] = $email;
-        echo "Logged in sucessfully!";
+        header("location: ../php/driverdash.php");
     }else{
         echo "<script>alert('Incorrect Username or Password!')
         window.location='../html/driverLogin.html';</script>";

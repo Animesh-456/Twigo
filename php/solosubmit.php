@@ -27,7 +27,7 @@ if ($_SESSION["loggedin"]) {
   //$bresult = $conn->query($b);
   //$brivrow = $bresult->fetch_assoc();
 
-  if (isset($_POST['submit']) && $drivrow!=NULL) {
+  if (isset($_POST['submit'])) {
 
     $rtype = $_POST["rt"];
     //$km = $_POST["km"];
@@ -35,16 +35,15 @@ if ($_SESSION["loggedin"]) {
     $drop = $_POST["dadd"];
     $V_type = $_SESSION["V_type"];
     if ($V_type == "Sedan") {
-        $amount = 5000;
-      }
-     else if ($V_type == "Suv") {
-        $amount = 8000;
+      $amount = 5000;
+    } else if ($V_type == "Suv") {
+      $amount = 8000;
     } else if ($V_type == "Hatchback") {
-        $amount = 3500;
+      $amount = 3500;
     } else if ($V_type == "EV-Sedan") {
-        $amount = 4000;
+      $amount = 4000;
     }
-    
+
     //$paymentstatus = "0";
 
     $sq = "INSERT INTO booking(C_email, V_id, B_type, B_distance, B_drop_address, B_date, 
@@ -58,15 +57,15 @@ if ($_SESSION["loggedin"]) {
       $dres = $conn->query($sql);
       $drow = $dres->fetch_assoc();
       $bid = $drow["B_id"];
-      $_SESSION["bookingid"]= $bid;
+      $_SESSION["bookingid"] = $bid;
       header("location: solocheckout.php");
     } else {
       echo "Error submitting the form!" . $conn->error;
     }
-  }else{
+  } else {
     echo "<script>alert(' No Driver available OR No booking available for this date!')
     window.location='../php/soloride.php';</script>";
-   } 
+  }
 } else {
   header("location: ../html/customerlog.html");
 }

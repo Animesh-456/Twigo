@@ -198,28 +198,24 @@ if ($_SESSION["loggedin"]) {
                         <tr>
                             <td>
                                 <br>
-                                <h1>Your <span style="color: #ee0000;">Car</span> Details</h1>
+                                <h1>Book <span style="color: #ee0000;">Car</span> For</h1>
                                 <hr>
                                 <br>
-
+                                <label for="name"><b>Ride type</b></label>
                                 <select id="rt" name="ridetype" required>
                                     <option value="CityRide">City Ride</option>
                                     <option value="LongTrip">Long Trip</option>
                                     <option value="SoloTrip">Solo Ride</option>
                                 </select>
+                                <?php $date  = new DateTime();
+                                $maxdate = $date->modify("+28 days");
+                                $newd = $maxdate->format("Y-m-d");
+
+                                ?>
+
+                                <label for="dob"><b>Booking date</b></label>
+                                <input type="date" name="bdate" min="<?php echo date("Y-m-d") ?>" max="<?php echo $newd ?>" required>
                                 <input type="submit" name="Book" style="font-size: 20px;">
-                                </input>
-
-
-
-                                <!-- <table style="width: 100%;"> -->
-
-
-                                <!-- <a href="renterdash.php" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
-
-
-
-                                <!-- <a href="index.html" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a> -->
 
                             </td>
 
@@ -244,19 +240,6 @@ if ($_SESSION["loggedin"]) {
 
         </body>
         <script src="JS/booking.js"></script>
-        <?php
-        if (isset($_POST["Book"])) {
-            $rtype = $_POST["ridetype"];
-            if ($rtype == "CityRide") {
-                header("location: cityride.php");
-            } else if ($rtype == "LongRide") {
-                header("location: longride.php");
-            } else if ($rtype == "SoloTrip") {
-                header("location: solo.php");
-            }
-        }
-
-        ?>
 
         </html>
 <?php }

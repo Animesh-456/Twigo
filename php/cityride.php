@@ -205,7 +205,7 @@ if ($_SESSION["loggedin"]) {
                         <?php $date  = new DateTime();
                         $maxdate = $date->modify("+28 days");
                         $newd = $maxdate->format("Y-m-d");
-                        
+
                         ?>
                         <div class="input_wrap">
                           <label for="Ride Type">Book for</label>
@@ -216,7 +216,7 @@ if ($_SESSION["loggedin"]) {
                           display: block;
                           width: 100%;	
                           font-size: 16px;
-                          transition: 0.5s ease;" name="bdate" min="<?php echo date("Y-m-d")?>" max="<?php echo $newd?>"></input>
+                          transition: 0.5s ease;" name="bdate" min="<?php echo date("Y-m-d") ?>" max="<?php echo $newd ?>"></input>
                           <br>
 
                           <select id="rt" required name="rt">
@@ -226,7 +226,7 @@ if ($_SESSION["loggedin"]) {
 
                           <!-- <select id="rt" required name="rt">
                             <option>City Ride</option> -->
-                          
+
                           </select>
                         </div><br>
                       </div>
@@ -339,7 +339,7 @@ if ($_SESSION["loggedin"]) {
     </body>
     <!-- <script src="JS/booking.js"></script> -->
     <script type="text/javascript" src="../JS/citybookingscripts.js"></script>
-    
+
 
 
     </html>

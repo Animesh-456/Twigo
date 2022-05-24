@@ -172,11 +172,12 @@ if ($_SESSION["loggedin"]) {
 									<tr>
 
 										<th>Vehicle Name</th>
-										<th>Renter Contact</th>
+
 										<th>Vehicle ID</th>
 										<th>Booking Date</th>
 										<th>Payment status</th>
 										<th>Driver name</th>
+										<th>Driver Contact</th>
 										<th>Vehicle Address</th>
 										<th></th>
 									</tr>
@@ -191,12 +192,7 @@ if ($_SESSION["loggedin"]) {
 											$po = $ro->fetch_assoc()
 											?>
 											<td><?php echo $po["V_name"] ?></td>
-											<td><?php $rentersql = "SELECT R_contact FROM renter WHERE R_email='$po[R_email]'";
-												$renterres = $conn->query($rentersql);
-												$rrow = $renterres->fetch_assoc();
-												echo $rrow["R_contact"];
 
-												?></td>
 											<td>
 												<p><?php echo $r["V_id"] ?></p>
 											</td>
@@ -227,6 +223,17 @@ if ($_SESSION["loggedin"]) {
 
 												?>
 											</td>
+											<td><?php $driversql = "SELECT D_contact FROM driver WHERE D_email='$r[D_email]'";
+												$driverres = $conn->query($driversql);
+
+
+												if ($driverres->num_rows > 0) {
+													$drivrow = $driverres->fetch_assoc();
+													echo $drivrow["D_contact"];
+												} else {
+													echo "No Driver";
+												}
+												?></td>
 											<td><?php echo $po["V_address"]; ?></td>
 											<td>
 												<form action="cancelbooking.php" method="POST">

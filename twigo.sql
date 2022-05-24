@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2022 at 05:07 PM
+-- Generation Time: May 24, 2022 at 05:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -45,26 +45,18 @@ CREATE TABLE `booking` (
   `B_id` int(50) NOT NULL,
   `C_email` varchar(50) NOT NULL,
   `V_id` int(50) NOT NULL,
-  `B_R_email` varchar(50) DEFAULT NULL,
+  `D_email` varchar(50) DEFAULT NULL,
   `B_type` varchar(50) NOT NULL,
   `B_distance` varchar(5) NOT NULL,
   `B_round_trip` binary(5) NOT NULL,
   `B_pickup_address` varchar(50) NOT NULL,
   `B_drop_address` varchar(50) NOT NULL,
-  `B_date` datetime(5) NOT NULL,
+  `B_date` date NOT NULL,
   `B_amount` int(50) NOT NULL,
-  `B_payment` binary(50) NOT NULL,
   `B_img_pay` varchar(1000) NOT NULL,
-  `B_end_date` datetime(5) DEFAULT NULL,
-  `B_passenger` varchar(50) DEFAULT NULL
+  `B_passenger` varchar(50) DEFAULT NULL,
+  `R_email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `booking`
---
-
-INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `B_R_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_payment`, `B_img_pay`, `B_end_date`, `B_passenger`) VALUES
-(62, 'k123@gmail.com', 20, NULL, 'City Ride', '0-10', 0x0000000000, 'Burdwan ', 'Kolkata', '2010-05-22 11:49:09.00000', 200, 0x3000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, 'IMG-627a353dcbb421.02722366.png', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -232,7 +224,9 @@ INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_
 (21, 'annu@gmail.com', 'WB42AD6454', 'MahindraThar', 'Suv', '1HLBH41JXON109184', 0000, 25000, 'Diesel', '', 'Behala', 0, 'Kolkata', 'xyz', '5'),
 (22, 'annu@gmail.com', 'DL42AD6427', 'VolkswagenPolo', 'Hatchback', '1HGBU41JQMN109182', 0000, 124563, 'Diesel', '', 'Sadar Bazar', 0, 'Delhi', 'asd', '5'),
 (23, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109184', 0000, 25456, 'Diesel', '', 'Behala', 0, 'Kolkata', 'bbb', '4'),
-(24, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiXL6', 'Suv', '1HGBH41JXMN109186', 0000, 55555, 'Diesel', '', 'New Town ', 0, 'Kolkata', 'ccc', '5');
+(24, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiXL6', 'Suv', '1HGBH41JXMN109186', 0000, 55555, 'Diesel', '', 'New Town ', 0, 'Kolkata', 'ccc', '5'),
+(25, 'anim29006@gmail.com', 'WB42AD6420', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109187', 0000, 4568, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'bgvcf', '4'),
+(26, 'anim29006@gmail.com', 'WB42AD6410', 'HyundaiAlcazar', 'Suv', 'KOL567POK441', 0000, 5689, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'frt', '4');
 
 --
 -- Indexes for dumped tables
@@ -251,7 +245,7 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`B_id`),
   ADD KEY `C_email` (`C_email`),
   ADD KEY `V_id` (`V_id`),
-  ADD KEY `R_email` (`B_R_email`);
+  ADD KEY `R_email` (`D_email`);
 
 --
 -- Indexes for table `customer`
@@ -298,7 +292,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -310,7 +304,7 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -321,8 +315,7 @@ ALTER TABLE `vehicle`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`C_email`) REFERENCES `customer` (`C_email`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`V_id`) REFERENCES `vehicle` (`V_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`B_R_email`) REFERENCES `renter` (`R_email`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`V_id`) REFERENCES `vehicle` (`V_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
