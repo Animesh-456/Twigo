@@ -1,9 +1,11 @@
 <?php
 session_start();
-if ($_SESSION["remail"]) {
+if ($_SESSION["dloggedin"]) {
     include '../php/db.php';
 
-    $remail = $_SESSION["remail"];
+    $demail = $_SESSION["demail"];
+
+
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,7 +13,7 @@ if ($_SESSION["remail"]) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT * FROM renter WHERE R_email='$remail'";
+    $sql = "SELECT * FROM driver WHERE D_email='$demail'";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     if ($row) {
@@ -26,11 +28,12 @@ if ($_SESSION["remail"]) {
 
             <!-- Boxicons -->
             <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
             <!-- My CSS -->
             <link href='../CSS/dash.css' rel='stylesheet'>
             <link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-            <title>TwiGo Renter Profile</title>
+            <title>TwiGo Driver Profile Dashboard</title>
         </head>
 
         <body>
@@ -59,26 +62,20 @@ if ($_SESSION["remail"]) {
                     <span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
                 </a>
                 <ul class='side-menu top'>
-                    <li>
-                        <a href='renterdash.php'>
-                            <i class='bx bxs-dashboard'></i>
-                            <span class='text'>MY VEHICLES</span>
+                    <li >
+                        <a href='driverdash.php'>
+                            <i class='bx bxs-dashboard' ></i>
+                            <span class='text'>YOUR BOOKINGS</span>
                         </a>
                     </li>
                     <li>
-                        <a href='rbookingdetails.php'>
-                            <i class='bx bxs-shopping-bag-alt'></i>
-                            <span class='text'>BOOKING DETAILS</span>
-                        </a>
-                    </li>
-                    <!-- <li>
-                        <a href=''>
+                        <a href='driverprofile.php'>
                             <i class='bx bxs-doughnut-chart'></i>
                             <span class='text'>HISTORY</span>
                         </a>
-                    </li> -->
+                    </li>
                     <li class='active'>
-                        <a href='renterprofiledash.php'>
+                        <a href=''>
                             <i class='bx bxs-message-dots' style="color: #ee0000;"></i>
                             <span class='text' style="color: #ee0000;">MY PROFILE</span>
                         </a>
@@ -87,7 +84,7 @@ if ($_SESSION["remail"]) {
                 </ul>
                 <ul class='side-menu'>
                     <li>
-                        <a href='rhelpcenter.php'>
+                        <a href='driverhelpcenter.php'>
                             <i class='bx bxs-cog'></i>
                             <span class='text'>HELP CENTER</span>
                         </a>
@@ -106,21 +103,18 @@ if ($_SESSION["remail"]) {
             <section id='content'>
                 <!-- NAVBAR -->
                 <nav>
-                <i class='bx bx-menu'></i>
-                    <!-- <i class='bx bx-menu'></i>
-                    <a href='#' class='nav-link'>Categories</a> -->
+                    <i class='bx bx-menu'></i>
+                    <!-- <a href='#' class='nav-link'>Categories</a> -->
+                    <!-- <h1>Book for</h1> -->
                     <form action='#'>
                         <div class='form-input'>
-                            <!-- <input type='search' placeholder='Search...'>
-                            <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
+
+                            <!-- <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
                         </div>
                     </form>
-                    <!-- <input type='checkbox' id='switch-mode' hidden> -->
-                    <!-- <label for='switch-mode' class='switch-mode'></label> -->
-                    <a href='renterprofiledash.php' class='profile' id='prop'>
-                        <!-- <script>
-					document.body.classList.add('dark');
-				</script> -->
+
+                    <a href='driverprofile.php' class='profile' id='prop'>
+
                         <img src='../img/undraw_male_avatar_323b.svg'>
 
                     </a>
@@ -131,55 +125,56 @@ if ($_SESSION["remail"]) {
                 <main>
                     <div class='head-title'>
                         <div class='left'>
-                            <h1><?php echo $row["R_name"]; ?></h1>
-
+                            <h1><?php echo $row["D_name"]; ?></h1>
                         </div>
-                        <a href='reditprofile.php' class='btn-download'>
-                            <i class='bx bxs-cloud-download'></i>
-                            <span class='text'>Edit Profile</span>
-                        </a>
-                    </div>
-                    <div class='table-data'>
-                        <div class='order' id="booking">
-                            <div class='head'>
-                                <h3>Your Profile</h3>
-                                <i class='bx bx-search'></i>
-                                <i class='bx bx-filter'></i>
-                            </div>
-                            <div class="table-data">
-                                <div class="order">
-                                    <div class="head">
-                                        <h3></h3>
-                                        <!-- <i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i> -->
-                                    </div>
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                                <th>NAME</th>
-                                                <th>DOB</th>
-                                                <th>ADDRESS</th>
-                                                <th>CITY</th>
-                                                <th>LISENCE NUMBER</th>
-                                                <th>AADHAR NUMBER</th>
-                                                <th>CONTACT</th>
+                        <a href='drivereditprofile.php' class='btn-download'>
+							<i class='bx bxs-cloud-download'></i>
+							<span class='text'>Edit Profile</span>
+						</a>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <img src="../img/undraw_male_avatar_323b.svg">
-                                                    <p><?php echo $row["R_name"] ?></p>
-                                                </td>
-                                                <td><?php echo $row["R_DOB"] ?></td>
-                                                <td><?php echo $row["R_address"] ?></td>
-                                                <td><?php echo $row["R_city"] ?></td>
-                                                <td><?php echo $row["R_lisence_no"] ?></td>
-                                                <td><?php echo $row["R_aadhar_id"] ?></td>
-                                                <td><?php echo $row["R_contact"] ?></td>
-                                            </tr>
-                                            <!-- <tr>
+                    </div>
+
+                    <div class='table-data'>
+						<div class='order' id="booking">
+							<div class='head'>
+								<h3>Your Profile</h3>
+								<i class='bx bx-search'></i>
+								<i class='bx bx-filter'></i>
+							</div>
+							<div class="table-data">
+								<div class="order">
+									<div class="head">
+										<h3></h3>
+										<!-- <i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i> -->
+									</div>
+									<table>
+										<thead>
+											<tr>
+												<th>NAME</th>
+												<th>DOB</th>
+												<th>ADDRESS</th>
+												<th>CITY</th>
+												<th>LISENCE NUMBER</th>
+												<th>AADHAR NUMBER</th>
+												<th>CONTACT</th>
+
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													<img src="../img/undraw_male_avatar_323b.svg">
+													<p><?php echo $row["D_name"] ?></p>
+												</td>
+												<td><?php echo $row["D_dob"] ?></td>
+												<td><?php echo $row["D_address"] ?></td>
+												<td><?php echo $row["D_city"] ?></td>
+												<td><?php echo $row["D_lisence"] ?></td>
+												<td><?php echo $row["D_adhar"] ?></td>
+												<td><?php echo $row["D_contact"] ?></td>
+											</tr>
+											<!-- <tr>
 								<td>
 									<img src="img/people.png">
 									<p>John Doe</p>
@@ -211,10 +206,10 @@ if ($_SESSION["remail"]) {
 								<td>01-10-2021</td>
 								<td><span class="status completed">Completed</span></td>
 							</tr> -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- <div class="todo">
+										</tbody>
+									</table>
+								</div>
+								<!-- <div class="todo">
 					<div class="head">
 						<h3>Todos</h3>
 						<i class='bx bx-plus' ></i>
@@ -243,12 +238,18 @@ if ($_SESSION["remail"]) {
 						</li>
 					</ul>
 				</div> -->
-                            </div>
+							</div>
+
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                             <script src='../JS/dash.js'></script>
+
         </body>
 
+
         </html>
-<?php }
+<?php } else {
+        header("location: ../html/driverLogin.html");
+    }
 } else {
-    header("location: ../html/RenterLogin.html");
+    header("location: ../html/driverLogin.html");
 } ?>

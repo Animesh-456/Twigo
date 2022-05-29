@@ -106,7 +106,7 @@
 
 <body>
 
-  <form action="../php/">
+  <form action="../php/driverupdatepass1.php" method="post">
     <div class="container">
       <table>
         <tr>
@@ -115,12 +115,15 @@
       <hr style=" border: 1px solid #ff0000;
       margin-bottom: 25px;
       margin-right: 850px;">
-<br><br>
+<br><label for="email"><b><span style="color: #ee0000;">Email</span></b></label>
+<input type="text" placeholder="Enter your email" name="email" id="email" required>
+
+<br>
 <label for="sq"><b><span style="color: #ee0000;">Security Question</span></b></label>
 <input type="text" placeholder="Enter your Father's name" name="sq" id="sq" required>
 <br><br>
 
-      <button type="submit" class="loginbtn" style="font-size: 20px;">SUBMIT</button>
+<input class="loginbtn" type='submit' name='login' value='submit' style="font-size: 20px;"></input>
       <a href="../html/index.html" class="backbtn" style="font-size: 20px; margin-left: 100px;">Back</a>
           </td>
           <td><img src="../img/undraw_surveillance_re_8tkl.svg" class="image"></img></td>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
+if ($_SESSION["dloggedin"]) {
   include '../php/db.php';
 
   // $V_id = $_POST["V_id"];
-  $semail = $_SESSION["email"];
+  $demail = $_SESSION["demail"];
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -12,7 +12,7 @@ if ($_SESSION["loggedin"]) {
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM customer WHERE C_email='$semail'";
+  $sql = "SELECT * FROM driver WHERE D_email='$demail'";
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
   if ($row) {
@@ -214,28 +214,28 @@ if ($_SESSION["loggedin"]) {
 
                 <!-- <table style="width: 100%;"> -->
                 <label for="name"><b>Name</b></label>
-                <input type="text" placeholder="Enter Name" name="name" id="name" value="<?php echo $row["C_name"] ?>" required>
+                <input type="text" placeholder="Enter Name" name="name" id="name" value="<?php echo $row["D_name"] ?>" required>
 
                 <label for="address"><b>Address</b></label>
-                <input type="text" placeholder="Enter Address" name="address" id="address" value="<?php echo $row["C_address"] ?>" required>
+                <input type="text" placeholder="Enter Address" name="address" id="address" value="<?php echo $row["D_address"] ?>" required>
 
                 <label for="contact"><b>Contact</b></label>
-                <input type="number" placeholder="Enter Contact" name="contact" id="contact" value="<?php echo $row["C_contact"] ?>" required>
+                <input type="number" placeholder="Enter Contact" name="contact" id="contact" value="<?php echo $row["D_contact"] ?>" required>
 
                 <!-- <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $row["C_email"] ?>" required> -->
+                <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $row["D_email"] ?>" required> -->
 
                 <label for="city" name="city"><b>Choose your city:</b></label>
                 <select id="city" name="city">
                   <?php
-                  echo "<option>" . $row['C_city'] . "</option>";
-                  if ($row['C_city'] == "Kolkata") {
+                  echo "<option>" . $row['D_city'] . "</option>";
+                  if ($row['D_city'] == "Kolkata") {
                     echo "<option value='Delhi'>Delhi</option>
           <option value='Mumbai'>Mumbai</option>";
-                  } elseif ($row['C_city'] == "Delhi") {
+                  } elseif ($row['D_city'] == "Delhi") {
                     echo "<option value='Kolkata'>Kolkata</option>
           <option value='Mumbai'>Mumbai</option>";
-                  } elseif ($row['C_city'] == "Mumbai") {
+                  } elseif ($row['D_city'] == "Mumbai") {
                     echo "<option value='Kolkata'>Kolkata</option>
           <option value='Delhi'>Delhi</option>";
                   }
@@ -246,14 +246,14 @@ if ($_SESSION["loggedin"]) {
                 <label for="gender" name="gender"><b>Gender:</b></label>
                 <select id="gender" name="gender">
                   <?php
-                  echo "<option>" . $row['C_gender'] . "</option>";
-                  if ($row['C_gender'] == "Others") {
+                  echo "<option>" . $row['D_gender'] . "</option>";
+                  if ($row['D_gender'] == "Others") {
                     echo "<option value='Male'>Male</option>
           <option value='Female'>Female</option>";
-                  } elseif ($row['C_gender'] == "Male") {
+                  } elseif ($row['D_gender'] == "Male") {
                     echo "<option value='Others'>Others</option>
           <option value='Female'>Female</option>";
-                  } elseif ($row['C_gender'] == "Female") {
+                  } elseif ($row['D_gender'] == "Female") {
                     echo "<option value='Others'>Others</option>
           <option value='Male'>Male</option>";
                   }
@@ -261,18 +261,17 @@ if ($_SESSION["loggedin"]) {
                 </select>
 
                 <label for="aadhar"><b>Aadhar ID</b></label>
-                <input type="number" placeholder="123xxx555" name="aadhar" id="aadhar" value="<?php echo $row["C_adhar_id"] ?>" required>
+                <input type="number" placeholder="123xxx555" name="aadhar" id="aadhar" value="<?php echo $row["D_adhar"] ?>" required>
 
                 <label for="liscno"><b>Lisence No:- </b></label>
-                <input type="text" placeholder="123XXX" name="liscno" id="liscno" value="<?php echo $row["C_lisence_no"] ?>" required>
+                <input type="text" placeholder="123XXX" name="liscno" id="liscno" value="<?php echo $row["D_lisence"] ?>" required>
 
                 <label for="dob"><b>DOB</b></label>
-                <input type="date" placeholder="Enter DOB" name="dob" id="dob" value="<?php echo $row["C_dob"] ?>" required>
+                <input type="date" placeholder="Enter DOB" name="dob" id="dob" value="<?php echo $row["D_dob"] ?>" required>
 
                 <input type="submit" name="Update" value="Update" style="font-size: 20px;">
                 </input>
-                <a href="profiledash.php" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
-
+                <a href="driverprofile.php" class="backbtn" style="font-size: 20px; margin-left: 250px;">Back</a>
 
                 <button type="reset" class="clearbtn" style="font-size: 20px;">Clear</button>
               </td>
@@ -308,12 +307,12 @@ if ($_SESSION["loggedin"]) {
       $adhar = $_POST["aadhar"];
 
 
-      $sql = "UPDATE customer SET C_name='$name', C_address='$address', C_contact='$contact', C_city='$city', C_lisence_no='$lisence',
-    C_dob='$dob', C_gender='$gender',  C_adhar_id='$adhar' WHERE C_email='$semail'";
+      $sql = "UPDATE driver SET D_name='$name', D_address='$address', D_contact='$contact', D_city='$city', D_lisence='$lisence',
+    D_dob='$dob', D_gender='$gender',  D_adhar='$adhar' WHERE D_email='$demail'";
 
       if ($conn->query($sql)) {
         // header("location: ../html/customerlog.html");
-        echo "<script>window.location='profiledash.php'</script>";
+        echo "<script>window.location='driverprofile.php'</script>";
         echo "Data Updated !";
       } else {
         echo "Error submitting the form!";
@@ -324,5 +323,5 @@ if ($_SESSION["loggedin"]) {
     </html>
 <?php }
 } else {
-  header("location: ../html/customerlog.html");
+  header("location: ../html/driverLogin.html");
 } ?>

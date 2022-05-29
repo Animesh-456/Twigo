@@ -30,7 +30,7 @@ if ($_SESSION["remail"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Help Centre</title>
+			<title>TwiGo Renter Help Centre</title>
 		</head>
 
 		<body>
@@ -112,6 +112,7 @@ if ($_SESSION["remail"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
+				<i class='bx bx-menu'></i>
 					<!-- <i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a> -->
 					<form action='#'>

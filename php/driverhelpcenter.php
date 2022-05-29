@@ -1,9 +1,9 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
+if ($_SESSION["dloggedin"]) {
 	include '../php/db.php';
 
-	$email = $_SESSION["email"];
+	$demail = $_SESSION["demail"];
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,10 +11,10 @@ if ($_SESSION["loggedin"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM customer WHERE C_email='$email'";
+	$sql = "SELECT * FROM driver WHERE D_email='$demail'";
 	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	if ($row) {
+	
+	while($row = $result->fetch_assoc()) {
 ?>
 
 		<!DOCTYPE html>
@@ -30,7 +30,7 @@ if ($_SESSION["loggedin"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Help Centre</title>
+			<title>TwiGo Driver Help Centre</title>
 		</head>
 
 		<body>
@@ -52,65 +52,33 @@ if ($_SESSION["loggedin"]) {
 					border-radius: 30px;
 				}
 
-
+				
 				#sidebar .side-menu.top li.active a {
-					color: red;
-				}
+	color: red;	
+}
+			
 			</style>
 			<!-- SIDEBAR -->
-
+			
 			<section id='sidebar'>
 				<a href='#' class='brand'>
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-				<li>
-						<a href='dash.php'>
+                <li >
+						<a href='driverdash.php'>
 							<i class='bx bxs-dashboard'></i>
-							<span class='text'>HOME (All cars)</span>
+							<span class='text' >YOUR BOOKINGS</span>
 						</a>
 					</li>
 					<li>
-						<a href='suv.php'>
-							<i class='bx bxs-car'></i>
-							<span class='text'>SUV</span>
-						</a>
-					</li>
-					<li>
-						<a href='sedan.php'>
-							<i class='bx bxs-car'></i>
-							<span class='text'>SEDAN</span>
-						</a>
-					</li>
-					<li>
-						<a href='hatchback.php'>
-							<i class='bx bxs-car'></i>
-							<span class='text'>HATCHBACK</span>
-						</a>
-					</li>
-					<li>
-						<a href='booking.php'>
-							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>BOOKINGS</span>
-						</a>
-					</li>
-
-					<li>
-						<a href='rate.php'>
-
-							<i class='bx bx-rupee'></i>
-							<span class='text'>RATES</span>
-						</a>
-					</li>
-
-					<li>
-						<a href='history.php'>
+						<a href=''>	
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
 					</li>
 					<li>
-						<a href='profiledash.php'>
+						<a href='driverprofile.php'>
 							<i class='bx bxs-message-dots'></i>
 							<span class='text'>MY PROFILE</span>
 						</a>
@@ -119,15 +87,15 @@ if ($_SESSION["loggedin"]) {
 				</ul>
 				<ul class='side-menu'>
 					<li class='active'>
-						<a href='helpdash.php'>
+						<a href='rhelpcenter.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
 					</li>
 					<li>
 						<a href='logout.php' class='logout'>
-							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">Logout</span>
+							<i class='bx bxs-log-out-circle'style="color: #ee0000;"></i>
+							<span class='text'style="color: #ee0000;">Logout</span>
 						</a>
 					</li>
 				</ul>
@@ -149,7 +117,7 @@ if ($_SESSION["loggedin"]) {
 					</form>
 					<!-- <input type='checkbox' id='switch-mode' hidden> -->
 					<!-- <label for='switch-mode' class='switch-mode'></label> -->
-					<a href='profiledash.php' class='profile' id='prop'>
+					<a href='driverprofile.php' class='profile' id='prop'>
 						<!-- <script>
 					document.body.classList.add('dark');
 				</script> -->
@@ -163,51 +131,51 @@ if ($_SESSION["loggedin"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["C_name"]; ?></h1>
+							<h1><?php echo $row["D_name"]; ?></h1>
 
 						</div>
-
+						
 					</div>
 					<div class="table-data">
-						<div class="order">
-							<div class="head">
-								<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
-								<!-- <i class='bx bx-search' ></i>
+				<div class="order">
+					<div class="head">
+						<h3><span style="color: #ee0000;">SORRY!</span> FOR INCONVENIENCE -- REACH OUT VIA </h3>
+						<!-- <i class='bx bx-search' ></i>
 						<i class='bx bx-filter' ></i> -->
-							</div>
-							<table>
-								<thead>
-									<tr>
-										<th>CITY NAME</th>
-										<th>CUSTOMER HELPLINE NUMBER</th>
-										<th>EMAIL</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<p>KOLKATA</p>
-										</td>
-										<td>1800 900546</td>
-										<td>twigo247@gmail.com</td>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>CITY NAME</th>
+								<th>DRIVER HELPLINE NUMBER</th>
+								<th>EMAIL</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<p>KOLKATA</p>
+								</td>
+								<td>1800 900546</td>
+								<td>twigo247@gmail.com</td>
 
 
-									</tr>
-									<tr>
-										<td>
-											<p>MUMBAI</p>
-										<td>1800 900548</td>
-										<td>twigo247@gmail.com</td>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<p>DELHI</p>
-										<td>1800 900547</td>
-										<td>twigo247@gmail.com</td>
-										</td>
-									</tr>
-									<!-- <tr>
+							</tr>
+							<tr>
+								<td>
+									<p>MUMBAI</p>
+								<td>1800 900548</td>
+								<td>twigo247@gmail.com</td>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p>DELHI</p>
+								<td>1800 900547</td>
+								<td>twigo247@gmail.com</td>
+								</td>
+							</tr>
+							<!-- <tr>
 								<td>
 									<img src="img/people.png">
 									<p>John Doe</p>
@@ -239,10 +207,10 @@ if ($_SESSION["loggedin"]) {
 								<td>01-10-2021</td>
 								<td><span class="status completed">Completed</span></td>
 							</tr> -->
-								</tbody>
-							</table>
-						</div>
-						<!-- <div class="todo">
+						</tbody>
+					</table>
+				</div>
+				<!-- <div class="todo">
 					<div class="head">
 						<h3>Todos</h3>
 						<i class='bx bx-plus' ></i>
@@ -271,8 +239,8 @@ if ($_SESSION["loggedin"]) {
 						</li>
 					</ul>
 				</div> -->
-					</div>
-					<script src='../JS/dash.js'></script>
+			</div>
+			<script src='../JS/dash.js'></script>
 		</body>
 
 		</html>

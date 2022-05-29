@@ -33,7 +33,7 @@ if ($_SESSION["dloggedin"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Dashboard</title>
+			<title>TwiGo Driver Dashboard</title>
 		</head>
 
 		<body>
@@ -69,13 +69,13 @@ if ($_SESSION["dloggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href=''>
+						<a href=''>	
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
 					</li>
 					<li>
-						<a href=''>
+						<a href='driverprofile.php'>
 							<i class='bx bxs-message-dots'></i>
 							<span class='text'>MY PROFILE</span>
 						</a>
@@ -84,7 +84,7 @@ if ($_SESSION["dloggedin"]) {
 				</ul>
 				<ul class='side-menu'>
 					<li>
-						<a href=''>
+						<a href='driverhelpcenter.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
@@ -103,8 +103,8 @@ if ($_SESSION["dloggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-					<!-- <i class='bx bx-menu'></i>
-					<a href='#' class='nav-link'>Categories</a> -->
+					<i class='bx bx-menu'></i>
+					<!-- <a href='#' class='nav-link'>Categories</a> -->
 					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
@@ -113,7 +113,7 @@ if ($_SESSION["dloggedin"]) {
 						</div>
 					</form>
 
-					<a href='' class='profile' id='prop'>
+					<a href='driverprofile.php' class='profile' id='prop'>
 
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
@@ -143,7 +143,7 @@ if ($_SESSION["dloggedin"]) {
 							<div class="table-data">
 								<div class="order">
 									<div class="head">
-										<h3></h3>
+										<h3>Booking Details</h3>
 									</div>
 									<table>
 										<thead>

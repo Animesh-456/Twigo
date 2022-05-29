@@ -222,8 +222,8 @@ if ($_SESSION["remail"]) {
                                 <label for="contact"><b>Contact</b></label>
                                 <input type="number" placeholder="Enter Contact" name="contact" id="contact" value="<?php echo $row["R_contact"] ?>" required>
 
-                                <label for="email"><b>Email</b></label>
-                                <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $row["R_email"] ?>" required>
+                                <!-- <label for="email"><b>Email</b></label>
+                                <input type="text" placeholder="Enter Email" name="email" id="email" value="<?php echo $row["R_email"] ?>" required> -->
 
                                 <label for="city" name="city"><b>Choose your city:</b></label>
                                 <select id="city" name="city">
@@ -299,7 +299,7 @@ if ($_SESSION["remail"]) {
         if ($_POST) {
             $name = $_POST["name"];
             $address = $_POST["address"];
-            $email = $_POST["email"];
+            //$email = $_POST["email"];
             $contact = $_POST["contact"];
             $city = $_POST["city"];
             $lisence = $_POST["liscno"];
@@ -308,7 +308,7 @@ if ($_SESSION["remail"]) {
             $adhar = $_POST["aadhar"];
 
 
-            $sql = "UPDATE renter SET R_name='$name', R_address='$address', R_email='$email', R_contact='$contact', R_city='$city', R_lisence_no='$lisence',
+            $sql = "UPDATE renter SET R_name='$name', R_address='$address', R_contact='$contact', R_city='$city', R_lisence_no='$lisence',
     R_dob='$dob', R_gender='$gender',  R_aadhar_id='$adhar' WHERE R_email='$remail'";
 
             if ($conn->query($sql)) {

@@ -1,9 +1,9 @@
 <?php
 session_start();
-if ($_SESSION["remail"]) {
+if ($_SESSION["aemail"]) {
 	include '../php/db.php';
 
-	$remail = $_SESSION["remail"];
+	$aemail = $_SESSION["aemail"];
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,11 +11,11 @@ if ($_SESSION["remail"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM renter WHERE R_email='$remail'";
+	$sql = "SELECT * FROM adm WHERE A_email='$aemail'";
 	$result = $conn->query($sql);
 	$row = $result->fetch_assoc();
 	if ($row) {
-		$_SESSION["R_name"] = $row["R_name"];
+		$_SESSION["A_name"] = $row["A_name"];
 ?>
 
 		<!DOCTYPE html>
@@ -32,7 +32,7 @@ if ($_SESSION["remail"]) {
 			<link href='../CSS/dash.css' rel='stylesheet'>
 			<link rel='icon' type='image/x-icon' href='../img/fav.png'>
 
-			<title>TwiGo Renter Dashboard</title>
+			<title>TwiGo Admin</title>
 		</head>
 
 		<body>
@@ -61,39 +61,49 @@ if ($_SESSION["remail"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li class='active'>
-						<a href='renterdash.php'>
-							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">MY VEHICLES</span>
-						</a>
-					</li>
-					<li>
-						<a href='rbookingdetails.php'>
-							<i class='bx bxs-shopping-bag-alt'></i>
+					<li >
+						<a href='admindash.php'>
+							<i class='bx bxs-car' ></i>
 							<span class='text'>BOOKING DETAILS</span>
 						</a>
 					</li>
+					
 					<!-- <li>
 						<a href=''>
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
 					</li> -->
-					<li>
-						<a href='renterprofiledash.php'>
-							<i class='bx bxs-message-dots'></i>
-							<span class='text'>MY PROFILE</span>
+					<li class='active'>
+						<a href='admincustomerdetails.php'>
+							<i class='bx bx-body' style="color: #ee0000;"></i>
+							<span class='text' style="color: #ee0000;">CUSTOMER DETAILS</span>
+						</a>
+					</li>
+
+                    <li>
+						<a href='driveradmindetails.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>DRIVER DETAILS</span>
+						</a>
+					</li>
+                    <li>
+						<a href='renteradminetails.php'>
+							<i class='bx bx-body'></i>
+							<span class='text'>RENTER DETAILS</span>
+						</a>
+					</li>
+
+                    <li>
+						<a href='vehicleadmindetails.php'>
+							<i class='bx bxs-car'></i>
+							<span class='text'>VEHICLE DETAILS</span>
 						</a>
 					</li>
 
 				</ul>
 				<ul class='side-menu'>
-					<li>
-						<a href='rhelpcenter.php'>
-							<i class='bx bxs-cog'></i>
-							<span class='text'>HELP CENTER</span>
-						</a>
-					</li>
+					
 					<li>
 						<a href='logout.php' class='logout'>
 							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
@@ -117,12 +127,6 @@ if ($_SESSION["remail"]) {
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
 						</div>
 					</form>
-
-					<a href='renterprofiledash.php' class='profile' id='prop'>
-
-						<img src='../img/undraw_male_avatar_323b.svg'>
-
-					</a>
 				</nav>
 				<!-- NAVBAR -->
 
@@ -130,18 +134,15 @@ if ($_SESSION["remail"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["R_name"]; ?></h1>
+							<h1><?php echo $row["A_design."]; ?></h1>
 
 						</div>
-						<a href='vehicleadd.php' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Add Vehicle</span>
-						</a>
+						
 					</div>
 					<?php
 
-					$sql = "SELECT * FROM vehicle WHERE R_email='$remail'";
-					$result = $conn->query($sql);
+					$bsql = "SELECT * FROM customer";
+					$bresult = $conn->query($bsql);
 
 					?>
 					<div class='table-data'>
@@ -154,54 +155,59 @@ if ($_SESSION["remail"]) {
 										<h3></h3>
 									</div>
 
-									
-
 										<table>
 											<thead>
 												<tr>
-													<th>VEHICLE IMAGE</th>
-													<th>VEHICLE NAME</th>
-													<th>VEHICLE ID</th>
+													<th>CUSTOMER NAME</th>
+													<th>CUSTOMER EMAIL</th>
+													<th>CUSTOMER PHN.</th>
 													
-													<th>SEATS</th>
-													<th>EMMISION TYPE</th>
+													<th>CUSTOMER DOB</th>
+													
 													
 													<th></th>
 												</tr>
 											</thead>
-											<?php while ($row = $result->fetch_assoc()) { ?>
+											<?php while ($brow = $bresult->fetch_assoc()) { ?>
 											<tbody>
 
-											<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $row["V_name"]);?>
-
 												<tr>
-												<td><img src='../img/<?php echo $row["V_name"] ?>.jfif' style='width:150px; height:100px;'></img></td>
+												<!-- <td><img src='../img/<?php echo $row["C_name"] ?>.jfif' style='width:150px; height:100px;'></img></td> -->
 													<td>
-														<p style="font-weight: bold;"><?php echo $vname; ?></p>
+														<p style="font-weight: bold;"><?php echo $brow["C_name"]; ?></p>
 													</td>
-													<td id="V_id"><?php echo $row["V_id"] ?></td>
+													<td id="V_id"><?php echo $brow["C_email"] ?></td>
 													
-													<td><?php echo $row["V_no_seats"] ?></td>
-													<td><?php echo $row["V_emmision_type"] ?></td>
+													<td><?php echo $brow["C_contact"] ?></td>
+													<td><?php echo $brow["C_dob"] ?></td>
 													
-													
-													
-
 													<?php
-
-													$name = $row["V_id"];
-													 
-
-													echo "
-														<form action='cardetails.php' method='POST'>
-														<td style='display: none;'><label for='V_id'>V_id</label>
-														<input type='text' id='V_id' name='V_id' value='$name' readonly>
+                                                    
+                                                        $name = $brow["C_email"];
+                                                        echo "
+														<form action='' method='POST'>
+														<td style='display: none;'><label for='B_id'>V_id</label>
+														<input type='text' id='B_id' name='B_id' value='$name' readonly>
 													</td>
 														<td>
-														
 														<input type='submit' name='val' value='View Details' id='btn' class='button'>
 														</td>
 													</form>";
+                                                    
+
+													//$name = $row["V_id"];
+													 
+
+													// echo "
+													// 	<form action='cardetails.php' method='POST'>
+													// 	<td style='display: none;'><label for='V_id'>V_id</label>
+													// 	<input type='text' id='V_id' name='V_id' value='$name' readonly>
+													// </td>
+													// 	<td>
+														
+													// 	<input type='submit' name='val' value='View Details' id='btn' class='button'>
+													// 	</td>
+													// </form>";
 													//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
 
 													?>
@@ -225,5 +231,5 @@ if ($_SESSION["remail"]) {
 		echo "No data";
 	}
 } else {
-	header("location: ../html/RenterLogin.html");
+	header("location: ../html/adminlog.html");
 } ?>

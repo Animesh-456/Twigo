@@ -138,6 +138,7 @@ if ($_SESSION["loggedin"]) {
 			</section>
 			<section id='content'>
 				<nav>
+				<i class='bx bx-menu'></i>
 					<!-- <i class='bx bx-menu'></i> -->
 					<!-- <a href='#' class='nav-link'>Categories</a> -->
 					<form action='#'>

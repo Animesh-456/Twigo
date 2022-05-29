@@ -134,8 +134,8 @@ if ($_SESSION["loggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-					<!-- <i class='bx bx-menu'></i>
-					<a href='#' class='nav-link'>Categories</a> -->
+					<i class='bx bx-menu'></i>
+					<!-- <a href='#' class='nav-link'>Categories</a> -->
 					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
