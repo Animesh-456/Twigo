@@ -12,7 +12,7 @@ if ($_SESSION["loggedin"]) {
 	}
 
 	$sql = "SELECT * FROM customer WHERE C_email='$email'";
-	$sq = "SELECT * FROM booking WHERE C_email='$email'";
+	$sq = "SELECT * FROM booking WHERE C_email='$email' AND B_ridestatus=0";
 
 	$result = $conn->query($sql);
 	$res = $conn->query($sq);

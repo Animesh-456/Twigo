@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2022 at 05:54 PM
+-- Generation Time: May 31, 2022 at 02:53 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -24,16 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `adm`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `adm` (
   `A_email` varchar(50) NOT NULL,
   `A_name` varchar(50) NOT NULL,
   `A_DOB` date NOT NULL,
   `A_design.` varchar(50) NOT NULL,
   `A_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `adm`
+--
+
+INSERT INTO `adm` (`A_email`, `A_name`, `A_DOB`, `A_design.`, `A_password`) VALUES
+('d@gmail.com', 'Deb Paul', '2022-05-18', 'Manager', '1234');
 
 -- --------------------------------------------------------
 
@@ -48,15 +55,25 @@ CREATE TABLE `booking` (
   `D_email` varchar(50) DEFAULT NULL,
   `B_type` varchar(50) NOT NULL,
   `B_distance` varchar(5) NOT NULL,
-  `B_round_trip` binary(5) NOT NULL,
+  `B_round_trip` int(1) NOT NULL,
   `B_pickup_address` varchar(50) NOT NULL,
   `B_drop_address` varchar(50) NOT NULL,
   `B_date` date NOT NULL,
   `B_amount` int(50) NOT NULL,
   `B_img_pay` varchar(1000) NOT NULL,
   `B_passenger` varchar(50) DEFAULT NULL,
-  `R_email` varchar(50) NOT NULL
+  `R_email` varchar(50) NOT NULL,
+  `B_ridestatus` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `D_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_img_pay`, `B_passenger`, `R_email`, `B_ridestatus`) VALUES
+(99, 'k123@gmail.com', 24, 'anim29006@gmail.com', 'CityRide', '0-10', 1, 'Burdwan ', 'Kolkata', '2022-05-31', 320, 'IMG-62960765f16729.90155826.pdf', NULL, 'anim29006@gmail.com', 0),
+(100, 'k123@gmail.com', 25, 'suparno69@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata', '2022-06-01', 400, 'IMG-6296078acd7095.79237371.pdf', NULL, 'anim29006@gmail.com', 1),
+(101, 'k123@gmail.com', 22, 'suparno69@gmail.com', 'CityRide', '20-30', 1, 'Burdwan ', 'Kolkata', '2022-06-10', 600, 'IMG-629607e54ff9e7.21515116.pdf', NULL, 'annu@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -87,14 +104,13 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_contact`, `C_city`, `C_lisence_no`, `C_adhar_id`, `C_dob`, `C_image`, `C_gender`, `C_password`, `C_a/c_no`, `C_ifsc`, `RV_id`) VALUES
-('', '', '', '', '', '', '', '', '0000-00-00', '', '', '', 0, 0, 0),
 ('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '', '7407934219', 'Kolkata', '5555555555555', '123456', '2000-06-29', '', 'Male', 'Animesh2906\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('arpan23@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2022-03-13', '', 'Male', 'andamannicobarislands\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('bruno123@gmail.com', 'Swarnava Samanta', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '55223366', '0', '2022-03-02', '', 'Male', '22556688997744\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('h23@gmail.com', 'Henna Nielsen', 'Winden', 'I play i learn', '995587546', 'Mumbai', '45678910', '123456789', '1989-12-08', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('h@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('helge34@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
-('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Female', '1234', 0, 0, 0),
+('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Male', '1234', 0, 0, 0),
 ('m34@gmail.com', 'Martha Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '55223366', '0', '2022-03-06', '', 'Female', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
 ('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '0', '2001-06-29', '', 'Male', '1234', 0, 0, 0),
 ('suarna69@gmail.com', 'Suparna', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2010-10-15', '', 'Others', '123456789\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', 0, 0, 0),
@@ -127,8 +143,8 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`D_email`, `D_name`, `D_address`, `D_contact`, `D_city`, `D_lisence`, `D_dob`, `D_gender`, `D_psw`, `D_security`, `D_adhar`, `D_status`) VALUES
-('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '5566332211', '2000-06-29', 'Male', '1234', 'Winden high school', '4567891', 0),
-('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 0);
+('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '5566332211', '2000-06-29', 'Male', '5678', 'Winden high school', '4567891', 1),
+('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 1);
 
 -- --------------------------------------------------------
 
@@ -233,9 +249,9 @@ INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `adm`
 --
-ALTER TABLE `admin`
+ALTER TABLE `adm`
   ADD PRIMARY KEY (`A_email`);
 
 --
@@ -292,7 +308,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `review`

@@ -142,7 +142,7 @@ if ($_SESSION["aemail"]) {
 					</div>
 					<?php
 
-					$bsql = "SELECT * FROM booking";
+					$bsql = "SELECT * FROM booking ORDER BY B_date DESC";
 					$bresult = $conn->query($bsql);
 
 					?>
@@ -165,7 +165,7 @@ if ($_SESSION["aemail"]) {
 													
 													<th>BOOKNG AMOUNT</th>
 													
-													
+													<th>RIDE STATUS</th>
 													<th></th>
 												</tr>
 											</thead>
@@ -181,20 +181,31 @@ if ($_SESSION["aemail"]) {
 													
 													<td><?php echo $brow["B_type"] ?></td>
 													<td><?php echo $brow["B_amount"] ?></td>
+													<?php 
+													if($brow["B_ridestatus"]==0){
+														$pstat = "completed";
+														$wr = "pending";
+													}else{
+														$pstat = "pending";
+														$wr = "completed";
+													}
+													?><td><span class='status <?php echo $pstat ?>'><?php echo $wr ?></span></td>
 													
 													<?php
-                                                    if($brow["B_ridestatus"]==0){
+                                                    
                                                         $name = $brow["B_id"];
+														$V_id = $brow["V_id"];
                                                         echo "
 														<form action='adminbookingdetails.php' method='POST'>
 														<td style='display: none;'><label for='B_id'>V_id</label>
 														<input type='text' id='B_id' name='B_id' value='$name' readonly>
-													</td>
+														
+													
 														<td>
 														<input type='submit' name='val' value='View Details' id='btn' class='button'>
 														</td>
 													</form>";
-                                                    }
+                                                    
 
 													//$name = $row["V_id"];
 													 

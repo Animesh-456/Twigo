@@ -119,13 +119,16 @@ if ($_SESSION["loggedin"]) {
     }
     $date = date('d-m-y h:i:s');
 
-
-
+    if($round == "yes"){
+      $rtrip = 1;
+    }elseif($round == "null"){
+      $rtrip = 0;
+    }
 
     $sq = "INSERT INTO booking(C_email, V_id, B_type, B_distance, B_pickup_address, B_drop_address, B_date, 
-    B_amount) 
+    B_amount, B_round_trip) 
     values('$email', '$V_id', '$rtype', '$distance', '$pickup', '$drop', '$bdate',
-    '$amount')";
+    '$amount', '$rtrip')";
 
     $sql = "SELECT B_id FROM booking WHERE V_id = '$V_id' AND B_date='$bdate'";
 

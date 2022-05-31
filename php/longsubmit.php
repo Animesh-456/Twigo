@@ -85,13 +85,17 @@ if ($_SESSION["loggedin"]) {
     //$paymentstatus = "0";
     $dist = "100";
 
-
+    if($round == "yes"){
+      $rtrip = 1;
+    }elseif($round == "null"){
+      $rtrip = 0;
+    }
 
 
     $sq = "INSERT INTO booking(C_email, V_id, B_type, B_passenger, B_pickup_address, B_drop_address, B_date, 
-    B_amount, B_distance) 
+    B_amount, B_distance, B_round_trip) 
     values('$email', '$V_id', '$rtype', '$km', '$pickup', '$drop', '$bdate',
-    '$amount', '$dist')";
+    '$amount', '$dist', '$rtrip')";
 
     $sql = "SELECT B_id FROM booking WHERE V_id = '$V_id' AND B_date='$bdate'";
 
