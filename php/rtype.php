@@ -244,5 +244,6 @@ if ($_SESSION["loggedin"]) {
         </html>
 <?php }
 } else {
-    header("location: ../html/customerlog.html");
+    echo "<script>alert('Please Login or Register!')
+    window.location='../html/customerlog.html';</script>";
 } ?>

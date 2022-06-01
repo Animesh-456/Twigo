@@ -61,13 +61,13 @@ if ($_SESSION["aemail"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li >
+					<li>
 						<a href='admindash.php'>
-							<i class='bx bxs-car' ></i>
+							<i class='bx bxs-car'></i>
 							<span class='text'>BOOKING DETAILS</span>
 						</a>
 					</li>
-					
+
 					<!-- <li>
 						<a href=''>
 							<i class='bx bxs-doughnut-chart'></i>
@@ -76,26 +76,26 @@ if ($_SESSION["aemail"]) {
 					</li> -->
 					<li>
 						<a href='admincustomerdetails.php'>
-							<i class='bx bx-body' ></i>
-							<span class='text' >CUSTOMER DETAILS</span>
+							<i class='bx bx-body'></i>
+							<span class='text'>CUSTOMER DETAILS</span>
 						</a>
 					</li>
 
-                    <li >
+					<li>
 						<a href='driveradmindetails.php'>
-							<i class='bx bxs-car' ></i>
-							<span class='text' >DRIVER DETAILS</span>
+							<i class='bx bxs-car'></i>
+							<span class='text'>DRIVER DETAILS</span>
 						</a>
 					</li>
 
-                    <li >
+					<li>
 						<a href='renteradminetails.php'>
-							<i class='bx bx-body' ></i>
-							<span class='text' >RENTER DETAILS</span>
+							<i class='bx bx-body'></i>
+							<span class='text'>RENTER DETAILS</span>
 						</a>
 					</li>
 
-                    <li class='active'>
+					<li class='active'>
 						<a href='vehicleadmindetails.php'>
 							<i class='bx bxs-car' style="color: #ee0000;"></i>
 							<span class='text' style="color: #ee0000;">VEHICLE DETAILS</span>
@@ -103,7 +103,7 @@ if ($_SESSION["aemail"]) {
 					</li>
 				</ul>
 				<ul class='side-menu'>
-					
+
 					<li>
 						<a href='logout.php' class='logout'>
 							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
@@ -118,7 +118,7 @@ if ($_SESSION["aemail"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-				<i class='bx bx-menu'></i>
+					<i class='bx bx-menu'></i>
 					<!-- <i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a> -->
 					<form action='#'>
@@ -137,7 +137,7 @@ if ($_SESSION["aemail"]) {
 							<h1><?php echo $row["A_design."]; ?></h1>
 
 						</div>
-						
+
 					</div>
 					<?php
 
@@ -155,52 +155,52 @@ if ($_SESSION["aemail"]) {
 										<h3></h3>
 									</div>
 
-										<table>
-											<thead>
-												<tr>
-													<th>VEHICLE IMAGE</th>
-													<th>VEHICLE ID</th>
-                                                    <th>VEHICLE NAME</th>
-													<th>VEHICLE ADDRESS</th>
-													
-													<th></th>
-													
-													
-													<th></th>
-												</tr>
-											</thead>
-											<?php while ($brow = $bresult->fetch_assoc()) { ?>
+									<table>
+										<thead>
+											<tr>
+												<th>VEHICLE IMAGE</th>
+												<th>VEHICLE ID</th>
+												<th>VEHICLE NAME</th>
+												<th>VEHICLE ADDRESS</th>
+
+												<th></th>
+
+
+												<th></th>
+											</tr>
+										</thead>
+										<?php while ($brow = $bresult->fetch_assoc()) { ?>
 											<tbody>
 
 												<tr>
-                                                <?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $brow["V_name"]); ?>
+													<?php $vname = preg_replace('/(?<!\ )[A-Z]/', ' $0', $brow["V_name"]); ?>
 													<?php
 													$V_name = $brow["V_name"];
 													?>
-												<td><img src='../img/<?php echo "$V_name.jfif"; ?>' style='width:200px; height:100px;'></img></td>
+													<td><img src='../img/<?php echo "$V_name.jfif"; ?>' style='width:200px; height:100px;'></img></td>
 													<td>
 														<p style="font-weight: bold;"><?php echo $brow["V_id"]; ?></p>
 													</td>
 													<td id="V_id"><?php echo $vname ?></td>
-												
+
 													<td><?php echo $brow["V_address"] ?></td>
-													
+
 													<?php
-                                                    
-                                                        $name = $brow["V_id"];
-                                                        echo "
-														<form action='' method='POST'>
+
+													$name = $brow["V_id"];
+													echo "
+														<form action='vehicleadmindetailsview.php' method='POST'>
 														<td style='display: none;'><label for='B_id'>V_id</label>
-														<input type='text' id='B_id' name='B_id' value='$name' readonly>
+														<input type='text' id='B_id' name='V_id' value='$name' readonly>
 													</td>
 														<td>
 														<input type='submit' name='val' value='View Details' id='btn' class='button'>
 														</td>
 													</form>";
-                                                    
+
 
 													//$name = $row["V_id"];
-													 
+
 
 													// echo "
 													// 	<form action='cardetails.php' method='POST'>
@@ -208,7 +208,7 @@ if ($_SESSION["aemail"]) {
 													// 	<input type='text' id='V_id' name='V_id' value='$name' readonly>
 													// </td>
 													// 	<td>
-														
+
 													// 	<input type='submit' name='val' value='View Details' id='btn' class='button'>
 													// 	</td>
 													// </form>";
@@ -225,8 +225,8 @@ if ($_SESSION["aemail"]) {
 												<input type='submit' value='Submit' id='btn' class='button'>
 											</form> -->
 
-										</table>
-										<script src='../JS/dash.js'></script>
+									</table>
+									<script src='../JS/dash.js'></script>
 		</body>
 
 

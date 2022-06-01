@@ -218,6 +218,18 @@ if ($_SESSION["loggedin"]) {
 														</td>
 														
 													</form>";
+													echo "
+														<form action='dashview.php' method='POST'>
+														<td style='display: none;'><label for='V_id'>V_id</label>
+														<input type='text' id='V_id' name='vid' value='$name' readonly>
+													</td>
+														<td>
+														
+														<input type='submit' name='val' value='View Details' id='btn' class='button'>
+														</td>
+														
+													</form>";
+													
 														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
 													
 													?>

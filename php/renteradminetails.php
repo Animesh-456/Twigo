@@ -185,9 +185,9 @@ if ($_SESSION["aemail"]) {
                                                     
                                                         $name = $brow["R_email"];
                                                         echo "
-														<form action='' method='POST'>
+														<form action='renteradminview.php' method='POST'>
 														<td style='display: none;'><label for='B_id'>V_id</label>
-														<input type='text' id='B_id' name='B_id' value='$name' readonly>
+														<input type='text' id='B_id' name='r' value='$name' readonly>
 													</td>
 														<td>
 														<input type='submit' name='val' value='View Details' id='btn' class='button'>

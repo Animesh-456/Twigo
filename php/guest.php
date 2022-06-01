@@ -1,9 +1,9 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]) {
+
 	include '../php/db.php';
 
-	$semail = $_SESSION["email"];
+	//$semail = $_SESSION["email"];
 	//$spassword = $_SESSION["pass"];
 
 
@@ -13,10 +13,7 @@ if ($_SESSION["loggedin"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM customer WHERE C_email='$semail'";
-	$result = $conn->query($sql);
-	$row = $result->fetch_assoc();
-	if ($row) {
+	
 ?>
 
 		<!DOCTYPE html>
@@ -63,42 +60,33 @@ if ($_SESSION["loggedin"]) {
 				</a>
 				<ul class='side-menu top'>
 					<li class='active'>
-						<a href='dash.php'>
+						<a href='guest.php'>
 							<i class='bx bxs-dashboard' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">HOME</span>
+							<span class='text' style="color: #ee0000;">VEHICLES</span>
 						</a>
 					</li>
-					<li>
-						<a href='booking.php'>
-							<i class='bx bxs-shopping-bag-alt'></i>
-							<span class='text'>BOOKINGS</span>
+					
+					<li >
+						<a href='guestrate.php'>
+
+							<i class='bx bx-rupee' ></i>
+							<span class='text' >RATES</span>
 						</a>
 					</li>
-					<li>
-						<a href='history.php'>
-							<i class='bx bxs-doughnut-chart'></i>
-							<span class='text'>HISTORY</span>
-						</a>
-					</li>
-					<li>
-						<a href='profiledash.php'>
-							<i class='bx bxs-message-dots'></i>
-							<span class='text'>MY PROFILE</span>
-						</a>
-					</li>
+					
 
 				</ul>
 				<ul class='side-menu'>
-					<li>
+					<!-- <li>
 						<a href='helpdash.php'>
 							<i class='bx bxs-cog'></i>
 							<span class='text'>HELP CENTER</span>
 						</a>
-					</li>
+					</li> -->
 					<li>
 						<a href='logout.php' class='logout'>
 							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
-							<span class='text' style="color: #ee0000;">Logout</span>
+							<span class='text' style="color: #ee0000;">BACK</span>
 						</a>
 					</li>
 				</ul>
@@ -110,19 +98,19 @@ if ($_SESSION["loggedin"]) {
 				<!-- NAVBAR -->
 				<nav>
 					<i class='bx bx-menu'></i>
-					<a href='#' class='nav-link'>Categories</a>
+					<!-- <a href='#' class='nav-link'>Categories</a> -->
 					<form action='#'>
-						<div class='form-input'>
+						<!-- <div class='form-input'>
 							<input type='search' placeholder='Search...'>
 							<button type='submit' class='search-btn'><i class='bx bx-search'></i></button>
-						</div>
+						</div> -->
 					</form>
 
-					<a href='profiledash.php' class='profile' id='prop'>
+					<!-- <a href='profiledash.php' class='profile' id='prop'>
 
 						<img src='../img/undraw_male_avatar_323b.svg'>
 
-					</a>
+					</a> -->
 				</nav>
 				<!-- NAVBAR -->
 
@@ -130,13 +118,10 @@ if ($_SESSION["loggedin"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["C_name"]; ?></h1>
+							<h1></h1>
 
 						</div>
-						<a href='#' class='btn-download'>
-							<i class='bx bxs-cloud-download'></i>
-							<span class='text'>Download PDF</span>
-						</a>
+						
 					</div>
 
 					<?php
@@ -160,9 +145,7 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
-												<th>RATE(AC/km)</th>
-												<th>RATE(NON-AC/km)</th>
-												<th>BOOKING STATUS</th>
+												
 												<th></th>
 											</tr>
 										</thead>
@@ -181,21 +164,11 @@ if ($_SESSION["loggedin"]) {
 													</td>
 													
 													<td><?php echo $row["V_emmision_type"] ?></td>
-													<td><?php echo $row["V_rate_per_km_AC"] ?></td>
-													<td><?php echo $row["V_rate_per_km_NONAC"] ?></td>
-													<?php
-													if ($row["V_booking_status"] == 0) {
-														$booking = "pending";
-														$bookingstatus = "available";
-													} else {
-														$booking = "completed";
-														$bookingstatus = "unavailable";
-													}
-													?>
-													<td><span class="status <?php echo $booking ?>"><?php echo $bookingstatus ?></span></td>
+													
+													
 
 													<?php
-													if ($row["V_booking_status"] == 0) {
+													
 														$name = $row["V_id"];
 
 														echo "
@@ -210,7 +183,7 @@ if ($_SESSION["loggedin"]) {
 														
 													</form>";
 														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
-													}
+													
 													?>
 												</tr>
 											<?php } ?>
@@ -236,9 +209,3 @@ if ($_SESSION["loggedin"]) {
 
 
 		</html>
-<?php } else {
-		header("location: ../html/customerlog.html");
-	}
-} else {
-	header("location: ../html/customerlog.html");
-} ?>
