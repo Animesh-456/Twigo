@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2022 at 06:30 PM
+-- Generation Time: Jun 03, 2022 at 07:24 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -201,11 +201,16 @@ INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, 
 CREATE TABLE `review` (
   `RV_id` int(11) NOT NULL,
   `C_email` varchar(50) NOT NULL,
-  `V_id` int(100) NOT NULL,
-  `B_id` int(100) NOT NULL,
-  `R_email` varchar(50) NOT NULL,
-  `RV_comment` varchar(250) NOT NULL
+  `RV_comment` varchar(250) NOT NULL,
+  `RV_rate` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`RV_id`, `C_email`, `RV_comment`, `RV_rate`) VALUES
+(9, 'k123@gmail.com', 'Quite Good !', 5);
 
 -- --------------------------------------------------------
 
@@ -314,7 +319,7 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `RV_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `RV_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `vehicle`

@@ -125,7 +125,7 @@ if ($_SESSION["loggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href='logout.php' class='logout'>
+						<a href='givereview.php' class='logout'>
 							<i class='bx bxs-log-out-circle' style="color: #ee0000;"></i>
 							<span class='text' style="color: #ee0000;">Logout</span>
 						</a>
