@@ -13,7 +13,7 @@ session_start();
 	$sql = "SELECT * FROM review";
 	$result = $conn->query($sql);
 	//$row = $result->fetch_assoc();
-	if ($row = $result->fetch_assoc()) {
+	
 		//$_SESSION["A_name"] = $row["A_name"];
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Review Page</title>
     <link rel="stylesheet" href="../CSS/reviewstyle.css">
     <link rel='icon' type='image/x-icon' href='../img/fav.png'>
 </head>
@@ -39,6 +39,7 @@ session_start();
         </div>
       </nav>
     <table>
+        <?php while($row = $result->fetch_assoc()){?>
         <tr>
             <td>
                 <div class="courses-container">
@@ -54,19 +55,22 @@ session_start();
                         </div>
                         <div class="course-info">
                             <div class="progress-container">
-                                <style>
-                                    .progress::after {
-                                        border-radius: 3px;
-                                        background-color: red;
-                                        content: "";
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        height: 5px;
-                                        width: <?php echo $row["RV_rate"]*25?>px;
-                                    }
-                                </style>
-                                <div class="progress"></div>
+                                
+                                    <!-- <style>
+                                        .progress::after {
+                                            border-radius: 3px;
+                                            background-color: red;
+                                            content: "";
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            height: 5px;
+                                            width: <?php 
+                                            echo $row["RV_rate"]*10?>px;
+                                        }
+                                    </style> -->
+                                <!-- <div class="progress"></div> -->
+                                <h3><?php echo $row["RV_rate"]?>/5</h3>
                                 <span class="progress-text">
                                     rating
                                 </span>
@@ -76,7 +80,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-            </td>
+            </td>   
             <!-- <td>
                 <div class="courses-container">
                     <div class="course">
@@ -181,6 +185,7 @@ session_start();
                 </div>
             </td>
         </tr> -->
+        <?php } ?>
        
     </table>
 
@@ -205,4 +210,3 @@ session_start();
 </body>
 
 </html>
-<?php }?>
