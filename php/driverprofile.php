@@ -69,13 +69,13 @@ if ($_SESSION["dloggedin"]) {
                         </a>
                     </li>
                     <li>
-                        <a href='driverprofile.php'>
+                        <a href='driverhistory.php'>
                             <i class='bx bxs-doughnut-chart'></i>
                             <span class='text'>HISTORY</span>
                         </a>
                     </li>
                     <li class='active'>
-                        <a href=''>
+                        <a href='driverprofile.php'>
                             <i class='bx bxs-message-dots' style="color: #ee0000;"></i>
                             <span class='text' style="color: #ee0000;">MY PROFILE</span>
                         </a>

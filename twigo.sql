@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2022 at 06:35 PM
+-- Generation Time: Jun 08, 2022 at 10:34 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -71,9 +71,9 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `D_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_img_pay`, `B_passenger`, `R_email`, `B_ridestatus`) VALUES
-(99, 'k123@gmail.com', 24, 'anim29006@gmail.com', 'CityRide', '0-10', 1, 'Burdwan ', 'Kolkata', '2022-05-31', 320, 'IMG-62960765f16729.90155826.pdf', NULL, 'anim29006@gmail.com', 0),
 (100, 'k123@gmail.com', 25, 'suparno69@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata', '2022-06-01', 400, 'IMG-6296078acd7095.79237371.pdf', NULL, 'anim29006@gmail.com', 1),
-(101, 'k123@gmail.com', 22, 'suparno69@gmail.com', 'CityRide', '20-30', 1, 'Burdwan ', 'Kolkata', '2022-06-10', 600, 'IMG-629607e54ff9e7.21515116.pdf', NULL, 'annu@gmail.com', 0);
+(105, 'martha123@gmail.com', 25, 'anim29006@gmail.com', 'Long Trip', '100', 1, 'Burdwan ', 'Kolkata New town', '2022-06-17', 2200, 'IMG-629ed68860f400.27055244.pdf', '3passenger', 'anim29006@gmail.com', 1),
+(106, 'martha123@gmail.com', 24, 'suparno69@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata New town', '2022-06-30', 600, 'IMG-629ed6c4c85da7.47553078.pdf', NULL, 'anim29006@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -140,8 +140,11 @@ CREATE TABLE `driver` (
 --
 
 INSERT INTO `driver` (`D_email`, `D_name`, `D_address`, `D_contact`, `D_city`, `D_lisence`, `D_dob`, `D_gender`, `D_psw`, `D_security`, `D_adhar`, `D_status`) VALUES
-('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '5566332211', '2000-06-29', 'Male', '5678', 'Winden high school', '4567891', 1),
-('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 1);
+('allen@gmail.com', 'Allen Mondal', 'Rajarhat ', '5678954120', 'Kolkata', '552233666', '1981-07-16', 'Male', '1234', 'nikkhedinia', '456897542135', 0),
+('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '5566332211', '2000-06-29', 'Male', '5678', 'Winden high school', '4567891', 0),
+('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 1),
+('tush55@gmail.com', 'Tushar Haque', 'Boro Bazar', '7407934214', 'Kolkata', '55223366', '1999-12-02', 'Male', '1234', 'Winden primary school', '45896325412', 0),
+('uttio@gmail.com', 'Uttio Dey', 'Baligounge Kolkata', '9475765482', 'Kolkata', '5566332211', '2022-06-23', 'Male', '1234', 'Winden high school', '4568974556312', 0);
 
 -- --------------------------------------------------------
 
@@ -161,7 +164,6 @@ CREATE TABLE `renter` (
   `R_aadhar_id` int(12) NOT NULL,
   `R_acno` varchar(50) NOT NULL,
   `R_ifsc` varchar(50) NOT NULL,
-  `R_vehicle_img` varchar(50) NOT NULL,
   `R_DOB` date NOT NULL,
   `R_security` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -170,24 +172,24 @@ CREATE TABLE `renter` (
 -- Dumping data for table `renter`
 --
 
-INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, `R_contact`, `R_gender`, `R_lisence_no`, `R_aadhar_id`, `R_acno`, `R_ifsc`, `R_vehicle_img`, `R_DOB`, `R_security`) VALUES
-('anim29006@gmail.com', 'Animesh Mondal', '1234', 'Kolkata', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456789521, '45678952', 'UTIB00018985', '', '1999-08-25', 'I play i learn'),
-('annu@gmail.com', 'Arunabha Dutta', 'anu88', 'Delhi', 'Tagor Garden,West Delhi,110027', 2147483647, 'Male', 'MH-452306507139', 2147483647, '655264444344', 'SBIN45685634', '', '1988-02-07', 'chicken nudgets'),
-('aro@gmail.com', 'Arayanak Chatterjjee', 'pz67', 'Delhi', 'Bharat Nagar,110052', 2147483647, 'Male', 'DL-768935697', 2147483647, '894107724173', 'SBIN00956954', '', '2000-07-12', 'pizzahut'),
-('babi56@gmail.com', 'Babita Sharma', 'bb65', 'Delhi', 'Connught Place,110001', 2147483647, 'Female', 'WB-32889025821', 2147483647, '569094325629', 'SBIN8905954', '', '1986-02-08', 'french fries'),
-('dasayan31@gmail.com', 'Ayan Das', 'sudisna', 'Kolkata', 'Esplanade,700069', 2147483647, 'Male', 'WB-76389025821', 2147483647, '367177170252', 'SBIN76495954', '', '2000-06-09', 'AfraidofSudisna'),
-('dasgupta8@gmail.com', 'Yash Dasgupta', 'yd67', 'Kolkata', 'Bowbazar,700012', 2147483647, 'Male', 'MH7589002136', 2147483647, '484000212352', 'SBIN45684965', '', '2000-06-08', 'i love bacon'),
-('dbose5@gmail.com', 'Dipyan Bose', 'dbose12', 'Kolkata', 'Dhakuria,700031', 2147483647, 'Male', 'DL-768935697', 2147483647, '662436706535', 'SBIN76495923', '', '1995-12-05', 'cup of tea makes me happy'),
-('DStinni23@gmail.com', 'Debapriya Sarkar', 'ds45', 'Kolkata', 'Brace Bridge,700088', 2147483647, 'Female', 'WB-56680025821', 2147483647, '632341351182', 'SBIN45690034', '', '2000-12-23', 'rabindranritto'),
-('ganguly6@gmail.com', 'Sohini Ganguly', 'sg656', 'Kolkata', 'Behala,700034', 2147483647, 'Female', 'WB-78609853', 2147483647, '473051852879', 'SBIN45690965', '', '1996-08-18', 'nahutt'),
-('k123@gmail.com', 'Animesh Mondal', '1234', 'Delhi', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '45678910', 456789521, '456789522', 'SBIN76495975', '', '2000-06-29', 'Winden high school'),
-('m34@gmail.com', 'Animesh Mondal', '1234', 'Kolkata', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456789521, '45678952', 'UTIB00018985', '', '1999-08-25', 'I play i learn'),
-('martha123@gmail.com', 'Martha Nielsen', '7777', 'Kolkata', 'Winden', 2147483647, 'Male', '55223366', 55446633, '55446666', '44558877', '', '1999-06-05', 'I play i learn'),
-('mk@gmail.com', 'Martha Nielsen', '1234', 'Delhi', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456897521, '4567896521', 'SBIN76495954', '', '2000-06-29', 'nikkhedinia'),
-('rev4@gmail.com', 'Revaan Roy', 'rev7', 'Mumbai', 'Mandvi,400003', 2147483647, 'Male', 'MH-452300867139', 2147483647, '584576446463', 'SBIN76495975', '', '1997-04-07', 'MarthaNielsen'),
-('samantas3@gmail.com', 'Sneha Samanta', '1234', 'Kolkata', 'Janpath, Central Delhi 110001', 2147483647, 'Male', 'DL-4567891235671', 2147483647, '791455048023', 'UTIB00018985', '', '1999-02-04', 'nikkhedinia'),
-('sharmad4@gmail.com       ', 'Divya Sharma', 'dv87', 'Mumbai', 'Chamarbaug,400012', 2147483647, 'Female', 'WB-76980025821', 2147483647, '570601090574', 'SBIN45684990', '', '1987-02-05', 'cupcake'),
-('thakur8@gmail.com', 'Prasant Thakur', 'tg56', 'Kolkata', 'Ballygunge,700019', 2147483647, 'Male', 'WB-32884565821', 2147483647, '394815281260', 'SBIN45676690', '', '1988-11-07', 'vadilal');
+INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, `R_contact`, `R_gender`, `R_lisence_no`, `R_aadhar_id`, `R_acno`, `R_ifsc`, `R_DOB`, `R_security`) VALUES
+('anim29006@gmail.com', 'Animesh Mondal', '1234', 'Kolkata', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456789521, '45678952', 'UTIB00018985', '1999-08-25', 'I play i learn'),
+('annu@gmail.com', 'Arunabha Dutta', 'anu88', 'Delhi', 'Tagor Garden,West Delhi,110027', 2147483647, 'Male', 'MH-452306507139', 2147483647, '655264444344', 'SBIN45685634', '1988-02-07', 'chicken nudgets'),
+('aro@gmail.com', 'Arayanak Chatterjjee', 'pz67', 'Delhi', 'Bharat Nagar,110052', 2147483647, 'Male', 'DL-768935697', 2147483647, '894107724173', 'SBIN00956954', '2000-07-12', 'pizzahut'),
+('babi56@gmail.com', 'Babita Sharma', 'bb65', 'Delhi', 'Connught Place,110001', 2147483647, 'Female', 'WB-32889025821', 2147483647, '569094325629', 'SBIN8905954', '1986-02-08', 'french fries'),
+('dasayan31@gmail.com', 'Ayan Das', 'sudisna', 'Kolkata', 'Esplanade,700069', 2147483647, 'Male', 'WB-76389025821', 2147483647, '367177170252', 'SBIN76495954', '2000-06-09', 'AfraidofSudisna'),
+('dasgupta8@gmail.com', 'Yash Dasgupta', 'yd67', 'Kolkata', 'Bowbazar,700012', 2147483647, 'Male', 'MH7589002136', 2147483647, '484000212352', 'SBIN45684965', '2000-06-08', 'i love bacon'),
+('dbose5@gmail.com', 'Dipyan Bose', 'dbose12', 'Kolkata', 'Dhakuria,700031', 2147483647, 'Male', 'DL-768935697', 2147483647, '662436706535', 'SBIN76495923', '1995-12-05', 'cup of tea makes me happy'),
+('DStinni23@gmail.com', 'Debapriya Sarkar', 'ds45', 'Kolkata', 'Brace Bridge,700088', 2147483647, 'Female', 'WB-56680025821', 2147483647, '632341351182', 'SBIN45690034', '2000-12-23', 'rabindranritto'),
+('ganguly6@gmail.com', 'Sohini Ganguly', 'sg656', 'Kolkata', 'Behala,700034', 2147483647, 'Female', 'WB-78609853', 2147483647, '473051852879', 'SBIN45690965', '1996-08-18', 'nahutt'),
+('k123@gmail.com', 'Animesh Mondal', '1234', 'Delhi', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '45678910', 456789521, '456789522', 'SBIN76495975', '2000-06-29', 'Winden high school'),
+('m34@gmail.com', 'Animesh Mondal', '1234', 'Kolkata', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456789521, '45678952', 'UTIB00018985', '1999-08-25', 'I play i learn'),
+('martha123@gmail.com', 'Martha Nielsen', '1234', 'Kolkata', 'Winden', 2147483647, 'Male', '55223366', 55446633, '55446666', '44558877', '1999-06-05', 'I play i learn'),
+('mk@gmail.com', 'Martha Nielsen', '1234', 'Delhi', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456897521, '4567896521', 'SBIN76495954', '2000-06-29', 'nikkhedinia'),
+('rev4@gmail.com', 'Revaan Roy', 'rev7', 'Mumbai', 'Mandvi,400003', 2147483647, 'Male', 'MH-452300867139', 2147483647, '584576446463', 'SBIN76495975', '1997-04-07', 'MarthaNielsen'),
+('samantas3@gmail.com', 'Sneha Samanta', '1234', 'Kolkata', 'Janpath, Central Delhi 110001', 2147483647, 'Male', 'DL-4567891235671', 2147483647, '791455048023', 'UTIB00018985', '1999-02-04', 'nikkhedinia'),
+('sharmad4@gmail.com       ', 'Divya Sharma', 'dv87', 'Mumbai', 'Chamarbaug,400012', 2147483647, 'Female', 'WB-76980025821', 2147483647, '570601090574', 'SBIN45684990', '1987-02-05', 'cupcake'),
+('thakur8@gmail.com', 'Prasant Thakur', 'tg56', 'Kolkata', 'Ballygunge,700019', 2147483647, 'Male', 'WB-32884565821', 2147483647, '394815281260', 'SBIN45676690', '1988-11-07', 'vadilal');
 
 -- --------------------------------------------------------
 
@@ -225,12 +227,10 @@ CREATE TABLE `vehicle` (
   `V_name` varchar(50) NOT NULL,
   `V_type` varchar(50) NOT NULL,
   `V_Chasis_no` varchar(50) NOT NULL,
-  `V_Y_of_reg.` year(4) NOT NULL,
   `V_km_driven` bigint(50) NOT NULL,
   `V_emmision_type` varchar(50) NOT NULL,
   `V_image` varchar(1000) NOT NULL,
   `V_address` varchar(50) NOT NULL,
-  `V_booking_status` tinyint(1) NOT NULL DEFAULT 0,
   `V_city` varchar(12) NOT NULL,
   `V_description` varchar(500) NOT NULL,
   `V_no_seats` varchar(5) NOT NULL
@@ -240,14 +240,14 @@ CREATE TABLE `vehicle` (
 -- Dumping data for table `vehicle`
 --
 
-INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_Y_of_reg.`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_booking_status`, `V_city`, `V_description`, `V_no_seats`) VALUES
-(20, 'annu@gmail.com', 'WB42AD6423', 'SuzukiDzire', 'Sedan', '1HGBH41JXMN109186', 0000, 12302, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'xyz', '5'),
-(21, 'annu@gmail.com', 'WB42AD6454', 'MahindraThar', 'Suv', '1HLBH41JXON109184', 0000, 25000, 'Diesel', '', 'Behala', 0, 'Kolkata', 'xyz', '5'),
-(22, 'annu@gmail.com', 'DL42AD6427', 'VolkswagenPolo', 'Hatchback', '1HGBU41JQMN109182', 0000, 124563, 'Diesel', '', 'Sadar Bazar', 0, 'Delhi', 'asd', '5'),
-(23, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109184', 0000, 25456, 'Diesel', '', 'Behala', 0, 'Kolkata', 'bbb', '4'),
-(24, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiXL6', 'Suv', '1HGBH41JXMN109186', 0000, 55555, 'Diesel', '', 'New Town ', 0, 'Kolkata', 'ccc', '5'),
-(25, 'anim29006@gmail.com', 'WB42AD6420', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109187', 0000, 4568, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'bgvcf', '4'),
-(26, 'anim29006@gmail.com', 'WB42AD6410', 'HyundaiAlcazar', 'Suv', 'KOL567POK441', 0000, 5689, 'Diesel', '', 'New Town Kolkata', 0, 'Kolkata', 'frt', '4');
+INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_no`, `V_km_driven`, `V_emmision_type`, `V_image`, `V_address`, `V_city`, `V_description`, `V_no_seats`) VALUES
+(20, 'annu@gmail.com', 'WB42AD6423', 'SuzukiDzire', 'Sedan', '1HGBH41JXMN109186', 12302, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'xyz', '5'),
+(21, 'annu@gmail.com', 'WB42AD6454', 'MahindraThar', 'Suv', '1HLBH41JXON109184', 25000, 'Diesel', '', 'Behala', 'Kolkata', 'xyz', '5'),
+(22, 'annu@gmail.com', 'DL42AD6427', 'VolkswagenPolo', 'Hatchback', '1HGBU41JQMN109182', 124563, 'Diesel', '', 'Sadar Bazar', 'Delhi', 'asd', '5'),
+(23, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109184', 25456, 'Diesel', '', 'Behala', 'Kolkata', 'bbb', '4'),
+(24, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiXL6', 'Suv', '1HGBH41JXMN109186', 55555, 'Diesel', '', 'New Town ', 'Kolkata', 'ccc', '5'),
+(25, 'anim29006@gmail.com', 'WB42AD6420', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109187', 4568, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'bgvcf', '4'),
+(26, 'anim29006@gmail.com', 'WB42AD6410', 'HyundaiAlcazar', 'Suv', 'KOL567POK441', 5689, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'frt', '4');
 
 --
 -- Indexes for dumped tables
@@ -266,7 +266,8 @@ ALTER TABLE `booking`
   ADD PRIMARY KEY (`B_id`),
   ADD KEY `C_email` (`C_email`),
   ADD KEY `V_id` (`V_id`),
-  ADD KEY `R_email` (`D_email`);
+  ADD KEY `R_email` (`D_email`),
+  ADD KEY `R_email_2` (`R_email`);
 
 --
 -- Indexes for table `customer`
@@ -311,7 +312,7 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `review`

@@ -69,7 +69,7 @@ if ($_SESSION["dloggedin"]) {
 						</a>
 					</li>
 					<li>
-						<a href=''>	
+						<a href='driverhistory.php'>	
 							<i class='bx bxs-doughnut-chart'></i>
 							<span class='text'>HISTORY</span>
 						</a>
