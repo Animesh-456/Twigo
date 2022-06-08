@@ -133,7 +133,7 @@ if ($_SESSION["dloggedin"]) {
 
 					<?php
 
-					$bsql = "SELECT * FROM booking WHERE D_email = '$demail'";
+					$bsql = "SELECT * FROM booking WHERE D_email = '$demail' AND B_ridestatus=0";
 					$bresult = $conn->query($bsql);
 					?>
 					<div class='table-data'>
