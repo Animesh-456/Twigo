@@ -139,7 +139,7 @@ if ($_SESSION["loggedin"]) {
 					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
-							
+
 							<!-- <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
 						</div>
 					</form>
@@ -164,7 +164,7 @@ if ($_SESSION["loggedin"]) {
 
 					<?php
 
-					$sql = "SELECT * FROM vehicle";
+					$sql = "SELECT * FROM vehicle WHERE V_city='$row[C_city]'";
 					$result = $conn->query($sql);
 
 					?>
@@ -183,7 +183,8 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
-												
+												<th>RENTER NAME</th>
+
 												<th></th>
 											</tr>
 										</thead>
@@ -202,12 +203,15 @@ if ($_SESSION["loggedin"]) {
 													</td>
 
 													<td><?php echo $row["V_emmision_type"] ?></td>
-
+													<td><?php $rsql = "SELECT R_name FROM renter WHERE R_email='$row[R_email]'";
+														$rresult = $conn->query($rsql); 
+														$rrow =  $rresult->fetch_assoc();
+														echo $rrow["R_name"]?></td>
 													<?php
-													
-														$name = $row["V_id"];
 
-														echo "
+													$name = $row["V_id"];
+
+													echo "
 														<form action='rtype.php' method='POST'>
 														<td style='display: none;'><label for='V_id'>V_id</label>
 														<input type='text' id='V_id' name='V_id' value='$name' readonly>
@@ -229,9 +233,9 @@ if ($_SESSION["loggedin"]) {
 														</td>
 														
 													</form>";
-													
-														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
-													
+
+													//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
+
 													?>
 												</tr>
 											<?php } ?>
@@ -249,7 +253,7 @@ if ($_SESSION["loggedin"]) {
 
 							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 							<script src='../JS/dash.js'></script>
-							
+
 		</body>
 
 

@@ -12,7 +12,7 @@ if ($_SESSION["remail"]) {
 		die("Connection failed: " . $conn->connect_error);
 	}
 
-	$sql = "SELECT * FROM booking WHERE R_email='$remail'";
+	$sql = "SELECT * FROM booking WHERE R_email='$remail' AND B_ridestatus=0";
 	$result = $conn->query($sql);
 	// $row = $result->fetch_assoc();
 

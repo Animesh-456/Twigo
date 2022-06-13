@@ -62,9 +62,9 @@ if ($_SESSION["loggedin"]) {
 					<span class='text' id='twi' style='color: #000;'>Twi<span style='color: red;'>Go</span></span>
 				</a>
 				<ul class='side-menu top'>
-					<li >
+					<li>
 						<a href='dash.php'>
-							<i class='bx bxs-dashboard' ></i>
+							<i class='bx bxs-dashboard'></i>
 							<span class='text'>HOME (All cars)</span>
 						</a>
 					</li>
@@ -134,13 +134,13 @@ if ($_SESSION["loggedin"]) {
 			<section id='content'>
 				<!-- NAVBAR -->
 				<nav>
-				<i class='bx bx-menu'></i>
+					<i class='bx bx-menu'></i>
 					<!-- <i class='bx bx-menu'></i>
 					<a href='#' class='nav-link'>Categories</a> -->
 					<!-- <h1>Book for</h1> -->
 					<form action='#'>
 						<div class='form-input'>
-							
+
 							<!-- <button type='submit' class='search-btn'><i class='bx bx-search'></i></button> -->
 						</div>
 					</form>
@@ -157,17 +157,15 @@ if ($_SESSION["loggedin"]) {
 				<main>
 					<div class='head-title'>
 						<div class='left'>
-							<h1><?php echo $row["C_name"]; ?></h1>
-
+							<h1><?php echo $row["C_name"]; ?></h1>	
 						</div>
 
 					</div>
 
 					<?php
 
-					$sql = "SELECT * FROM vehicle WHERE V_type='Suv'";
+					$sql = "SELECT * FROM vehicle WHERE V_type='Suv' AND V_city='$row[C_city]'";
 					$result = $conn->query($sql);
-
 					?>
 					<div class='table-data'>
 						<div class='order' id="booking">
@@ -184,8 +182,11 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
+												<th>RENTER NAME</th>
+
+												<th></th>
 												<!-- <th>SEATER</th> -->
-												
+
 												<th></th>
 											</tr>
 										</thead>
@@ -204,15 +205,19 @@ if ($_SESSION["loggedin"]) {
 													</td>
 
 													<td><?php echo $row["V_emmision_type"] ?></td>
+													<td><?php $rsql = "SELECT R_name FROM renter WHERE R_email='$row[R_email]'";
+														$rresult = $conn->query($rsql); 
+														$rrow =  $rresult->fetch_assoc();
+														echo $rrow["R_name"]?></td>
+													
 
-													
-													
+
 
 													<?php
-													
-														$name = $row["V_id"];
 
-														echo "
+													$name = $row["V_id"];
+
+													echo "
 														<form action='rtype.php' method='POST'>
 														<td style='display: none;'><label for='V_id'>V_id</label>
 														<input type='text' id='V_id' name='V_id' value='$name' readonly>
@@ -223,8 +228,20 @@ if ($_SESSION["loggedin"]) {
 														</td>
 														
 													</form>";
-														//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
-													
+
+													echo "
+														<form action='dashview.php' method='POST'>
+														<td style='display: none;'><label for='V_id'>V_id</label>
+														<input type='text' id='V_id' name='vid' value='$name' readonly>
+													</td>
+														<td>
+														
+														<input type='submit' name='val' value='View Details' id='btn' class='button'>
+														</td>
+														
+													</form>";
+													//$_SESSION["V_id"] = '<script>document.write(veh_id)</script>';
+
 													?>
 												</tr>
 											<?php } ?>
@@ -242,7 +259,7 @@ if ($_SESSION["loggedin"]) {
 
 							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 							<script src='../JS/dash.js'></script>
-							
+
 		</body>
 
 

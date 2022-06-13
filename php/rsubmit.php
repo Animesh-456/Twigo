@@ -21,7 +21,11 @@ if ($_SESSION["loggedin"]) {
         $bresult = $conn->query($bsql);
         $brow = $bresult->fetch_assoc();
 
-        $dsql = "SELECT * FROM driver WHERE D_status=0";
+        $vsql = "SELECT V_city FROM vehicle WHERE V_id = '$V_id'";
+        $vresult = $conn->query($vsql);
+        $vrow = $vresult->fetch_assoc();
+
+        $dsql = "SELECT * FROM driver WHERE D_status=0 AND D_city='$vrow[V_city]'";
         $dresult = $conn->query($dsql);
         $drow = $dresult->fetch_assoc();
         if ($brow["B_date"] == NULL && $drow["D_email"] != NULL && $rtype != "SoloTrip") {

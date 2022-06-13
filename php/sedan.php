@@ -165,7 +165,7 @@ if ($_SESSION["loggedin"]) {
 
 					<?php
 
-					$sql = "SELECT * FROM vehicle WHERE V_type='Sedan'";
+					$sql = "SELECT * FROM vehicle WHERE V_type='Sedan' AND V_city='$row[C_city]'";
 					$result = $conn->query($sql);
 
 					?>
@@ -184,6 +184,9 @@ if ($_SESSION["loggedin"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE NAME</th>
 												<th>EMMISION TYPE</th>
+												<th>RENTER NAME</th>
+
+												<th></th>
 												<!-- <th>SEATER</th> -->
 												
 												<th></th>
@@ -204,6 +207,10 @@ if ($_SESSION["loggedin"]) {
 													</td>
 
 													<td><?php echo $row["V_emmision_type"] ?></td>
+													<td><?php $rsql = "SELECT R_name FROM renter WHERE R_email='$row[R_email]'";
+														$rresult = $conn->query($rsql); 
+														$rrow =  $rresult->fetch_assoc();
+														echo $rrow["R_name"]?></td>
 
 													
 													
@@ -220,6 +227,17 @@ if ($_SESSION["loggedin"]) {
 														<td>
 														
 														<input type='submit' name='val' value='Book now' id='btn' class='button'>
+														</td>
+														
+													</form>";
+													echo "
+														<form action='dashview.php' method='POST'>
+														<td style='display: none;'><label for='V_id'>V_id</label>
+														<input type='text' id='V_id' name='vid' value='$name' readonly>
+													</td>
+														<td>
+														
+														<input type='submit' name='val' value='View Details' id='btn' class='button'>
 														</td>
 														
 													</form>";

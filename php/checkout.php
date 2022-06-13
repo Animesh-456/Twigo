@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["loggedin"]){
+if ($_SESSION["loggedin"]) {
   include '../php/db.php';
 
   $semail = $_SESSION["email"];
@@ -21,7 +21,7 @@ if ($_SESSION["loggedin"]){
   $row = $result->fetch_assoc();
   $r = $res->fetch_assoc();
 
-  
+
 
   if ($row) {
 ?>
@@ -51,7 +51,7 @@ if ($_SESSION["loggedin"]){
             <div class="secure">
               <i class="icon icon-shield"></i>
               <?php $bdate = $row["B_date"] ?>
-              <span>Secure Checkout For - <?php echo $bdate?></span>
+              <span>Secure Checkout For - <?php echo $bdate ?></span>
 
             </div>
           </div>
@@ -143,20 +143,20 @@ if ($_SESSION["loggedin"]){
                       </div>
                     </div>
                     <?php
-                    $drivq = "SELECT * FROM driver WHERE D_status=0";
+                    $drivq = "SELECT * FROM driver WHERE D_status=0 AND D_city='$r[V_city]'";
                     $drivresult = $conn->query($drivq);
                     $drow = $drivresult->fetch_assoc();
                     ?>
-                    
-                     <?php if($drow){
-                       $driveremail = $drow["D_email"];
-                       echo "Your Driver's name :- ", $drow["D_name"];
-                      }else{
-                        echo "<h1 style='color: red;'>No Driver available please cancel your booking</h1>";
-                      }
-                       ?>
-                        </select>
-                       
+
+                    <?php if ($drow) {
+                      $driveremail = $drow["D_email"];
+                      echo "Your Driver's name :- ", $drow["D_name"];
+                    } else {
+                      echo "<h1 style='color: red;'>No Driver available please cancel your booking</h1>";
+                    }
+                    ?>
+                    </select>
+
                 </form>
               </div>
               <form action="checkoutsubmit.php" method="POST" enctype="multipart/form-data">
@@ -168,9 +168,9 @@ if ($_SESSION["loggedin"]){
                   <div class="details__user">
 
                     <input type="file" id="myFile" name="filename" onchange="getVal()">
-                    <input type="text" style="display: none;" name="dn" value="<?php echo $driveremail?>" readonly>
+                    <input type="text" style="display: none;" name="dn" value="<?php echo $driveremail ?>" readonly>
                     <input style="margin-left: 350px; display:none;" type="submit" value="Confirm Booking" class="btn action__submit" name="submit" id="btnimg"></input>
-                    
+
 
                   </div>
 
@@ -199,5 +199,5 @@ if ($_SESSION["loggedin"]){
     <script type="text/javascript" src="../JS/checkout.js"></script>
 
     </html>
-<?php }?>
+  <?php } ?>
 <?php } ?>

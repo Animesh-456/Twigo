@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2022 at 10:34 AM
+-- Generation Time: Jun 13, 2022 at 03:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.28
 
@@ -73,7 +73,7 @@ CREATE TABLE `booking` (
 INSERT INTO `booking` (`B_id`, `C_email`, `V_id`, `D_email`, `B_type`, `B_distance`, `B_round_trip`, `B_pickup_address`, `B_drop_address`, `B_date`, `B_amount`, `B_img_pay`, `B_passenger`, `R_email`, `B_ridestatus`) VALUES
 (100, 'k123@gmail.com', 25, 'suparno69@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata', '2022-06-01', 400, 'IMG-6296078acd7095.79237371.pdf', NULL, 'anim29006@gmail.com', 1),
 (105, 'martha123@gmail.com', 25, 'anim29006@gmail.com', 'Long Trip', '100', 1, 'Burdwan ', 'Kolkata New town', '2022-06-17', 2200, 'IMG-629ed68860f400.27055244.pdf', '3passenger', 'anim29006@gmail.com', 1),
-(106, 'martha123@gmail.com', 24, 'suparno69@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata New town', '2022-06-30', 600, 'IMG-629ed6c4c85da7.47553078.pdf', NULL, 'anim29006@gmail.com', 0);
+(112, 'k123@gmail.com', 20, 'allen@gmail.com', 'CityRide', '10-20', 1, 'Burdwan ', 'Kolkata New town', '2022-06-24', 500, 'IMG-62a0bee0135756.78529285.pdf', NULL, 'annu@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -107,9 +107,9 @@ INSERT INTO `customer` (`C_email`, `C_name`, `C_address`, `C_security`, `C_conta
 ('h23@gmail.com', 'Henna Nielsen', 'Winden', 'I play i learn', '995587546', 'Mumbai', '45678910', '123456789', '1989-12-08', '', 'Female', '1234'),
 ('h@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234'),
 ('helge34@gmail.com', 'Helge Doppler', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '5566332211', '0', '1999-02-14', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'),
-('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Mumbai', '123456', '22556677', '1988-02-12', '', 'Male', '1234'),
+('k123@gmail.com', 'Katharina Nielsen', 'Winden', 'Winden high school', '5588779991', 'Delhi', '123456', '22556677', '1988-02-12', '', 'Male', '1234'),
 ('m34@gmail.com', 'Martha Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Mumbai', '55223366', '0', '2022-03-06', '', 'Female', '1234'),
-('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '0', '2001-06-29', '', 'Male', '1234'),
+('martha123@gmail.com', 'Arpan Ganguly', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', 'KJDEWJKFKWEFB', '45689752113', '2001-06-29', '', 'Male', '1234'),
 ('suarna69@gmail.com', 'Suparna', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Delhi', '55223366', '0', '2010-10-15', '', 'Others', '123456789\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'),
 ('Ulrich789@gmail.com', 'Ulrich Nielsen', 'Telipukur Tejgang Burdwan', '', '2147483647', 'Kolkata', '45678910', '0', '1997-05-25', '', 'Male', '1234\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0'),
 ('xyz@gmail.com', 'Ayshik', 'Howrah', '', '1234567890', 'Kolkata', '123456', '0', '2000-11-02', '', 'Male', '1234567890\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0');
@@ -142,7 +142,7 @@ CREATE TABLE `driver` (
 INSERT INTO `driver` (`D_email`, `D_name`, `D_address`, `D_contact`, `D_city`, `D_lisence`, `D_dob`, `D_gender`, `D_psw`, `D_security`, `D_adhar`, `D_status`) VALUES
 ('allen@gmail.com', 'Allen Mondal', 'Rajarhat ', '5678954120', 'Kolkata', '552233666', '1981-07-16', 'Male', '1234', 'nikkhedinia', '456897542135', 0),
 ('anim29006@gmail.com', 'Animesh Mondal', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '5566332211', '2000-06-29', 'Male', '5678', 'Winden high school', '4567891', 0),
-('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 1),
+('suparno69@gmail.com', 'Suparno Chakroborty', 'Telipukur Tejgang Burdwan', '7407934219', 'Kolkata', '55223366', '2022-05-09', 'Male', '1234', 'I play i learn', '4567952', 0),
 ('tush55@gmail.com', 'Tushar Haque', 'Boro Bazar', '7407934214', 'Kolkata', '55223366', '1999-12-02', 'Male', '1234', 'Winden primary school', '45896325412', 0),
 ('uttio@gmail.com', 'Uttio Dey', 'Baligounge Kolkata', '9475765482', 'Kolkata', '5566332211', '2022-06-23', 'Male', '1234', 'Winden high school', '4568974556312', 0);
 
@@ -175,7 +175,7 @@ CREATE TABLE `renter` (
 INSERT INTO `renter` (`R_email`, `R_name`, `R_password`, `R_city`, `R_address`, `R_contact`, `R_gender`, `R_lisence_no`, `R_aadhar_id`, `R_acno`, `R_ifsc`, `R_DOB`, `R_security`) VALUES
 ('anim29006@gmail.com', 'Animesh Mondal', '1234', 'Kolkata', 'Telipukur Tejgang Burdwan', 2147483647, 'Male', '5566332211', 456789521, '45678952', 'UTIB00018985', '1999-08-25', 'I play i learn'),
 ('annu@gmail.com', 'Arunabha Dutta', 'anu88', 'Delhi', 'Tagor Garden,West Delhi,110027', 2147483647, 'Male', 'MH-452306507139', 2147483647, '655264444344', 'SBIN45685634', '1988-02-07', 'chicken nudgets'),
-('aro@gmail.com', 'Arayanak Chatterjjee', 'pz67', 'Delhi', 'Bharat Nagar,110052', 2147483647, 'Male', 'DL-768935697', 2147483647, '894107724173', 'SBIN00956954', '2000-07-12', 'pizzahut'),
+('aro@gmail.com', 'Arayanak Chatterjjee', '1234', 'Delhi', 'Bharat Nagar,110052', 2147483647, 'Male', 'DL-768935697', 2147483647, '894107724173', 'SBIN00956954', '2000-07-12', 'pizzahut'),
 ('babi56@gmail.com', 'Babita Sharma', 'bb65', 'Delhi', 'Connught Place,110001', 2147483647, 'Female', 'WB-32889025821', 2147483647, '569094325629', 'SBIN8905954', '1986-02-08', 'french fries'),
 ('dasayan31@gmail.com', 'Ayan Das', 'sudisna', 'Kolkata', 'Esplanade,700069', 2147483647, 'Male', 'WB-76389025821', 2147483647, '367177170252', 'SBIN76495954', '2000-06-09', 'AfraidofSudisna'),
 ('dasgupta8@gmail.com', 'Yash Dasgupta', 'yd67', 'Kolkata', 'Bowbazar,700012', 2147483647, 'Male', 'MH7589002136', 2147483647, '484000212352', 'SBIN45684965', '2000-06-08', 'i love bacon'),
@@ -212,7 +212,8 @@ INSERT INTO `review` (`RV_id`, `C_email`, `RV_comment`, `RV_rate`) VALUES
 (9, 'k123@gmail.com', 'Quite Good !', 5),
 (10, 'h23@gmail.com', 'Not Bad !', 3),
 (11, 'h@gmail.com', 'Average ', 4),
-(12, 'm34@gmail.com', 'Quite Good !', 4);
+(12, 'm34@gmail.com', 'Quite Good !', 4),
+(13, 'martha123@gmail.com', 'Average ', 3);
 
 -- --------------------------------------------------------
 
@@ -247,7 +248,10 @@ INSERT INTO `vehicle` (`V_id`, `R_email`, `V_no`, `V_name`, `V_type`, `V_Chasis_
 (23, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109184', 25456, 'Diesel', '', 'Behala', 'Kolkata', 'bbb', '4'),
 (24, 'anim29006@gmail.com', 'WB42AD6427', 'SuzukiXL6', 'Suv', '1HGBH41JXMN109186', 55555, 'Diesel', '', 'New Town ', 'Kolkata', 'ccc', '5'),
 (25, 'anim29006@gmail.com', 'WB42AD6420', 'SuzukiSwift', 'Hatchback', '1HLBH41JXON109187', 4568, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'bgvcf', '4'),
-(26, 'anim29006@gmail.com', 'WB42AD6410', 'HyundaiAlcazar', 'Suv', 'KOL567POK441', 5689, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'frt', '4');
+(26, 'anim29006@gmail.com', 'WB42AD6410', 'HyundaiAlcazar', 'Suv', 'KOL567POK441', 5689, 'Diesel', '', 'New Town Kolkata', 'Kolkata', 'frt', '4'),
+(27, 'aro@gmail.com', 'DL42AD6222', 'VolkswagenVento', 'Sedan', '1HGBH41JXMN104587', 4500, 'Diesel', '', 'Knaud Place', 'Delhi', 'gsdfisdg', '4'),
+(28, 'aro@gmail.com', 'DL42AD6452', 'TataSafari', 'Suv', '1HLBH41JXON109163', 45689, 'Diesel', '', 'Knaud Place', 'Delhi', 'hgty', '5'),
+(29, 'aro@gmail.com', 'DL42AD2452', 'RenaultKwid', 'Hatchback', 'JF1SF63501H721345', 56895, 'Diesel', '', 'Knaud Place', 'Delhi', 'jguyf', '4');
 
 --
 -- Indexes for dumped tables
@@ -312,19 +316,19 @@ ALTER TABLE `vehicle`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `B_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `RV_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `RV_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `vehicle`
 --
 ALTER TABLE `vehicle`
-  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `V_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
