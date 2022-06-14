@@ -161,7 +161,7 @@ if ($_SESSION["aemail"]) {
 												<th>VEHICLE IMAGE</th>
 												<th>VEHICLE ID</th>
 												<th>VEHICLE NAME</th>
-												<th>VEHICLE ADDRESS</th>
+												<th>VEHICLE CITY</th>
 
 												<th></th>
 
@@ -183,7 +183,7 @@ if ($_SESSION["aemail"]) {
 													</td>
 													<td id="V_id"><?php echo $vname ?></td>
 
-													<td><?php echo $brow["V_address"] ?></td>
+													<td><?php echo $brow["V_city"] ?></td>
 
 													<?php
 
