@@ -43,6 +43,7 @@ session_start();
         <tr>
             <td>
                 <div class="courses-container">
+                    
                     <div class="course">
                         <div class="course-preview">
                             <h6></h6>
@@ -80,7 +81,8 @@ session_start();
                         </div>
                     </div>
                 </div>
-            </td>   
+            </td> 
+        </tr>  
             <!-- <td>
                 <div class="courses-container">
                     <div class="course">
@@ -188,6 +190,7 @@ session_start();
         <?php } ?>
        
     </table>
+    </body>
 
 
     <script>
@@ -207,6 +210,6 @@ session_start();
             social_panel_container.classList.remove('visible')
         });
     </script>
-</body>
+
 
 </html>
